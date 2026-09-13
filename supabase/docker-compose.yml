@@ -167,7 +167,7 @@ services:
           cpus: 0.2
           memory: 192M
   studio:
-    image: supabase/studio:2026.06.03-sha-0bca601
+    image: supabase/studio:2026.07.20-sha-74a0848
     environment:
       HOSTNAME: 0.0.0.0
       POSTGRES_DB: postgres
