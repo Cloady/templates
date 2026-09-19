@@ -17,6 +17,7 @@ services:
   peppermint-db:
     image: postgres:latest
     environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
       POSTGRES_DB: peppermint
       POSTGRES_USER: tipi
       POSTGRES_PASSWORD: ${PEPPERMINT_DB_PASSWORD}

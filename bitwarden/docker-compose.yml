@@ -2,6 +2,7 @@ services:
   db:
     image: postgres:18-alpine
     environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
       POSTGRES_DB: bitwarden_vault
       POSTGRES_USER: bitwarden
       POSTGRES_PASSWORD: super_strong_password
