@@ -1,23 +1,27 @@
 {
   "category": "AI & LLM",
   "envSchema": {
-    "OLLAMA_HOST": {
-      "title": "Ollama Host"
+    "OPENCLAW_GATEWAY_TOKEN": {
+      "title": "Gateway token",
+      "description": "Paste it into the Control UI to sign in",
+      "secret": true,
+      "generate": "hex:32"
     },
     "OPENAI_API_KEY": {
-      "title": "OpenAI API Key",
-      "secret": true,
-      "generate": "password:24"
+      "title": "OpenAI API key",
+      "secret": true
     },
     "ANTHROPIC_API_KEY": {
-      "title": "Anthropic API Key",
-      "secret": true,
-      "generate": "password:24"
+      "title": "Anthropic API key",
+      "secret": true
     },
-    "GOOGLE_GENERATIVE_AI_API_KEY": {
-      "title": "Google Gemini API Key",
-      "secret": true,
-      "generate": "password:24"
+    "GEMINI_API_KEY": {
+      "title": "Google Gemini API key",
+      "secret": true
+    },
+    "OPENROUTER_API_KEY": {
+      "title": "OpenRouter API key",
+      "secret": true
     }
   },
   "icon": "./icon.png"

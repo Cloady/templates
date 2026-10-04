@@ -1,26 +1,29 @@
 services:
   openclaw:
-    image: alpine/openclaw:latest
+    image: ghcr.io/openclaw/openclaw:latest
+    command:
+      - sh
+      - -ec
+      - |
+        node dist/index.js config set --batch-json '[{"path":"gateway.mode","value":"local"},{"path":"gateway.bind","value":"lan"},{"path":"gateway.publicOrigin","value":"${CLOADY_PRIMARY_URL:-http://localhost:18789}"},{"path":"gateway.trustedProxies","value":["10.0.0.0/8","172.16.0.0/12","192.168.0.0/16"]}]'
+        node dist/index.js doctor --fix --non-interactive
+        exec node dist/index.js gateway --bind lan --port 18789
     environment:
-      NODE_ENV: production
-      OLLAMA_HOST: ${OLLAMA_HOST}
-      OPENAI_API_KEY: ${OPENAI_API_KEY}
-      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
-      GOOGLE_GENERATIVE_AI_API_KEY: ${GOOGLE_GENERATIVE_AI_API_KEY}
+      OPENCLAW_GATEWAY_TOKEN: ${OPENCLAW_GATEWAY_TOKEN}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
     ports:
       - 18789
     volumes:
-      - config:/home/node/.openclaw
-      - workspace:/home/node/.openclaw/workspace
+      - home:/home/node
     deploy:
       resources:
         reservations:
-          cpus: 0.25
-          memory: 256M
+          cpus: 1
+          memory: 2G
 volumes:
-  config:
+  home:
     driver_opts:
-      size: 2Gi
-  workspace:
-    driver_opts:
-      size: 2Gi
+      size: 4Gi
