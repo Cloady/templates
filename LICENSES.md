@@ -9,3 +9,7 @@ Templates derive most commonly from:
 
 Vendored configuration files retain the license of their upstream project.
 Cloady's own additions (sidecar files, tuning) are MIT.
+
+The icons in `ubuntu-desktop`, `fedora-desktop`, `debian-desktop`, `arch-desktop` and
+`alpine-desktop` come from Simple Icons (https://simpleicons.org, CC0 1.0); the logos
+remain trademarks of their owners.

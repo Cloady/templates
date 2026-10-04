@@ -27,5 +27,6 @@
       ],
       "default": "xfce"
     }
-  }
+  },
+  "icon": "./icon.svg"
 }
