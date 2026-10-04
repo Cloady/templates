@@ -1,4 +1,6 @@
 {
+  "category": "Security",
+  "hint": "Identity provider with SSO, OAuth2, SAML and LDAP",
   "envSchema": {
     "PG_DB": {
       "default": "authentik"

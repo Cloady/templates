@@ -1,4 +1,5 @@
 {
+  "category": "Security",
   "envSchema": {
     "CTFD_SECRET_KEY": {
       "secret": true,

@@ -1,4 +1,5 @@
 {
+  "category": "Networking",
   "envSchema": {
     "NETWORK_INTERFACE": {
       "title": "Network Interface (default: 0.0.0.0)"

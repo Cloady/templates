@@ -1,4 +1,6 @@
 {
+  "category": "Productivity",
+  "hint": "Issue tracking (Jira) and team wiki (Confluence)",
   "envSchema": {
     "PG_DB": {
       "default": "jira"

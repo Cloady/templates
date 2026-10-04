@@ -1,4 +1,5 @@
 {
+  "category": "Communication",
   "envSchema": {
     "PUBLIC_URL": {
       "default": "${CLOADY_PRIMARY_URL}"

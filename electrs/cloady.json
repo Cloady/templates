@@ -1,4 +1,5 @@
 {
+  "category": "Networking",
   "envSchema": {
     "INTERNAL_IP": {
       "title": "INTERNAL_IP",

@@ -1,4 +1,6 @@
 {
+  "category": "Developer Tools",
+  "hint": "Pastebin for code snippets, powered by Git",
   "envSchema": {
     "OG_OIDC_SECRET": {
       "default": "mysecret"

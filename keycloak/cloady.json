@@ -1,4 +1,6 @@
 {
+  "category": "Security",
+  "hint": "Identity and access management with SSO",
   "envSchema": {
     "POSTGRES_DB": {
       "title": "POSTGRES_DB",

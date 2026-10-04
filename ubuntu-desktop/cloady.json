@@ -1,4 +1,7 @@
 {
+  "category": "Desktops",
+  "name": "Ubuntu Desktop",
+  "hint": "Ubuntu in your browser: Xfce, KDE, MATE, LXQt or i3",
   "envSchema": {
     "CUSTOM_USER": {
       "title": "Username",

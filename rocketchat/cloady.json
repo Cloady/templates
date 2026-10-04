@@ -1,4 +1,6 @@
 {
+  "category": "Communication",
+  "hint": "Team chat with channels, video and integrations",
   "envSchema": {
     "PORT": {
       "default": "3000"

@@ -1,4 +1,6 @@
 {
+  "category": "Productivity",
+  "hint": "Run Obsidian in the browser with Git-synced vaults",
   "envSchema": {
     "GITSYNC_PASSWORD": {
       "default": "gitsyncpw"

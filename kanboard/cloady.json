@@ -1,4 +1,5 @@
 {
+  "category": "Productivity",
   "envSchema": {
     "PLUGIN_INSTALLER": {
       "title": "Enable Plugin Installer"

@@ -1,4 +1,6 @@
 {
+  "category": "Analytics",
+  "hint": "Privacy-friendly web and product analytics",
   "envSchema": {
     "BASE_URL": {
       "title": "BASE_URL",

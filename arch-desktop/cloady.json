@@ -1,4 +1,7 @@
 {
+  "category": "Desktops",
+  "name": "Arch Desktop",
+  "hint": "Arch Linux in your browser: Xfce, KDE, MATE or i3",
   "envSchema": {
     "CUSTOM_USER": {
       "title": "Username",

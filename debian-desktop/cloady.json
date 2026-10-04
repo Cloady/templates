@@ -1,4 +1,7 @@
 {
+  "category": "Desktops",
+  "name": "Debian Desktop",
+  "hint": "Debian in your browser: Xfce, KDE, MATE or i3",
   "envSchema": {
     "CUSTOM_USER": {
       "title": "Username",

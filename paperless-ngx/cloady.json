@@ -1,4 +1,5 @@
 {
+  "category": "Productivity",
   "envSchema": {
     "INTERNAL_IP": {
       "title": "INTERNAL_IP",

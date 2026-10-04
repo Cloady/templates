@@ -1,4 +1,5 @@
 {
+  "category": "Databases",
   "envSchema": {
     "REDIS_PASSWORD": {
       "title": "Password",

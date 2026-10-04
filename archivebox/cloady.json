@@ -1,4 +1,5 @@
 {
+  "category": "Productivity",
   "envSchema": {
     "ARCHIVEBOX_PASSWORD": {
       "title": "ArchiveBox Password",

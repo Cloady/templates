@@ -1,4 +1,5 @@
 {
+  "category": "Databases",
   "envSchema": {
     "POSTGRES_DB": {
       "title": "Database",

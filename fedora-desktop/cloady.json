@@ -1,4 +1,7 @@
 {
+  "category": "Desktops",
+  "name": "Fedora Desktop",
+  "hint": "Fedora in your browser: Xfce, KDE, MATE or i3",
   "envSchema": {
     "CUSTOM_USER": {
       "title": "Username",
