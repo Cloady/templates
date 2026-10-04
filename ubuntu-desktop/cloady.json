@@ -1,0 +1,31 @@
+{
+  "envSchema": {
+    "CUSTOM_USER": {
+      "title": "Username",
+      "default": "admin"
+    },
+    "PASSWORD": {
+      "title": "Password",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "TZ": {
+      "title": "Time zone",
+      "default": "Etc/UTC"
+    }
+  },
+  "profileSchema": {
+    "desktop": {
+      "title": "Desktop",
+      "type": "string",
+      "enum": [
+        "xfce",
+        "kde",
+        "mate",
+        "lxqt",
+        "i3"
+      ],
+      "default": "xfce"
+    }
+  }
+}

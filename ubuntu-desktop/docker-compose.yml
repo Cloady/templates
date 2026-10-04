@@ -1,0 +1,52 @@
+services:
+  xfce:
+    image: lscr.io/linuxserver/webtop:ubuntu-xfce
+    profiles: [xfce]
+    environment: &env
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${TZ:-Etc/UTC}
+      CUSTOM_USER: ${CUSTOM_USER:-admin}
+      PASSWORD: ${PASSWORD:?PASSWORD is required}
+      TITLE: Ubuntu Desktop
+    ports: &ports
+      - 3000
+    volumes: &volumes
+      - config:/config
+    deploy: &deploy
+      resources:
+        reservations:
+          cpus: 2
+          memory: 4G
+  kde:
+    image: lscr.io/linuxserver/webtop:ubuntu-kde
+    profiles: [kde]
+    environment: *env
+    ports: *ports
+    volumes: *volumes
+    deploy: *deploy
+  mate:
+    image: lscr.io/linuxserver/webtop:ubuntu-mate
+    profiles: [mate]
+    environment: *env
+    ports: *ports
+    volumes: *volumes
+    deploy: *deploy
+  lxqt:
+    image: lscr.io/linuxserver/webtop:ubuntu-lxqt
+    profiles: [lxqt]
+    environment: *env
+    ports: *ports
+    volumes: *volumes
+    deploy: *deploy
+  i3:
+    image: lscr.io/linuxserver/webtop:ubuntu-i3
+    profiles: [i3]
+    environment: *env
+    ports: *ports
+    volumes: *volumes
+    deploy: *deploy
+volumes:
+  config:
+    driver_opts:
+      size: 20Gi
