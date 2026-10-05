@@ -35,5 +35,5 @@
       "default": "gm_construct"
     }
   },
-  "icon": "icon.png"
+  "icon": "./icon.png"
 }

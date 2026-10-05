@@ -19,5 +19,5 @@
       "default": 16
     }
   },
-  "icon": "icon.png"
+  "icon": "./icon.png"
 }

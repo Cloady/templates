@@ -32,5 +32,5 @@
       "description": "For remote admin: set rcon_password to this in your console, then use rcon commands."
     }
   },
-  "icon": "icon.png"
+  "icon": "./icon.png"
 }

@@ -27,5 +27,5 @@
       "description": "Vintage Story account given admin rights at each start."
     }
   },
-  "icon": "icon.png"
+  "icon": "./icon.png"
 }

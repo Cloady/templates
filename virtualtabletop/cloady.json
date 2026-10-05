@@ -13,5 +13,5 @@
       "default": "${CLOADY_PRIMARY_HOST}"
     }
   },
-  "icon": "icon.svg"
+  "icon": "./icon.svg"
 }

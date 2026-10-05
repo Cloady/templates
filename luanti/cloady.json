@@ -50,5 +50,5 @@
       "default": true
     }
   },
-  "icon": "icon.svg"
+  "icon": "./icon.svg"
 }

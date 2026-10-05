@@ -26,5 +26,5 @@
       "default": ""
     }
   },
-  "icon": "icon.png"
+  "icon": "./icon.png"
 }

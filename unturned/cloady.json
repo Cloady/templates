@@ -11,5 +11,5 @@
       "description": "Minutes between checks for Unturned updates; the server restarts to apply one, since players must run the same version. Players join by entering the 17-digit Server Code from the app's logs (printed once the level has loaded) in the game's Connect Directly menu. It goes through Steam Datagram Relay and changes on every restart."
     }
   },
-  "icon": "icon.png"
+  "icon": "./icon.png"
 }

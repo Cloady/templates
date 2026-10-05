@@ -10,5 +10,5 @@
       "description": "Veloren account that gets admin rights on this server. Players need the Veloren 0.18.0 client from veloren.net/download-other (the launcher's weekly and nightly builds won't match this server), type the app's address in the Server field and sign in with their free Veloren account. The address is IPv6-only, so players need IPv6 on their network."
     }
   },
-  "icon": "icon.png"
+  "icon": "./icon.png"
 }
