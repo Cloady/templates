@@ -20,7 +20,7 @@ jobs:
           else
             DIRS=$(find . -maxdepth 1 -type d ! -name '.*' ! -name . -printf '%f\n' | sort)
           fi
-          DIRS=$(echo "$DIRS" | while read -r d; do [ -f "$d/docker-compose.yml" ] && echo "$d"; done)
+          DIRS=$(echo "$DIRS" | while read -r d; do if [ -f "$d/docker-compose.yml" ]; then echo "$d"; fi; done)
           printf 'dirs<<EOT\n%s\nEOT\n' "$DIRS" >> "$GITHUB_OUTPUT"
           echo "changed:"; echo "$DIRS"
       - name: validate
