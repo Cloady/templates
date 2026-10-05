@@ -1,5 +1,6 @@
 {
   "category": "Productivity",
+  "version": "2.6.3",
   "envSchema": {
     "DAILYTXT_SECRET_KEY": {
       "secret": true,

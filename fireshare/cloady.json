@@ -1,5 +1,6 @@
 {
   "category": "Media",
+  "version": "1.8.5",
   "envSchema": {
     "FIRESHARE_PASSWORD": {
       "title": "Fireshare password",

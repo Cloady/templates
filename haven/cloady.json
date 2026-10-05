@@ -1,5 +1,6 @@
 {
   "category": "CMS & Websites",
+  "version": "latest",
   "envSchema": {
     "HAVEN_USER_EMAIL": {
       "title": "Haven Email"

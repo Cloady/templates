@@ -1,6 +1,6 @@
 services:
   prowlarr:
-    image: ghcr.io/linuxserver/prowlarr:2.4.0
+    image: ghcr.io/linuxserver/prowlarr:2.6.5
     environment:
       TZ: ${TZ}
     ports:

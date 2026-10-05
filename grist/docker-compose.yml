@@ -1,6 +1,6 @@
 services:
   grist:
-    image: gristlabs/grist:1.7.16
+    image: gristlabs/grist:1.7.20
     environment:
       APP_HOME_URL: ${APP_PROTOCOL}://${PUBLIC_HOST}
       GRIST_SANDBOX_FLAVOR: ${GRIST_SANDBOX_FLAVOR}

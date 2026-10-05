@@ -1,6 +1,6 @@
 services:
   mstream:
-    image: lscr.io/linuxserver/mstream:v5.12.2-ls190
+    image: lscr.io/linuxserver/mstream:v6.31.1-ls33
     environment:
       TZ: ${TZ}
       PGID: "1000"

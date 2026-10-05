@@ -1,6 +1,6 @@
 services:
   jira:
-    image: atlassian/jira-core:9.9.2
+    image: atlassian/jira-core:11.3.11
     environment:
       VERBOSE_LOGS: "false"
       ATL_PROXY_NAME: jira.example.com
@@ -24,7 +24,7 @@ services:
           cpus: 0.25
           memory: 256M
   confluence:
-    image: atlassian/confluence:9.0.3
+    image: atlassian/confluence:10.2.18
     environment:
       VERBOSE_LOGS: "false"
       ATL_PROXY_NAME: confluence.example.com

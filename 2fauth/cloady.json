@@ -1,5 +1,6 @@
 {
   "category": "Security",
+  "version": "8.0.2",
   "envSchema": {
     "APP_PROTOCOL": {
       "default": "http"

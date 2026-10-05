@@ -1,5 +1,6 @@
 {
   "category": "Databases",
+  "version": "7.0.43",
   "envSchema": {
     "MONGO_INITDB_ROOT_PASSWORD": {
       "title": "Admin Password",

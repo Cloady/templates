@@ -1,5 +1,6 @@
 {
   "category": "Storage",
+  "version": "latest",
   "envSchema": {
     "FILESTASH_GDRIVE_CLIENT_ID": {
       "title": "(Optional) Google Drive Client ID"

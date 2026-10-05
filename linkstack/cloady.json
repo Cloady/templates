@@ -1,5 +1,6 @@
 {
   "category": "CMS & Websites",
+  "version": "latest",
   "envSchema": {
     "TZ": {
       "title": "Timezone",

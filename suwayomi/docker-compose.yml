@@ -1,6 +1,6 @@
 services:
   suwayomi:
-    image: ghcr.io/suwayomi/tachidesk:v2.3.2231
+    image: ghcr.io/suwayomi/tachidesk:v2.4.2366
     environment:
       TZ: ${TZ}
       BIND_IP: 0.0.0.0

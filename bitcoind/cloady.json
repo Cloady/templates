@@ -1,5 +1,6 @@
 {
   "category": "Networking",
+  "version": "28.0",
   "envSchema": {
     "BITCOIND_LISTEN": {
       "title": "Listen for Incoming Connections"

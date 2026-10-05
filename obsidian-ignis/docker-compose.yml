@@ -41,10 +41,10 @@ services:
 volumes:
   data:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi
   vaults:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi
   obsidian-app:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi

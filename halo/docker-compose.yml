@@ -1,6 +1,6 @@
 services:
   halo:
-    image: halohub/halo:2.25.4
+    image: halohub/halo:2.26.1
     command:
       - --spring.r2dbc.url=r2dbc:pool:postgresql://halodb/halo
       - --spring.r2dbc.username=halo
@@ -17,7 +17,7 @@ services:
           cpus: 0.25
           memory: 256M
   halodb:
-    image: postgres:15.4
+    image: postgres:15.19
     environment:
       PGUSER: halo
       POSTGRES_DB: halo

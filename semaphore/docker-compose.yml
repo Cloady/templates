@@ -1,6 +1,6 @@
 services:
   semaphore:
-    image: semaphoreui/semaphore:v2.18.14
+    image: semaphoreui/semaphore:v2.19.14
     environment:
       TZ: ${TZ}
       SEMAPHORE_DB: semaphore

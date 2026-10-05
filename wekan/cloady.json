@@ -1,5 +1,6 @@
 {
   "category": "Productivity",
+  "version": "12.18",
   "envSchema": {
     "MAIL_ADDRESS": {
       "title": "Email Address"

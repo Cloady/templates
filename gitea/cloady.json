@@ -1,5 +1,6 @@
 {
   "category": "Developer Tools",
+  "version": "28.0.0",
   "envSchema": {
     "PUBLIC_URL": {
       "default": "${CLOADY_PRIMARY_URL}"

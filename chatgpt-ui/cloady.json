@@ -1,5 +1,6 @@
 {
   "category": "AI & LLM",
+  "version": "2.5.9",
   "envSchema": {
     "INTERNAL_IP": {
       "title": "INTERNAL_IP",

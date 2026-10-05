@@ -14,7 +14,7 @@ services:
           cpus: 0.25
           memory: 512M
   chevereto:
-    image: ghcr.io/chevereto/chevereto:4.4
+    image: ghcr.io/chevereto/chevereto:4.5
     environment:
       CHEVERETO_DB_HOST: mariadb
       CHEVERETO_DB_NAME: chevereto

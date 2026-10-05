@@ -19,19 +19,19 @@ services:
 volumes:
   media:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   music:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   config:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   deemix:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   completed:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   config-deemix:
     driver_opts:
-      size: 2Gi
+      size: 256Mi

@@ -1,5 +1,6 @@
 {
   "category": "Storage",
+  "version": "4.16.0",
   "envSchema": {
     "JWT_SECRET": {
       "secret": true,

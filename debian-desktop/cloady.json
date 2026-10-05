@@ -1,5 +1,6 @@
 {
   "category": "Desktops",
+  "version": "latest",
   "name": "Debian Desktop",
   "hint": "Debian in your browser: Xfce, KDE, MATE or i3",
   "envSchema": {

@@ -1,6 +1,6 @@
 services:
   mealie-1:
-    image: ghcr.io/mealie-recipes/mealie:v3.20.1
+    image: ghcr.io/mealie-recipes/mealie:v3.28.0
     environment:
       TZ: ${TZ}
       PGID: "1000"

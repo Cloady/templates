@@ -1,5 +1,6 @@
 {
   "category": "Networking",
+  "version": "0.9.3",
   "envSchema": {
     "ADGUARDHOME_SYNC_CRON": {
       "title": "Cron Schedule"

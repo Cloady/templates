@@ -1,6 +1,6 @@
 services:
   sftpgo:
-    image: drakkan/sftpgo:v2.7.4
+    image: drakkan/sftpgo:v2.7.6
     environment:
       SFTPGO_GRACE_TIME: ${SFTPGO_GRACE_TIME-5}
       SFTPGO_MINIO_SHA256_SIMD: "1"
@@ -26,7 +26,7 @@ services:
           cpus: 0.25
           memory: 256M
   sftpgo-db:
-    image: postgres:17.2-alpine
+    image: postgres:17.11-alpine
     environment:
       PGUSER: sftpgo
       POSTGRES_DB: sftpgo
@@ -42,13 +42,13 @@ services:
 volumes:
   db:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   files:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi
   config:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   backups:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi

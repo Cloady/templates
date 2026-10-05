@@ -1,6 +1,6 @@
 services:
   logto:
-    image: svhd/logto:1.41.0
+    image: svhd/logto:1.44.0
     entrypoint:
       - sh
       - -c

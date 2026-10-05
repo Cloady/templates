@@ -1,6 +1,6 @@
 services:
   n8n:
-    image: n8nio/n8n:2.28.5
+    image: n8nio/n8n:2.41.6
     environment:
       N8N_HOST: ${PUBLIC_HOST}
       N8N_PORT: "5678"

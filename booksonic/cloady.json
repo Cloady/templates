@@ -1,5 +1,6 @@
 {
   "category": "Media",
+  "version": "2201.1.0",
   "envSchema": {
     "TZ": {
       "title": "Timezone",

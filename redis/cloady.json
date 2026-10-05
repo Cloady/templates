@@ -1,5 +1,6 @@
 {
   "category": "Databases",
+  "version": "8.10.2",
   "envSchema": {
     "REDIS_PASSWORD": {
       "title": "Password",

@@ -13,7 +13,7 @@ services:
           cpus: 0.25
           memory: 256M
   mempool-db:
-    image: mariadb:10.5.21
+    image: mariadb:10.11.19
     environment:
       MYSQL_USER: mempool
       MYSQL_DATABASE: mempool

@@ -1,5 +1,6 @@
 {
   "category": "Databases",
+  "version": "8.3.11",
   "envSchema": {
     "MONGO_INITDB_DATABASE": {
       "title": "Database",

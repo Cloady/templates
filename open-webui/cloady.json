@@ -1,5 +1,6 @@
 {
   "category": "AI & LLM",
+  "version": "0.11.4",
   "envSchema": {
     "OPENWEBUI_OLLAMA_URL": {
       "title": "Ollama Api Url"

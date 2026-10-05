@@ -1,5 +1,6 @@
 {
   "category": "Automation",
+  "version": "2026.9.1",
   "envSchema": {
     "TZ": {
       "title": "Timezone",

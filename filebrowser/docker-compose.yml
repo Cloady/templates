@@ -19,13 +19,13 @@ services:
 volumes:
   db:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   media:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   general:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   app-data:
     driver_opts:
-      size: 2Gi
+      size: 1Gi

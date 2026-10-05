@@ -1,6 +1,6 @@
 services:
   flatnotes:
-    image: dullage/flatnotes:v5.5.4
+    image: dullage/flatnotes:v5.5.5
     environment:
       FLATNOTES_PASSWORD: ${FLATNOTES_PASSWORD}
       FLATNOTES_TOTP_KEY: ${FLATNOTES_TOTP_KEY}

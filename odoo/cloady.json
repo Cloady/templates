@@ -1,5 +1,6 @@
 {
   "category": "Productivity",
+  "version": "20",
   "envSchema": {
     "ODOO_POSTGRES_PASSWORD": {
       "secret": true,

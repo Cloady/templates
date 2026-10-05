@@ -1,6 +1,6 @@
 services:
   slskd:
-    image: slskd/slskd:0.25.1
+    image: slskd/slskd:0.26.0
     environment:
       SLSKD_USER: ${SLSKD_USER}
       SLSKD_CONFIG: /app/data/slskd.yml
@@ -24,13 +24,13 @@ services:
 volumes:
   app:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   media:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   complete:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   incomplete:
     driver_opts:
-      size: 2Gi
+      size: 1Gi

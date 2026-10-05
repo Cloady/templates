@@ -1,5 +1,6 @@
 {
   "category": "Automation",
+  "version": "2.1.13",
   "envSchema": {
     "TZ": {
       "title": "Timezone",

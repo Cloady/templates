@@ -1,5 +1,6 @@
 {
   "category": "Developer Tools",
+  "version": "1.15",
   "hint": "Pastebin for code snippets, powered by Git",
   "envSchema": {
     "OG_OIDC_SECRET": {

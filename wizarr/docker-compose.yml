@@ -1,6 +1,6 @@
 services:
   wizarr:
-    image: ghcr.io/wizarrrr/wizarr:v2026.4.0
+    image: ghcr.io/wizarrrr/wizarr:v2026.9.1
     ports:
       - 5690
     volumes:

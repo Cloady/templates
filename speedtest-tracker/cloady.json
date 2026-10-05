@@ -1,5 +1,6 @@
 {
   "category": "Monitoring",
+  "version": "1.15.0",
   "envSchema": {
     "TZ": {
       "title": "Timezone",

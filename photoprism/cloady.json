@@ -1,5 +1,6 @@
 {
   "category": "Media",
+  "version": "latest",
   "envSchema": {
     "DB_PASSWORD": {
       "secret": true,

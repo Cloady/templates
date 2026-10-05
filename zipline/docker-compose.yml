@@ -1,6 +1,6 @@
 services:
   zipline:
-    image: ghcr.io/diced/zipline:3.7.13
+    image: ghcr.io/diced/zipline:4.8.0
     environment:
       CORE_HOST: 0.0.0.0
       CORE_PORT: "3000"
@@ -40,4 +40,4 @@ volumes:
       size: 2Gi
   postgres:
     driver_opts:
-      size: 2Gi
+      size: 1Gi

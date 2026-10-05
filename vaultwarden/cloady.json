@@ -1,5 +1,6 @@
 {
   "category": "Security",
+  "version": "1.37.3",
   "envSchema": {
     "PUBLIC_URL": {
       "default": "${CLOADY_PRIMARY_URL}"

@@ -1,5 +1,6 @@
 {
   "category": "Databases",
+  "version": "1.0.2",
   "envSchema": {
     "ME_CONFIG_MONGODB_SERVERIP": {
       "title": "MongoDB Server IP Address"

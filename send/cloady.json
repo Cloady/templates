@@ -1,5 +1,6 @@
 {
   "category": "Storage",
+  "version": "latest",
   "envSchema": {
     "APP_PROTOCOL": {
       "default": "http"

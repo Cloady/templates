@@ -1,6 +1,6 @@
 services:
   tubearchivist:
-    image: bbilly1/tubearchivist:v0.5.10
+    image: bbilly1/tubearchivist:v0.5.12
     environment:
       ES_URL: http://tubearchivist-es:9200
       TA_HOST: ${PUBLIC_HOST}
@@ -21,7 +21,7 @@ services:
           cpus: 0.25
           memory: 256M
   tubearchivist-es:
-    image: elasticsearch:8.18.0
+    image: elasticsearch:8.19.22
     environment:
       path.repo: /usr/share/elasticsearch/data/snapshot
       ES_JAVA_OPTS: -Xms512m -Xmx512m
@@ -47,13 +47,13 @@ services:
 volumes:
   es:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   cache:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   youtube:
     driver_opts:
       size: 2Gi
   redis-data:
     driver_opts:
-      size: 2Gi
+      size: 1Gi

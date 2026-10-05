@@ -1,5 +1,6 @@
 {
   "category": "Productivity",
+  "version": "2.16.3",
   "envSchema": {
     "APP_PROTOCOL": {
       "default": "http"

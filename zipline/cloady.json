@@ -1,5 +1,6 @@
 {
   "category": "Storage",
+  "version": "4.8.0",
   "envSchema": {
     "ZIPLINE_CORE_SECRET": {
       "secret": true,

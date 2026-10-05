@@ -1,5 +1,6 @@
 {
   "category": "CMS & Websites",
+  "version": "2024-02-06b-ls250",
   "envSchema": {
     "TZ": {
       "title": "Timezone",

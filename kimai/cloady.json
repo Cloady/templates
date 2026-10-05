@@ -1,5 +1,6 @@
 {
   "category": "Productivity",
+  "version": "fpm-2.19.1-prod",
   "envSchema": {
     "KIMAI_ADMINMAIL": {
       "title": "Admin email"

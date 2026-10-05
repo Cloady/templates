@@ -1,6 +1,6 @@
 services:
   lubelogger:
-    image: ghcr.io/hargata/lubelogger:v1.6.8
+    image: ghcr.io/hargata/lubelogger:v1.7.3
     environment:
       TZ: ${TZ}
       LANG: ${LUBELOGGER_LOCALE}
@@ -44,7 +44,7 @@ services:
           cpus: 0.25
           memory: 256M
   lubelogger-db:
-    image: postgres:16.4-alpine
+    image: postgres:16.15-alpine
     environment:
       TZ: ${TZ}
       POSTGRES_DB: lubelogger
@@ -61,28 +61,28 @@ services:
 volumes:
   log:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   data:
     driver_opts:
-      size: 2Gi
+      size: 512Mi
   keys:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   temp:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   config:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   images:
     driver_opts:
-      size: 2Gi
+      size: 512Mi
   postgres:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   documents:
     driver_opts:
-      size: 2Gi
+      size: 512Mi
   init-db-sh:
     driver_opts:
-      size: 2Gi
+      size: 256Mi

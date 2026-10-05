@@ -1,5 +1,6 @@
 {
   "category": "Storage",
+  "version": "1.11.2",
   "envSchema": {
     "TZ": {
       "title": "Timezone",

@@ -1,5 +1,6 @@
 {
   "category": "Productivity",
+  "version": "3.79.0",
   "envSchema": {
     "GHOSTFOLIO_DB_PASSWORD": {
       "secret": true,

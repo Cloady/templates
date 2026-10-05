@@ -1,6 +1,6 @@
 services:
   qdirstat:
-    image: lscr.io/linuxserver/qdirstat:1.8.1-ls82
+    image: lscr.io/linuxserver/qdirstat:1.8.1-ls100
     ports:
       - 3000
     volumes:

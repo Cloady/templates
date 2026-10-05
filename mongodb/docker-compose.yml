@@ -1,6 +1,6 @@
 services:
   mongodb:
-    image: mongo:8.0.26
+    image: mongo:8.3.11
     environment:
       MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}

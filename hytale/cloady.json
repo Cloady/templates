@@ -1,5 +1,6 @@
 {
   "category": "Game Servers",
+  "version": "1.0.6",
   "envSchema": {
     "AUTH_MODE": {
       "enum": [

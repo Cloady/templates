@@ -1,6 +1,6 @@
 services:
   grampsweb:
-    image: ghcr.io/gramps-project/grampsweb:26.6.2
+    image: ghcr.io/gramps-project/grampsweb:26.9.1
     environment:
       GRAMPSWEB_TREE: ${GRAMPSWEB_TREE}
       GUNICORN_NUM_WORKERS: "1"
@@ -23,25 +23,25 @@ services:
 volumes:
   db:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   tmp:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   cache:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   index:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   media:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   users:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   secret:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   thumb-cache:
     driver_opts:
-      size: 2Gi
+      size: 256Mi

@@ -1,6 +1,6 @@
 services:
   umami-analytics:
-    image: ghcr.io/umami-software/umami:3.2.0
+    image: ghcr.io/umami-software/umami:3.4.0
     environment:
       APP_SECRET: ${UMAMI_ANALYTICS_APP_SECRET}
       DATABASE_URL: postgresql://umami:${UMAMI_ANALYTICS_DB_PASSWORD}@umami-analytics-db:5432/umami-analytics-db

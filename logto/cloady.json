@@ -1,5 +1,6 @@
 {
   "category": "Security",
+  "version": "1.44.0",
   "envSchema": {
     "LOGTO_ADMIN_URL": {
       "title": "Logto Admin Console URL URL"

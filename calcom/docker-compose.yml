@@ -33,7 +33,7 @@ services:
           cpus: 0.25
           memory: 256M
   db-calcom:
-    image: postgres:16.1
+    image: postgres:16.15
     environment:
       POSTGRES_DB: calcom
       POSTGRES_USER: ${POSTGRES_USERNAME}

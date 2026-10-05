@@ -1,6 +1,6 @@
 services:
   rallly:
-    image: lukevella/rallly:4.11.1
+    image: lukevella/rallly:4.15.3
     environment:
       SMTP_PWD: ${RALLLY_SMTP_PWD}
       SMTP_HOST: ${RALLLY_SMTP_HOST}

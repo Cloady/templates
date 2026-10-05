@@ -1,5 +1,6 @@
 {
   "category": "Media",
+  "version": "3.0.1",
   "envSchema": {
     "JWT_SECRET": {
       "secret": true,

@@ -1,5 +1,6 @@
 {
   "category": "Communication",
+  "version": "2.28.0",
   "envSchema": {
     "APP_PROTOCOL": {
       "default": "http"

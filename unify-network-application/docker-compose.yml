@@ -1,6 +1,6 @@
 services:
   unifi-db:
-    image: docker.io/mongo:8.2
+    image: docker.io/mongo:8.3
     environment:
       MONGO_PASS: unify
       MONGO_USER: unifi
@@ -17,7 +17,7 @@ services:
           cpus: 0.25
           memory: 512M
   unifi-network-application:
-    image: lscr.io/linuxserver/unifi-network-application:10.1.89
+    image: lscr.io/linuxserver/unifi-network-application:10.6.106
     environment:
       TZ: Etc/UTC
       PGID: "1000"
@@ -51,10 +51,10 @@ services:
 volumes:
   config:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   mongodb-data:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   init-mongo-sh:
     driver_opts:
-      size: 2Gi
+      size: 256Mi

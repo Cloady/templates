@@ -1,5 +1,6 @@
 {
   "category": "Media",
+  "version": "0.3.0",
   "envSchema": {
     "DELUGE_URL": {
       "title": "Deluge URL"

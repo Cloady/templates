@@ -1,6 +1,6 @@
 services:
   syncthing:
-    image: syncthing/syncthing:2.1.1
+    image: syncthing/syncthing:2.1.5
     environment:
       PGID: "1000"
       PUID: "1000"

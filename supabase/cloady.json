@@ -1,5 +1,6 @@
 {
   "category": "Backends",
+  "version": "3.9.1",
   "envSchema": {
     "REGION": {
       "title": "Storage region",

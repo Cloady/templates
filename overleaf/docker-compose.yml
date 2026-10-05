@@ -1,6 +1,6 @@
 services:
   mongo:
-    image: mongo:8.2
+    image: mongo:8.3
     command: --replSet overleaf
     environment:
       MONGO_INITDB_DATABASE: sharelatex
@@ -22,7 +22,7 @@ services:
           cpus: 0.1
           memory: 128M
   sharelatex:
-    image: sharelatex/sharelatex:6.1.2
+    image: sharelatex/sharelatex:6.3.0
     environment:
       REDIS_HOST: redis
       OVERLEAF_APP_NAME: Overleaf Community Edition

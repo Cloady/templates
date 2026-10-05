@@ -1,6 +1,6 @@
 services:
   radarr:
-    image: ghcr.io/linuxserver/radarr:6.2.1
+    image: ghcr.io/linuxserver/radarr:6.4.4
     environment:
       TZ: ${TZ}
       PGID: "1000"

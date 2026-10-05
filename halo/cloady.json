@@ -1,5 +1,6 @@
 {
   "category": "CMS & Websites",
+  "version": "2.26.1",
   "envSchema": {
     "HALO_EXTERNAL_URL": {
       "title": "External url"

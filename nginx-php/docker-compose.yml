@@ -24,10 +24,10 @@ services:
 volumes:
   logs:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   www-data:
     driver_opts:
       size: 2Gi
   nginx-conf:
     driver_opts:
-      size: 2Gi
+      size: 256Mi

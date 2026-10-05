@@ -1,5 +1,6 @@
 {
   "category": "Game Servers",
+  "version": "sha-a134fb4",
   "envSchema": {
     "CROSSPLAY": {
       "type": "boolean",

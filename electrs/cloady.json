@@ -1,5 +1,6 @@
 {
   "category": "Networking",
+  "version": "0.12.0",
   "envSchema": {
     "INTERNAL_IP": {
       "title": "INTERNAL_IP",

@@ -1,5 +1,6 @@
 {
   "category": "Media",
+  "version": "2023w48",
   "envSchema": {
     "INTERNAL_IP": {
       "title": "INTERNAL_IP",

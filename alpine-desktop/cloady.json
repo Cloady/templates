@@ -1,5 +1,6 @@
 {
   "category": "Desktops",
+  "version": "latest",
   "name": "Alpine Desktop",
   "hint": "Alpine Linux in your browser: Xfce, KDE, MATE or i3",
   "envSchema": {

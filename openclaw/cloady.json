@@ -1,5 +1,6 @@
 {
   "category": "AI & LLM",
+  "version": "latest",
   "envSchema": {
     "OPENCLAW_GATEWAY_TOKEN": {
       "title": "Gateway token",

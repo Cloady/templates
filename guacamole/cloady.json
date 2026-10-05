@@ -1,5 +1,6 @@
 {
   "category": "Networking",
+  "version": "1.6.0",
   "envSchema": {
     "GUACAMOLE_DB_PASSWORD": {
       "secret": true,

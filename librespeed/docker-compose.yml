@@ -1,6 +1,6 @@
 services:
   librespeed:
-    image: lscr.io/linuxserver/librespeed:6.1.0
+    image: lscr.io/linuxserver/librespeed:6.3.0
     environment:
       TZ: ${TZ}
       PGID: "1000"

@@ -1,6 +1,6 @@
 services:
   komga:
-    image: ghcr.io/gotson/komga:1.25.0
+    image: ghcr.io/gotson/komga:1.28.1
     environment:
       TZ: ${TZ}
     ports:
@@ -23,4 +23,4 @@ volumes:
       size: 2Gi
   config:
     driver_opts:
-      size: 2Gi
+      size: 256Mi

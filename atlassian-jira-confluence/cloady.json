@@ -1,5 +1,6 @@
 {
   "category": "Productivity",
+  "version": "10.2.18",
   "hint": "Issue tracking (Jira) and team wiki (Confluence)",
   "envSchema": {
     "PG_DB": {

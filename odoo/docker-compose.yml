@@ -1,6 +1,6 @@
 services:
   odoo:
-    image: odoo:19
+    image: odoo:20
     command: --
     environment:
       HOST: odoodb
@@ -34,16 +34,16 @@ services:
 volumes:
   etc:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   addons:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   filestore:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi
   postgresql:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   odoo-web-data:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi

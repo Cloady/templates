@@ -1,5 +1,6 @@
 {
   "category": "Networking",
+  "version": "3.3.1",
   "envSchema": {
     "BITCOIND_DIR": {
       "title": "Custom Bitcoin data folder location (for .cookie file)"

@@ -38,7 +38,7 @@ services:
           cpus: 0.25
           memory: 256M
   photoprism-db:
-    image: mariadb:10.8
+    image: mariadb:10.11
     command: mysqld --innodb-buffer-pool-size=128M --transaction-isolation=READ-COMMITTED --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --max-connections=512 --innodb-rollback-on-timeout=OFF --innodb-lock-wait-timeout=120
     environment:
       MARIADB_USER: photoprism
@@ -58,7 +58,7 @@ volumes:
       size: 2Gi
   mariadb:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   storage:
     driver_opts:
       size: 2Gi

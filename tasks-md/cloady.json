@@ -1,5 +1,6 @@
 {
   "category": "Productivity",
+  "version": "3.3.0",
   "envSchema": {
     "TASKS_MD_TITLE": {
       "title": "Board Title"

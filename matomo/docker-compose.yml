@@ -28,10 +28,10 @@ services:
 volumes:
   html:
     driver_opts:
-      size: 2Gi
+      size: 512Mi
   database:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   apache2-conf:
     driver_opts:
-      size: 2Gi
+      size: 256Mi

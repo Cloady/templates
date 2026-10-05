@@ -1,5 +1,6 @@
 {
   "category": "Productivity",
+  "version": "26.9.1",
   "envSchema": {
     "GRAMPSWEB_TREE": {
       "title": "Gramps tree name"

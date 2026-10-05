@@ -1,4 +1,5 @@
 {
   "category": "Storage",
+  "version": "latest",
   "hint": "Encrypted peer-to-peer file transfers, no size limit"
 }

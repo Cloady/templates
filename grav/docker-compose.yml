@@ -1,6 +1,6 @@
 services:
   grav:
-    image: lscr.io/linuxserver/grav:1.8.0
+    image: lscr.io/linuxserver/grav:2.2.4
     environment:
       TZ: ${TZ}
       PGID: "1000"

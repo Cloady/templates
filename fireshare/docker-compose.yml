@@ -1,6 +1,6 @@
 services:
   fireshare:
-    image: shaneisrael/fireshare:1.7.3
+    image: shaneisrael/fireshare:1.8.5
     environment:
       PGID: "1000"
       PUID: "1000"
@@ -23,13 +23,13 @@ services:
 volumes:
   fireshare-data:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   fireshare-images:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   fireshare-videos:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   fireshare-processed:
     driver_opts:
-      size: 2Gi
+      size: 1Gi

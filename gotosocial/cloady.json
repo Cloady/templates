@@ -1,5 +1,6 @@
 {
   "category": "Communication",
+  "version": "0.22.1",
   "envSchema": {
     "GTS_SMTP_FROM": {
       "title": "SMTP From Address"

@@ -1,6 +1,6 @@
 services:
   kapowarr:
-    image: mrcas/kapowarr:v1.3.1
+    image: mrcas/kapowarr:v1.3.2
     ports:
       - 5656
     volumes:
@@ -21,4 +21,4 @@ volumes:
       size: 2Gi
   kapowarr-temp-downloads:
     driver_opts:
-      size: 2Gi
+      size: 256Mi

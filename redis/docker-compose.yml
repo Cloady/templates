@@ -1,6 +1,6 @@
 services:
   redis:
-    image: redis:8.8.0
+    image: redis:8.10.2
     command: redis-server --requirepass ${REDIS_PASSWORD} --appendonly yes
     ports:
       - 6379
@@ -14,4 +14,4 @@ services:
 volumes:
   data:
     driver_opts:
-      size: 8Gi
+      size: 1Gi

@@ -1,6 +1,6 @@
 services:
   code-server:
-    image: lscr.io/linuxserver/code-server:4.126.0
+    image: lscr.io/linuxserver/code-server:4.140.0
     environment:
       TZ: ${TZ}
       PGID: "1000"
@@ -22,10 +22,10 @@ services:
 volumes:
   config:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   runtipi:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   projects:
     driver_opts:
       size: 2Gi

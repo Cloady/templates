@@ -1,6 +1,6 @@
 services:
   inspircd:
-    image: inspircd/inspircd-docker:4.11.0
+    image: inspircd/inspircd-docker:4.12.1
     ports:
       - 6697
     volumes:

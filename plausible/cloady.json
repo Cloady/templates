@@ -1,5 +1,6 @@
 {
   "category": "Analytics",
+  "version": "3.2.1",
   "envSchema": {
     "PUBLIC_URL": {
       "default": "${CLOADY_PRIMARY_URL}"

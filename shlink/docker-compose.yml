@@ -1,6 +1,6 @@
 services:
   shlink:
-    image: ghcr.io/shlinkio/shlink:5.1.5
+    image: ghcr.io/shlinkio/shlink:5.1.7
     environment:
       DB_HOST: shlink-db
       DB_NAME: shlink
@@ -17,7 +17,7 @@ services:
           cpus: 0.25
           memory: 256M
   shlink-db:
-    image: postgres:17.2-alpine
+    image: postgres:17.11-alpine
     environment:
       POSTGRES_DB: shlink
       POSTGRES_USER: shlink

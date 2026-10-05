@@ -1,6 +1,6 @@
 services:
   ollama-cpu:
-    image: ollama/ollama:0.31.1
+    image: ollama/ollama:0.35.1
     ports:
       - 11434
     volumes:

@@ -1,6 +1,6 @@
 services:
   nextcloud-mini:
-    image: nextcloud:34.0.0
+    image: nextcloud:35.0.1
     environment:
       POSTGRES_DB: nextcloud
       POSTGRES_HOST: nextcloud-mini-db

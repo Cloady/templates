@@ -1,6 +1,6 @@
 services:
   ghost:
-    image: ghost:5.130.6
+    image: ghost:6.67.0
     environment:
       url: ${APP_PROTOCOL}://${PUBLIC_HOST}
       mail__transport: SMTP

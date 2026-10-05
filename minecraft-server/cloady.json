@@ -1,5 +1,6 @@
 {
   "category": "Game Servers",
+  "version": "latest",
   "envSchema": {
     "MC_VERSION": {
       "title": "Minecraft version"

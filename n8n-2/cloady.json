@@ -1,5 +1,6 @@
 {
   "category": "Automation",
+  "version": "2.41.6",
   "envSchema": {
     "APP_PROTOCOL": {
       "default": "http"

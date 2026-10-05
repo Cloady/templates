@@ -1,5 +1,6 @@
 {
   "category": "CMS & Websites",
+  "version": "0.96.0",
   "envSchema": {
     "APP_PROTOCOL": {
       "default": "http"

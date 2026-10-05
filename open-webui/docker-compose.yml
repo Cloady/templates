@@ -1,6 +1,6 @@
 services:
   open-webui:
-    image: ghcr.io/open-webui/open-webui:v0.10.2
+    image: ghcr.io/open-webui/open-webui:v0.11.4
     environment:
       OPENAI_API_KEY: ${OPENWEBUI_OPENAI_KEY}
       OLLAMA_BASE_URL: ${OPENWEBUI_OLLAMA_URL}

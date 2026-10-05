@@ -1,6 +1,6 @@
 services:
   calibre-web:
-    image: lscr.io/linuxserver/calibre-web:0.6.26
+    image: lscr.io/linuxserver/calibre-web:0.6.27
     environment:
       TZ: ${TZ}
       PGID: "1000"
@@ -22,7 +22,7 @@ volumes:
       size: 2Gi
   config:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   calibre:
     driver_opts:
       size: 2Gi

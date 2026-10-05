@@ -1,6 +1,6 @@
 services:
   flaresolverr:
-    image: ghcr.io/flaresolverr/flaresolverr:v3.5.0
+    image: ghcr.io/flaresolverr/flaresolverr:v3.5.2
     environment:
       TZ: ${TZ}
       LOG_LEVEL: ${FLARESOLVERR_LOG_LEVEL-info}

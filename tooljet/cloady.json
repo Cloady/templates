@@ -1,5 +1,6 @@
 {
   "category": "Developer Tools",
+  "version": "2.4.2",
   "envSchema": {
     "DB_PASSWORD": {
       "secret": true,

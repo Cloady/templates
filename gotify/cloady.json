@@ -1,5 +1,6 @@
 {
   "category": "Communication",
+  "version": "3.1.1",
   "envSchema": {
     "GOTIFY_DEFAULTUSER_NAME": {
       "title": "Gotify username"

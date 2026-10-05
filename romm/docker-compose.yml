@@ -1,6 +1,6 @@
 services:
   romm:
-    image: ghcr.io/rommapp/romm:4.9.2
+    image: ghcr.io/rommapp/romm:5.3.1
     environment:
       DB_HOST: romm-db
       DB_NAME: romm
@@ -25,7 +25,7 @@ services:
           cpus: 0.25
           memory: 256M
   romm-db:
-    image: lscr.io/linuxserver/mariadb:11.4.5
+    image: lscr.io/linuxserver/mariadb:11.8.8
     environment:
       MYSQL_USER: tipi
       MYSQL_DATABASE: romm
@@ -41,16 +41,16 @@ services:
 volumes:
   roms:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   redis:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   assets:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   config:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   romm-resources:
     driver_opts:
-      size: 2Gi
+      size: 1Gi

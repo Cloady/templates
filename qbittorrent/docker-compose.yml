@@ -1,6 +1,6 @@
 services:
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:5.2.2
+    image: lscr.io/linuxserver/qbittorrent:5.2.4
     environment:
       TZ: ${TZ}
       PGID: "1000"

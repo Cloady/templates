@@ -1,6 +1,6 @@
 services:
   planka:
-    image: ghcr.io/plankanban/planka:1.26.3
+    image: ghcr.io/plankanban/planka:2.2.1
     command: |
       bash -c
         "for i in `seq 1 30`; do
@@ -43,10 +43,10 @@ volumes:
       size: 2Gi
   user-avatars:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   postgres-data:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   project-background-images:
     driver_opts:
-      size: 2Gi
+      size: 256Mi

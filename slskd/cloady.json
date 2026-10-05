@@ -1,5 +1,6 @@
 {
   "category": "Media",
+  "version": "0.26.0",
   "envSchema": {
     "SLSKD_USER": {
       "title": "Soulseek username"

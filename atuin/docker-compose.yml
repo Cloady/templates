@@ -1,6 +1,6 @@
 services:
   atuin:
-    image: ghcr.io/atuinsh/atuin:18.16.1
+    image: ghcr.io/atuinsh/atuin:18.23.0
     command: start
     environment:
       ATUIN_HOST: 0.0.0.0

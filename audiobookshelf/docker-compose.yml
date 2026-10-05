@@ -1,6 +1,6 @@
 services:
   audiobookshelf:
-    image: ghcr.io/advplyr/audiobookshelf:2.35.1
+    image: ghcr.io/advplyr/audiobookshelf:2.37.1
     ports:
       - 80
     volumes:
@@ -16,13 +16,13 @@ services:
 volumes:
   config:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   spoken:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi
   metadata:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi
   podcasts:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi

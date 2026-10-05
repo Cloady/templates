@@ -1,5 +1,6 @@
 {
   "category": "Analytics",
+  "version": "latest",
   "hint": "Privacy-friendly web and product analytics",
   "envSchema": {
     "BASE_URL": {

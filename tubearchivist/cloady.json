@@ -1,5 +1,6 @@
 {
   "category": "Media",
+  "version": "0.5.12",
   "envSchema": {
     "TA_USER": {
       "title": "Tube Archivist Username"

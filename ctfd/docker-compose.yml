@@ -1,6 +1,6 @@
 services:
   ctfd:
-    image: ctfd/ctfd:3.8.6
+    image: ctfd/ctfd:3.8.8
     environment:
       WORKERS: "1"
       ERROR_LOG: "-"
@@ -22,7 +22,7 @@ services:
           cpus: 0.25
           memory: 256M
   ctfd-db:
-    image: mariadb:10.4.12
+    image: mariadb:10.11.19
     command:
       - mysqld
       - --character-set-server=utf8mb4

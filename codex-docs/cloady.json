@@ -1,5 +1,6 @@
 {
   "category": "CMS & Websites",
+  "version": "2.3",
   "envSchema": {
     "CODEX_AUTH_SECRET": {
       "secret": true,

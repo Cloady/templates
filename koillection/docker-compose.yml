@@ -1,6 +1,6 @@
 services:
   koillection:
-    image: koillection/koillection:1.8.3
+    image: koillection/koillection:1.8.4
     environment:
       PHP_TZ: ${TZ}
       APP_ENV: prod

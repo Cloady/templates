@@ -1,5 +1,6 @@
 {
   "category": "Storage",
+  "version": "35.0.1",
   "envSchema": {
     "NEXTCLOUD_MINI_ADMIN_USER": {
       "title": "Nextcloud user"

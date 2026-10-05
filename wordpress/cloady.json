@@ -1,5 +1,6 @@
 {
   "category": "CMS & Websites",
+  "version": "7.1",
   "envSchema": {
     "MARIADB_PASSWORD": {
       "title": "Database password",

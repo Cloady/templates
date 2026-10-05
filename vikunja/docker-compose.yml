@@ -1,6 +1,6 @@
 services:
   vikunja:
-    image: vikunja/vikunja:2.3.0
+    image: vikunja/vikunja:2.7.0
     environment:
       VIKUNJA_DATABASE_HOST: vikunja-db
       VIKUNJA_DATABASE_TYPE: postgres

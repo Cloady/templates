@@ -1,5 +1,6 @@
 {
   "category": "Productivity",
+  "version": "latest",
   "envSchema": {
     "PEPPERMINT_DOMAIN_API": {
       "title": "API URL"

@@ -7,7 +7,7 @@ services:
           cpus: 0.1
           memory: 128M
   vouchervault:
-    image: l4rm4nd/vouchervault:1.28.x
+    image: l4rm4nd/vouchervault:1.30.x
     environment:
       TZ: Europe/Berlin
       DOMAIN: vouchervault.example.com

@@ -34,10 +34,10 @@ services:
 volumes:
   html:
     driver_opts:
-      size: 2Gi
+      size: 512Mi
   files:
     driver_opts:
       size: 2Gi
   db-mysql:
     driver_opts:
-      size: 2Gi
+      size: 1Gi

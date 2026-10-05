@@ -1,6 +1,6 @@
 services:
   write-freely:
-    image: nephatrine/write-freely:0.16
+    image: nephatrine/write-freely:0.17
     environment:
       TZ: ${TZ}
       PGID: "1000"

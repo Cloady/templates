@@ -1,5 +1,6 @@
 {
   "category": "Networking",
+  "version": "0.1.2",
   "envSchema": {
     "DAEMON_ADDRESS": {
       "title": "Monero Daemon"

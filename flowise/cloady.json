@@ -1,5 +1,6 @@
 {
   "category": "AI & LLM",
+  "version": "3.1.4",
   "envSchema": {
     "FLOWISE_PASSWORD": {
       "title": "Flowise Password",

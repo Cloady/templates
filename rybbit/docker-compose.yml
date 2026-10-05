@@ -50,7 +50,7 @@ services:
           cpus: 0.25
           memory: 512M
   clickhouse:
-    image: clickhouse/clickhouse-server:25.4.2
+    image: clickhouse/clickhouse-server:25.12.11
     environment:
       CLICKHOUSE_DB: ${CLICKHOUSE_DB}
       CLICKHOUSE_USER: ${CLICKHOUSE_USER}

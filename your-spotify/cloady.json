@@ -1,5 +1,6 @@
 {
   "category": "Media",
+  "version": "1.20.0",
   "envSchema": {
     "INTERNAL_IP": {
       "title": "INTERNAL_IP",

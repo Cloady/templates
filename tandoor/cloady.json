@@ -1,5 +1,6 @@
 {
   "category": "Productivity",
+  "version": "2.6.15",
   "envSchema": {
     "TANDOOR_SECRET_KEY": {
       "secret": true,

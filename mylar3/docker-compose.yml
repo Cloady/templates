@@ -1,6 +1,6 @@
 services:
   mylar3:
-    image: lscr.io/linuxserver/mylar3:v0.7.1-ls84
+    image: lscr.io/linuxserver/mylar3:v0.11.0-ls274
     environment:
       TZ: ${TZ}
       PGID: "1000"
@@ -22,7 +22,7 @@ volumes:
       size: 2Gi
   mylar3-config:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   mylar3-downloads:
     driver_opts:
       size: 2Gi

@@ -1,5 +1,6 @@
 {
   "category": "Productivity",
+  "version": "0.26.2",
   "envSchema": {
     "HBOX_AUTH_API_KEY_PEPPER": {
       "secret": true,

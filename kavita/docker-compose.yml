@@ -1,6 +1,6 @@
 services:
   kavita:
-    image: jvmilazz0/kavita:0.9.0
+    image: jvmilazz0/kavita:0.9.1
     environment:
       TZ: ${TZ}
     ports:
@@ -18,13 +18,13 @@ services:
 volumes:
   books:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi
   manga:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi
   comics:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi
   kavita-config:
     driver_opts:
-      size: 2Gi
+      size: 256Mi

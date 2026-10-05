@@ -1,6 +1,6 @@
 services:
   memos:
-    image: neosmemo/memos:0.29.1
+    image: neosmemo/memos:0.31.0
     ports:
       - 5230
     volumes:

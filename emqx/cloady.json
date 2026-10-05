@@ -1,5 +1,6 @@
 {
   "category": "Databases",
+  "version": "6.3.1",
   "envSchema": {
     "TZ": {
       "title": "Timezone",

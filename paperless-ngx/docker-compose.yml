@@ -29,7 +29,7 @@ services:
           cpus: 0.1
           memory: 128M
   gotenberg:
-    image: gotenberg/gotenberg:8.34
+    image: gotenberg/gotenberg:8.37
     command:
       - gotenberg
       - --chromium-disable-javascript=true
@@ -40,7 +40,7 @@ services:
           cpus: 0.1
           memory: 256M
   paperless-ngx:
-    image: ghcr.io/paperless-ngx/paperless-ngx:2.20.15
+    image: ghcr.io/paperless-ngx/paperless-ngx:3.2.1
     environment:
       PAPERLESS_URL: ${APP_PROTOCOL}://${PUBLIC_HOST}
       PAPERLESS_REDIS: redis://broker:6379

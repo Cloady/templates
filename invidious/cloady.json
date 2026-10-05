@@ -1,5 +1,6 @@
 {
   "category": "Media",
+  "version": "latest",
   "envSchema": {
     "INVIDIOUS_DOMAIN": {
       "title": "Domain"

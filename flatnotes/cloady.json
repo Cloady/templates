@@ -1,5 +1,6 @@
 {
   "category": "Productivity",
+  "version": "5.5.5",
   "envSchema": {
     "FLATNOTES_PASSWORD": {
       "title": "Flatnotes Password",

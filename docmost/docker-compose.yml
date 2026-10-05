@@ -1,6 +1,6 @@
 services:
   docmost:
-    image: docmost/docmost:0.95.0
+    image: docmost/docmost:0.96.0
     environment:
       APP_URL: ${APP_PROTOCOL}://${PUBLIC_HOST}
       REDIS_URL: redis://docmost-redis:6379
@@ -29,7 +29,7 @@ services:
           cpus: 0.25
           memory: 512M
   docmost-redis:
-    image: redis:7.2-alpine
+    image: redis:7.4-alpine
     volumes:
       - redis:/data
     deploy:

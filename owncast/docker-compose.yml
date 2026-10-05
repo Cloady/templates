@@ -1,6 +1,6 @@
 services:
   owncast:
-    image: owncast/owncast:0.2.5
+    image: owncast/owncast:0.3.0
     ports:
       - 8080
       - 1935

@@ -1,5 +1,6 @@
 {
   "category": "Productivity",
+  "version": "6.2.0",
   "envSchema": {
     "EMAIL_FROM": {
       "title": "Configures the global From: header whilst sending emails."

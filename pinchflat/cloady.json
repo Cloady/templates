@@ -1,5 +1,6 @@
 {
   "category": "Media",
+  "version": "2025.6.6",
   "envSchema": {
     "PINCHFLAT_BASIC_AUTH_PASSWORD": {
       "title": "Basic Auth Password",

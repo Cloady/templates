@@ -1,6 +1,6 @@
 services:
   cyberchef:
-    image: ghcr.io/gchq/cyberchef:11.2.0
+    image: ghcr.io/gchq/cyberchef:11.5.0
     environment:
       TZ: ${TZ}
     ports:

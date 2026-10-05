@@ -1,6 +1,6 @@
 services:
   nocodb:
-    image: nocodb/nocodb:2026.06.2
+    image: nocodb/nocodb:2026.09.1
     environment:
       NC_DB: pg://nocodb-db:5432?u=postgres&p=${NOCODB_DB_PASSWORD}&d=nocodb
       NC_REDIS_URL: redis://default:${NOCODB_REDIS_PASSWORD}@nocodb-redis:6379

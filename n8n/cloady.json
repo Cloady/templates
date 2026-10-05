@@ -1,5 +1,6 @@
 {
   "category": "Automation",
+  "version": "2.41.6",
   "envSchema": {
     "PUBLIC_URL": {
       "default": "${CLOADY_PRIMARY_URL}"

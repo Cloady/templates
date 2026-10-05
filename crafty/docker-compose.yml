@@ -1,6 +1,6 @@
 services:
   crafty:
-    image: registry.gitlab.com/crafty-controller/crafty-4:4.10.7
+    image: registry.gitlab.com/crafty-controller/crafty-4:4.11.0
     environment:
       TZ: ${TZ}
     ports:
@@ -21,16 +21,16 @@ services:
 volumes:
   logs:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   config:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   import:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi
   backups:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi
   servers:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi

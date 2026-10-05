@@ -1,4 +1,5 @@
 {
   "category": "Security",
+  "version": "latest",
   "hint": "Single sign-on and 2FA portal for reverse proxies"
 }

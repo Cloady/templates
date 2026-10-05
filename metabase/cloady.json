@@ -1,5 +1,6 @@
 {
   "category": "Analytics",
+  "version": "0.63.19",
   "envSchema": {
     "TZ": {
       "title": "Timezone",

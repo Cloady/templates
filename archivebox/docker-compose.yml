@@ -1,6 +1,6 @@
 services:
   archivebox:
-    image: archivebox/archivebox:0.7.4
+    image: archivebox/archivebox:0.9.71
     command: server --quick-init 0.0.0.0:8015
     environment:
       PGID: "1000"

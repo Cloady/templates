@@ -19,7 +19,7 @@ services:
           cpus: 0.25
           memory: 256M
   haven-db:
-    image: postgres:13.2-alpine
+    image: postgres:13.23-alpine
     command:
       - postgres
       - -c

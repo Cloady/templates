@@ -1,6 +1,6 @@
 services:
   privatebin:
-    image: privatebin/nginx-fpm-alpine:2.0.4
+    image: privatebin/nginx-fpm-alpine:2.0.6
     ports:
       - 8080
     volumes:

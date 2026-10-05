@@ -1,6 +1,6 @@
 services:
   budibase:
-    image: budibase/budibase:3.39.26
+    image: budibase/budibase:3.41.3
     ports:
       - 80
     volumes:

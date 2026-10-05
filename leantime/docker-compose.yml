@@ -25,13 +25,13 @@ services:
 volumes:
   data:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi
   mysql:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   plugins:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   public-data:
     driver_opts:
-      size: 2Gi
+      size: 1.5Gi

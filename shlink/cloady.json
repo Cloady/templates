@@ -1,5 +1,6 @@
 {
   "category": "Networking",
+  "version": "5.1.7",
   "envSchema": {
     "SHLINK_POSTGRES_PASSWORD": {
       "secret": true,

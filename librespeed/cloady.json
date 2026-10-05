@@ -1,5 +1,6 @@
 {
   "category": "Networking",
+  "version": "6.3.0",
   "envSchema": {
     "TZ": {
       "title": "Timezone",

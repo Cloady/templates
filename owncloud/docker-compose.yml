@@ -1,6 +1,6 @@
 services:
   owncloud:
-    image: owncloud/server:10.16.3
+    image: owncloud/server:10.16.5
     environment:
       OWNCLOUD_DOMAIN: ${PUBLIC_HOST}
       OWNCLOUD_DB_HOST: owncloud-db
@@ -24,7 +24,7 @@ services:
           cpus: 0.25
           memory: 256M
   owncloud-db:
-    image: mariadb:10.6
+    image: mariadb:10.11
     command:
       - --max-allowed-packet=128M
       - --innodb-log-file-size=64M

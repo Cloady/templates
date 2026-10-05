@@ -1,5 +1,6 @@
 {
   "category": "Storage",
+  "version": "2.7.6",
   "envSchema": {
     "SFTPGO_GRACE_TIME": {
       "title": "Grace Time on stop"

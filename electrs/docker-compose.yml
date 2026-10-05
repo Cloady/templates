@@ -1,6 +1,6 @@
 services:
   electrs:
-    image: getumbrel/electrs:v0.11.1
+    image: getumbrel/electrs:v0.12.0
     environment:
       ELECTRS_DB_DIR: /data/db
       ELECTRS_COOKIE_FILE: /data/.bitcoin/.cookie

@@ -1,6 +1,6 @@
 services:
   freshrss:
-    image: lscr.io/linuxserver/freshrss:1.29.1
+    image: lscr.io/linuxserver/freshrss:1.30.0
     environment:
       TZ: ${TZ}
       PGID: "1000"

@@ -1,5 +1,6 @@
 {
   "category": "Productivity",
+  "version": "stable",
   "envSchema": {
     "AFFINE_ADMIN_EMAIL": {
       "title": "Admin Email"

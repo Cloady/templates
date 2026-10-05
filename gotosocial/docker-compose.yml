@@ -1,6 +1,6 @@
 services:
   gotosocial:
-    image: superseriousbusiness/gotosocial:0.22.0
+    image: superseriousbusiness/gotosocial:0.22.1
     environment:
       GTS_HOST: ${PUBLIC_HOST}
       GTS_DB_PORT: "5432"

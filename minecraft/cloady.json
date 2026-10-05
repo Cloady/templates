@@ -1,5 +1,6 @@
 {
   "category": "Game Servers",
+  "version": "2026.9.2",
   "envSchema": {
     "OPS": {
       "title": "Operators (cheats)",

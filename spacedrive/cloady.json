@@ -1,5 +1,6 @@
 {
   "category": "Storage",
+  "version": "0.4.2",
   "envSchema": {
     "SD_AUTH_USER": {
       "title": "Spacedrive Username"

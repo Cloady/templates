@@ -1,5 +1,6 @@
 {
   "category": "Security",
+  "version": "2026.5",
   "hint": "Identity provider with SSO, OAuth2, SAML and LDAP",
   "envSchema": {
     "PG_DB": {

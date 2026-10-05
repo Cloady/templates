@@ -1,5 +1,6 @@
 {
   "category": "Desktops",
+  "version": "latest",
   "name": "Ubuntu Desktop",
   "hint": "Ubuntu in your browser: Xfce, KDE, MATE, LXQt or i3",
   "envSchema": {

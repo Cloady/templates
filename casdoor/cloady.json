@@ -1,4 +1,5 @@
 {
   "category": "Security",
+  "version": "4.15.0",
   "hint": "Identity and SSO platform with OAuth, OIDC and SAML"
 }

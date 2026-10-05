@@ -1,5 +1,6 @@
 {
   "category": "Developer Tools",
+  "version": "2.19.14",
   "envSchema": {
     "TZ": {
       "title": "Timezone",

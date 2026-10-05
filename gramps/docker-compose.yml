@@ -22,25 +22,25 @@ services:
 volumes:
   tmp:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   cache:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   media:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   users:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   secret:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   database:
     driver_opts:
-      size: 2Gi
+      size: 1Gi
   indexdir:
     driver_opts:
-      size: 2Gi
+      size: 256Mi
   thumbnail-cache:
     driver_opts:
-      size: 2Gi
+      size: 256Mi

@@ -1,5 +1,6 @@
 {
   "category": "Productivity",
+  "version": "0.19.5",
   "envSchema": {
     "NOTEMARK_SERVICE_SECRET": {
       "secret": true,

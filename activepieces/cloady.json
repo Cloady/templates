@@ -1,5 +1,6 @@
 {
   "category": "Automation",
+  "version": "0.92.1",
   "envSchema": {
     "AP_API_KEY": {
       "secret": true,

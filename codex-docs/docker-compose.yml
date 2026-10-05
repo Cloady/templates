@@ -10,7 +10,7 @@ services:
           cpus: 0.25
           memory: 512M
   codex-docs:
-    image: ghcr.io/codex-team/codex.docs:v2.2
+    image: ghcr.io/codex-team/codex.docs:v2.3
     environment:
       APP_CONFIG_auth_secret: ${CODEX_AUTH_SECRET}
       APP_CONFIG_auth_password: ${CODEX_AUTH_PASSWORD}
@@ -36,4 +36,4 @@ volumes:
       size: 2Gi
   docs-config-yaml:
     driver_opts:
-      size: 2Gi
+      size: 256Mi

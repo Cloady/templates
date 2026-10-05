@@ -1,6 +1,6 @@
 services:
   whisparr:
-    image: ghcr.io/hotio/whisparr:nightly-2.0.0.548
+    image: ghcr.io/hotio/whisparr:nightly-2.0.0.2130
     environment:
       TZ: ${TZ}
       PGID: ${WHISPARR_PGID-1000}
