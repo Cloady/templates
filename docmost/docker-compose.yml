@@ -17,6 +17,8 @@ services:
           memory: 256M
   docmost-db:
     image: postgres:16-alpine
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: docmost
       POSTGRES_USER: docmost
@@ -30,6 +32,8 @@ services:
           memory: 512M
   docmost-redis:
     image: redis:7.4-alpine
+    expose:
+      - 6379
     volumes:
       - redis:/data
     deploy:

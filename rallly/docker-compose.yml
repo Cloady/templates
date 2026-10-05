@@ -7,7 +7,7 @@ services:
       SMTP_PORT: ${RALLLY_SMTP_PORT}
       SMTP_USER: ${RALLLY_SMTP_USER}
       SMTP_SECURE: ${RALLLY_SMTP_SECURE}
-      DATABASE_URL: postgres://tipi:${RALLLY_DB_PASSWORD}@rallly_db:5432/rallly
+      DATABASE_URL: postgres://tipi:${RALLLY_DB_PASSWORD}@rallly-db:5432/rallly
       NOREPLY_EMAIL: ${RALLLY_NOREPLY_EMAIL}
       SUPPORT_EMAIL: ${RALLLY_SUPPORT_EMAIL}
       ALLOWED_EMAILS: ${RALLLY_ALLOWED_EMAILS}
@@ -23,6 +23,8 @@ services:
           memory: 256M
   rallly-db:
     image: postgres:14
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: rallly
       POSTGRES_USER: tipi

@@ -17,6 +17,8 @@ services:
           memory: 256M
   guacamole-db:
     image: postgres:14
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: guacamole
       POSTGRES_USER: guacamole
@@ -32,6 +34,8 @@ services:
           memory: 512M
   guacamole-guacd:
     image: guacamole/guacd:1.6.0
+    expose:
+      - 4822
     deploy:
       resources:
         reservations:

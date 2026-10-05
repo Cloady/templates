@@ -13,6 +13,8 @@ services:
           memory: 256M
   redis:
     image: redis:alpine
+    expose:
+      - 6379
     deploy:
       resources:
         reservations:

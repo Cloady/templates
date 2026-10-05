@@ -14,6 +14,8 @@ services:
           memory: 256M
   ollama:
     image: ollama/ollama:latest
+    expose:
+      - 11434
     volumes:
       - data:/root/.ollama
     deploy:

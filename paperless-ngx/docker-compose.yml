@@ -1,6 +1,8 @@
 services:
   db:
     image: postgres:17
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: paperless
       POSTGRES_USER: paperless
@@ -14,6 +16,8 @@ services:
           memory: 512M
   tika:
     image: apache/tika:latest
+    expose:
+      - 9998
     deploy:
       resources:
         reservations:
@@ -21,6 +25,8 @@ services:
           memory: 256M
   broker:
     image: redis:7
+    expose:
+      - 6379
     volumes:
       - redis:/data
     deploy:
@@ -30,6 +36,8 @@ services:
           memory: 128M
   gotenberg:
     image: gotenberg/gotenberg:8.37
+    expose:
+      - 3000
     command:
       - gotenberg
       - --chromium-disable-javascript=true

@@ -18,6 +18,8 @@ services:
           memory: 256M
   filestash-onlyoffice:
     image: onlyoffice/documentserver:9.4.0.1
+    expose:
+      - 80
     deploy:
       resources:
         reservations:

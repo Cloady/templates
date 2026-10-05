@@ -20,6 +20,8 @@ services:
           memory: 256M
   bookstack-db:
     image: lscr.io/linuxserver/mariadb
+    expose:
+      - 3306
     environment:
       TZ: ${TZ}
       MYSQL_USER: tipi

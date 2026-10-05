@@ -21,6 +21,8 @@ services:
           memory: 256M
   hoarder-chrome:
     image: gcr.io/zenika-hub/alpine-chrome:124
+    expose:
+      - 9222
     command:
       - --no-sandbox
       - --disable-gpu
@@ -35,6 +37,8 @@ services:
           memory: 256M
   hoarder-meilisearch:
     image: getmeili/meilisearch:v1.54
+    expose:
+      - 7700
     environment:
       MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
       MEILI_NO_ANALYTICS: "true"

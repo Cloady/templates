@@ -12,6 +12,8 @@ services:
           memory: 256M
   nitter-redis:
     image: redis:alpine
+    expose:
+      - 6379
     command: redis-server --save 60 1 --loglevel warning
     volumes:
       - redis:/data

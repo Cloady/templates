@@ -44,6 +44,8 @@ services:
           memory: 256M
   mastodon-db:
     image: postgres:14-alpine
+    expose:
+      - 5432
     environment:
       PG_DATA: /var/lib/postgresql/data
       POSTGRES_DB: mastodon
@@ -59,6 +61,8 @@ services:
           memory: 512M
   mastodon-redis:
     image: redis:7-alpine
+    expose:
+      - 6379
     command: redis-server --appendonly yes --replica-read-only no --requirepass "${MASTODON_REDIS_PASSWORD}"
     volumes:
       - redis:/data

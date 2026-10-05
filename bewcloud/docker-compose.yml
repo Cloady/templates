@@ -30,6 +30,8 @@ services:
           memory: 256M
   bewcloud-db:
     image: postgres:15
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: bewcloud
       POSTGRES_USER: bewcloud

@@ -13,6 +13,8 @@ services:
           memory: 256M
   chatgpt-ui-db:
     image: lscr.io/linuxserver/mariadb:latest
+    expose:
+      - 3306
     environment:
       MYSQL_USER: tipi
       MYSQL_DATABASE: chatgptdb
@@ -38,6 +40,8 @@ services:
           memory: 256M
   chatgpt-ui-wsgi-server:
     image: wongsaang/chatgpt-ui-wsgi-server:v2.5.2
+    expose:
+      - 8000
     environment:
       DB_URL: mysql://tipi:${CHATGPT_UI_DB_PASSWORD}@chatgpt-ui-db:3306/chatgptdb
       APP_DOMAIN: ${INTERNAL_IP}:8201

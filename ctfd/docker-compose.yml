@@ -23,6 +23,8 @@ services:
           memory: 256M
   ctfd-db:
     image: mariadb:10.11.19
+    expose:
+      - 3306
     command:
       - mysqld
       - --character-set-server=utf8mb4
@@ -43,6 +45,8 @@ services:
           memory: 512M
   ctfd-redis:
     image: redis:4
+    expose:
+      - 6379
     volumes:
       - redis:/data
     deploy:

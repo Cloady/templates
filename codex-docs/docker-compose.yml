@@ -1,6 +1,8 @@
 services:
   codex-db:
     image: mongo:latest
+    expose:
+      - 27017
     environment:
       MONGO_INITDB_ROOT_PASSWORD: ${CODEX_DB_PASSWORD}
       MONGO_INITDB_ROOT_USERNAME: tipi

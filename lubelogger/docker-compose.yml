@@ -45,6 +45,8 @@ services:
           memory: 256M
   lubelogger-db:
     image: postgres:16.15-alpine
+    expose:
+      - 5432
     environment:
       TZ: ${TZ}
       POSTGRES_DB: lubelogger

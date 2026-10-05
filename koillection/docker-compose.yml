@@ -29,6 +29,8 @@ services:
           memory: 256M
   koillection-db:
     image: postgres:15
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: koillection
       POSTGRES_USER: "{KOILLECTION_DB_USER}"

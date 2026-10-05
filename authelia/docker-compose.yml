@@ -1,6 +1,8 @@
 services:
   redis:
     image: redis:8-alpine
+    expose:
+      - 6379
     command: redis-server --requirepass SuperSecureRedisAuthPassword
     environment:
       TZ: Europe/Berlin

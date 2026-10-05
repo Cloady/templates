@@ -1,11 +1,13 @@
 services:
   kimai:
     image: kimai/kimai2:fpm-2.19.1-prod
+    expose:
+      - 9000
     environment:
       ADMINMAIL: ${KIMAI_ADMINMAIL}
       ADMINPASS: ${KIMAI_ADMINPASS}
-      DATABASE_URL: mysql://kimai:${KIMAI_DATABASE_PASSWORD}@kimai-sqldb/kimai?charset=utf8&serverVersion=5.7
-      TRUSTED_HOSTS: kimai-proxy,localhost,127.0.0.1
+      DATABASE_URL: mysql://kimai:${KIMAI_DATABASE_PASSWORD}@sqldb/kimai?charset=utf8&serverVersion=5.7
+      TRUSTED_HOSTS: nginx,localhost,127.0.0.1
     volumes:
       - public:/opt/kimai/public
       - var:/opt/kimai/var
@@ -27,6 +29,8 @@ services:
           memory: 256M
   sqldb:
     image: mysql:5.7
+    expose:
+      - 3306
     command: --default-storage-engine innodb
     environment:
       MYSQL_USER: kimai

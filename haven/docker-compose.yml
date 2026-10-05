@@ -20,6 +20,8 @@ services:
           memory: 256M
   haven-db:
     image: postgres:13.23-alpine
+    expose:
+      - 5432
     command:
       - postgres
       - -c

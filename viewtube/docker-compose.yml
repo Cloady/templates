@@ -17,6 +17,8 @@ services:
           memory: 256M
   viewtube-redis:
     image: redis:7
+    expose:
+      - 6379
     volumes:
       - redis:/data
     deploy:
@@ -26,6 +28,8 @@ services:
           memory: 128M
   viewtube-mongodb:
     image: mongo:5
+    expose:
+      - 27017
     volumes:
       - db:/data/db
     deploy:

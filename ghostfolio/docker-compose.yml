@@ -23,6 +23,8 @@ services:
           memory: 256M
   ghostfolio-db:
     image: postgres:15.19-alpine
+    expose:
+      - 5432
     environment:
       PGDATA: /var/lib/postgresql/data
       POSTGRES_DB: ghostfolio
@@ -37,6 +39,8 @@ services:
           memory: 512M
   ghostfolio-redis:
     image: redis:7-alpine
+    expose:
+      - 6379
     command: |
       --requirepass ${GHOSTFOLIO_REDIS_PASSWORD}
     volumes:

@@ -1,6 +1,8 @@
 services:
   db:
     image: mariadb:latest
+    expose:
+      - 3306
     environment:
       MARIADB_USER: webtrees
       MARIADB_DATABASE: webtrees

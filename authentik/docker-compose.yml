@@ -1,6 +1,8 @@
 services:
   redis:
     image: docker.io/library/redis:alpine
+    expose:
+      - 6379
     command: --save 60 1 --loglevel warning
     volumes:
       - redis-data:/data
@@ -30,6 +32,8 @@ services:
           memory: 256M
   postgresql:
     image: docker.io/library/postgres:16-alpine
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: ${PG_DB}
       POSTGRES_USER: ${PG_USER}

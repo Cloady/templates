@@ -27,6 +27,8 @@ services:
           memory: 256M
   sftpgo-db:
     image: postgres:17.11-alpine
+    expose:
+      - 5432
     environment:
       PGUSER: sftpgo
       POSTGRES_DB: sftpgo

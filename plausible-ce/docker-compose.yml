@@ -38,6 +38,8 @@ services:
           memory: 256M
   plausible-db:
     image: postgres:16-alpine
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: plausible-db
       POSTGRES_USER: tipi
@@ -51,6 +53,8 @@ services:
           memory: 512M
   plausible-events-db:
     image: clickhouse/clickhouse-server:26.9.10.4
+    expose:
+      - 8123
     volumes:
       - event-data:/var/lib/clickhouse
       - event-logs:/var/log/clickhouse-server

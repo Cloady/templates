@@ -12,6 +12,8 @@ services:
           memory: 256M
   your-spotify-db:
     image: mongo:4.4.30
+    expose:
+      - 27017
     volumes:
       - db:/data/db
     deploy:

@@ -17,6 +17,8 @@ services:
           memory: 256M
   monica-db:
     image: mariadb:10.11.19
+    expose:
+      - 3306
     environment:
       TZ: ${TZ}
       MARIADB_USER: usermonica

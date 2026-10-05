@@ -14,6 +14,8 @@ services:
           memory: 256M
   librephotos-db:
     image: postgres:14
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: librephotos
       POSTGRES_USER: tipi
@@ -27,6 +29,8 @@ services:
           memory: 512M
   librephotos-redis:
     image: redis:6
+    expose:
+      - 6379
     deploy:
       resources:
         reservations:

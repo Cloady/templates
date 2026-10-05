@@ -14,6 +14,8 @@ services:
           memory: 256M
   penpot-redis:
     image: redis:7
+    expose:
+      - 6379
     deploy:
       resources:
         reservations:
@@ -21,6 +23,8 @@ services:
           memory: 128M
   penpot-backend:
     image: penpotapp/backend:latest
+    expose:
+      - 6060
     environment:
       PENPOT_FLAGS: enable-registration enable-login-with-password disable-email-verification
       PENPOT_REDIS_URI: redis://penpot-redis/0
@@ -40,6 +44,8 @@ services:
           memory: 256M
   penpot-exporter:
     image: penpotapp/exporter:latest
+    expose:
+      - 6061
     environment:
       PENPOT_REDIS_URI: redis://penpot-redis/0
       PENPOT_PUBLIC_URI: http://penpot
@@ -50,6 +56,8 @@ services:
           memory: 256M
   penpot-postgres:
     image: postgres:14
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: penpot
       POSTGRES_USER: tipi

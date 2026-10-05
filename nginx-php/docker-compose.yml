@@ -1,6 +1,8 @@
 services:
   php:
     image: php:8-fpm-alpine
+    expose:
+      - 9000
     volumes:
       - www-data:/var/www
     deploy:

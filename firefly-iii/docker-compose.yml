@@ -37,6 +37,8 @@ services:
           memory: 256M
   firefly-iii-db:
     image: mariadb
+    expose:
+      - 3306
     environment:
       MYSQL_USER: firefly
       MYSQL_DATABASE: firefly

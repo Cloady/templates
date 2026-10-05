@@ -18,6 +18,8 @@ services:
           memory: 256M
   send-redis:
     image: redis:alpine
+    expose:
+      - 6379
     volumes:
       - redis:/data
     deploy:

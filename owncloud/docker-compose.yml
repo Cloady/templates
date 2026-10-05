@@ -25,6 +25,8 @@ services:
           memory: 256M
   owncloud-db:
     image: mariadb:10.11
+    expose:
+      - 3306
     command:
       - --max-allowed-packet=128M
       - --innodb-log-file-size=64M
@@ -42,6 +44,8 @@ services:
           memory: 512M
   owncloud-redis:
     image: redis:6
+    expose:
+      - 6379
     command:
       - --databases
       - "1"

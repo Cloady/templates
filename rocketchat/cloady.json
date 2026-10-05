@@ -1,46 +1,12 @@
 {
   "category": "Communication",
-  "version": "latest",
+  "name": "Rocket.Chat",
   "hint": "Team chat with channels, video and integrations",
+  "version": "8.8.1",
   "envSchema": {
-    "PORT": {
-      "default": "3000"
-    },
-    "ROOT_URL": {
-      "default": "http://localhost:${HOST_PORT:-3000"
-    },
-    "MONGO_URL": {
-      "default": "mongodb://${MONGODB_ADVERTISED_HOSTNAME:-mongodb"
-    },
-    "DEPLOY_PLATFORM": {
-      "default": "linux"
-    },
-    "MONGO_OPLOG_URL": {
-      "default": "mongodb://${MONGODB_ADVERTISED_HOSTNAME:-mongodb"
-    },
-    "MONGODB_DATABASE": {
-      "default": "rocketchat"
-    },
-    "MONGODB_PORT_NUMBER": {
-      "default": "27017"
-    },
-    "ALLOW_EMPTY_PASSWORD": {
-      "default": "yes"
-    },
-    "MONGODB_ENABLE_JOURNAL": {
-      "default": "true"
-    },
-    "MONGODB_REPLICA_SET_NAME": {
-      "default": "rs0"
-    },
-    "MONGODB_ADVERTISED_HOSTNAME": {
-      "default": "mongodb"
-    },
-    "MONGODB_INITIAL_PRIMARY_HOST": {
-      "default": "mongodb"
-    },
-    "MONGODB_INITIAL_PRIMARY_PORT_NUMBER": {
-      "default": "27017"
+    "PUBLIC_URL": {
+      "default": "${CLOADY_PRIMARY_URL}"
     }
-  }
+  },
+  "icon": "./icon.svg"
 }

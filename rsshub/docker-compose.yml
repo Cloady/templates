@@ -1,6 +1,8 @@
 services:
   redis:
     image: redis:alpine
+    expose:
+      - 6379
     volumes:
       - redis-data:/data
     deploy:
@@ -21,6 +23,8 @@ services:
           memory: 256M
   browserless:
     image: browserless/chrome
+    expose:
+      - 3000
     deploy:
       resources:
         reservations:

@@ -18,6 +18,8 @@ services:
           memory: 256M
   shlink-db:
     image: postgres:17.11-alpine
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: shlink
       POSTGRES_USER: shlink

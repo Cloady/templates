@@ -3,7 +3,8 @@
   "version": "2.26.1",
   "envSchema": {
     "HALO_EXTERNAL_URL": {
-      "title": "External url"
+      "title": "External url",
+      "default": "${CLOADY_PRIMARY_URL}"
     },
     "HALO_DATABASE_PASSWORD": {
       "secret": true,

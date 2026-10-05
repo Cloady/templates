@@ -21,6 +21,8 @@ services:
           memory: 256M
   logto-db:
     image: postgres:14
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: logto
       POSTGRES_USER: tipi

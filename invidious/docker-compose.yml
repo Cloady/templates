@@ -27,6 +27,8 @@ services:
           memory: 256M
   invidious-db:
     image: postgres:14
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: invidious
       POSTGRES_USER: tipi
@@ -42,6 +44,8 @@ services:
           memory: 512M
   inv-sig-helper:
     image: quay.io/invidious/inv-sig-helper:latest
+    expose:
+      - 12999
     command:
       - --tcp
       - 0.0.0.0:12999

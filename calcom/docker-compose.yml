@@ -34,6 +34,8 @@ services:
           memory: 256M
   db-calcom:
     image: postgres:16.15
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: calcom
       POSTGRES_USER: ${POSTGRES_USERNAME}

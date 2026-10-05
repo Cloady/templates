@@ -14,6 +14,8 @@ services:
           memory: 256M
   mempool-db:
     image: mariadb:10.11.19
+    expose:
+      - 3306
     environment:
       MYSQL_USER: mempool
       MYSQL_DATABASE: mempool
@@ -28,6 +30,8 @@ services:
           memory: 512M
   mempool-api:
     image: mempool/backend:v3.3.1
+    expose:
+      - 8999
     command: ./start.sh
     environment:
       CORE_RPC_HOST: ${CORE_RPC_HOST}

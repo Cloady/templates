@@ -26,6 +26,8 @@ services:
           memory: 256M
   romm-db:
     image: lscr.io/linuxserver/mariadb:11.8.8
+    expose:
+      - 3306
     environment:
       MYSQL_USER: tipi
       MYSQL_DATABASE: romm

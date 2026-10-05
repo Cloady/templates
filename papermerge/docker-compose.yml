@@ -1,6 +1,8 @@
 services:
   db:
     image: postgres:16-alpine
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: dbname
       POSTGRES_USER: dbuser
@@ -32,6 +34,8 @@ services:
           memory: 256M
   redis:
     image: redis:8-alpine
+    expose:
+      - 6379
     volumes:
       - redis-data:/data
     deploy:

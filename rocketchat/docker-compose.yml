@@ -1,44 +1,59 @@
 services:
-  mongodb:
-    image: docker.io/bitnami/mongodb:${MONGODB_VERSION:-4.4}
+  rocketchat:
+    image: registry.rocket.chat/rocketchat/rocket.chat:8.8.1
     environment:
-      MONGODB_PORT_NUMBER: ${MONGODB_PORT_NUMBER}
-      ALLOW_EMPTY_PASSWORD: ${ALLOW_EMPTY_PASSWORD}
-      MONGODB_ENABLE_JOURNAL: ${MONGODB_ENABLE_JOURNAL}
-      MONGODB_REPLICA_SET_MODE: primary
-      MONGODB_REPLICA_SET_NAME: ${MONGODB_REPLICA_SET_NAME}
-      MONGODB_ADVERTISED_HOSTNAME: ${MONGODB_ADVERTISED_HOSTNAME}
-      MONGODB_INITIAL_PRIMARY_HOST: ${MONGODB_INITIAL_PRIMARY_HOST}
-      MONGODB_INITIAL_PRIMARY_PORT_NUMBER: ${MONGODB_INITIAL_PRIMARY_PORT_NUMBER}
+      ROOT_URL: ${PUBLIC_URL}
+      PORT: "3000"
+      DEPLOY_METHOD: docker
+      DEPLOY_PLATFORM: compose
+      MONGO_URL: mongodb://mongodb:27017/rocketchat?replicaSet=rs0
+      TRANSPORTER: monolith+nats://nats:4222
+    ports:
+      - 3000
     volumes:
-      - mongodb-mongodb:/bitnami/mongodb
+      - uploads:/app/uploads
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      nats:
+        condition: service_started
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 1G
+  mongodb:
+    image: mongodb/mongodb-community-server:8.0.32-ubi8
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--wiredTigerCacheSizeGB", "0.25"]
+    expose:
+      - 27017
+    volumes:
+      - mongodb:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "try { rs.status().ok } catch (e) { rs.initiate({ _id: 'rs0', members: [{ _id: 0, host: 'mongodb:27017' }] }).ok }"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 20s
     deploy:
       resources:
         reservations:
           cpus: 0.25
           memory: 512M
-  rocketchat:
-    image: registry.rocket.chat/rocketchat/rocket.chat:latest
-    environment:
-      PORT: ${PORT}
-      ROOT_URL: ${ROOT_URL}}
-      MONGO_URL: ${MONGO_URL}:${MONGODB_INITIAL_PRIMARY_PORT_NUMBER}/${MONGODB_DATABASE}?replicaSet=${MONGODB_REPLICA_SET_NAME}}
-      DEPLOY_METHOD: docker
-      DEPLOY_PLATFORM: ${DEPLOY_PLATFORM}
-      MONGO_OPLOG_URL: ${MONGO_OPLOG_URL}:${MONGODB_INITIAL_PRIMARY_PORT_NUMBER}> local?replicaSet=${MONGODB_REPLICA_SET_NAME}}
-    ports:
-      - 3000
-    volumes:
-      - uploads:/app/uploads
+  nats:
+    image: nats:2.15.0-alpine
+    command: ["--http_port", "8222"]
+    expose:
+      - 4222
     deploy:
       resources:
         reservations:
-          cpus: 0.25
-          memory: 256M
+          cpus: 0.1
+          memory: 64M
 volumes:
   uploads:
     driver_opts:
       size: 2Gi
-  mongodb-mongodb:
+  mongodb:
     driver_opts:
       size: 2Gi

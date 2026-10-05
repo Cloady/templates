@@ -21,6 +21,8 @@ services:
           memory: 256M
   immich-db:
     image: ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
+    expose:
+      - 5432
     environment:
       PG_DATA: /var/lib/postgresql/data
       POSTGRES_DB: immich
@@ -35,6 +37,8 @@ services:
           memory: 512M
   immich-redis:
     image: redis:6.2
+    expose:
+      - 6379
     deploy:
       resources:
         reservations:
@@ -42,6 +46,8 @@ services:
           memory: 128M
   immich-machine-learning:
     image: ghcr.io/immich-app/immich-machine-learning:v3.0.1
+    expose:
+      - 3003
     environment:
       DB_NAME: immich
       NODE_ENV: production

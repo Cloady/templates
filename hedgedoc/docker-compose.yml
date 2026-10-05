@@ -16,6 +16,8 @@ services:
           memory: 256M
   hedgedoc-db:
     image: postgres:13.23-alpine
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: hedgedoc
       POSTGRES_USER: hedgedoc

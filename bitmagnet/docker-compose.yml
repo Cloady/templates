@@ -23,6 +23,8 @@ services:
           memory: 256M
   bitmagnet-db:
     image: postgres:17-alpine
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: bitmagnet
       POSTGRES_USER: tipi
@@ -36,6 +38,8 @@ services:
           memory: 512M
   bitmagnet-redis:
     image: redis:alpine
+    expose:
+      - 6379
     command: --save 60 1 --loglevel warning
     volumes:
       - redis:/data

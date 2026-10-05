@@ -24,6 +24,8 @@ services:
           memory: 256M
   mixpost-mysql:
     image: mysql/mysql-server:8.0
+    expose:
+      - 3306
     environment:
       MYSQL_USER: tipi
       MYSQL_DATABASE: mixpost
@@ -38,6 +40,8 @@ services:
           memory: 512M
   mixpost-redis:
     image: redis:latest
+    expose:
+      - 6379
     command: redis-server --appendonly yes --replica-read-only no --requirepass "${MIXPOST_REDIS_PASSWORD}"
     volumes:
       - redis:/data

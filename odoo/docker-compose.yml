@@ -20,6 +20,8 @@ services:
           memory: 256M
   odoodb:
     image: postgres:15
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: odoo
