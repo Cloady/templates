@@ -10,5 +10,6 @@
       "default": 5,
       "description": "AI nations fill the game up to this many players and step aside as people join. Players need a Freeciv 3.1 client (3.2 can't join), connect with Connect to Network Game using the app's address and port 5556, and type /start. The first to connect can change settings. Turns are autosaved, and after a restart they can /load the latest save. The address is IPv6-only, so players need IPv6 on their network."
     }
-  }
+  },
+  "icon": "icon.png"
 }

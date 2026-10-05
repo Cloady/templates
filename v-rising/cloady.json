@@ -42,5 +42,6 @@
       ],
       "default": "Difficulty_Normal"
     }
-  }
+  },
+  "icon": "icon.png"
 }

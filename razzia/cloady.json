@@ -10,5 +10,6 @@
       "generate": "password:24",
       "description": "Signs in to /manager, where you edit quizzes and start a game. Players open the app's address in a browser and enter the room code shown on the host's screen. Written to config/game.json on every start."
     }
-  }
+  },
+  "icon": "icon.svg"
 }

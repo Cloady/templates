@@ -25,5 +25,6 @@
       "title": "Message of the day",
       "default": ""
     }
-  }
+  },
+  "icon": "icon.png"
 }

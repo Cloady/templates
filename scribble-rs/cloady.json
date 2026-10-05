@@ -23,5 +23,6 @@
       "default": "english",
       "description": "Word list preselected when creating a lobby; each lobby can still pick its own. Players open the app's address in a browser and join through the lobby's invite link."
     }
-  }
+  },
+  "icon": "icon.svg"
 }

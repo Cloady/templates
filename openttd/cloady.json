@@ -23,5 +23,6 @@
       "default": "",
       "description": "Leave empty to let anyone with the invite code join."
     }
-  }
+  },
+  "icon": "icon.svg"
 }

@@ -49,5 +49,6 @@
       "title": "Damage",
       "default": true
     }
-  }
+  },
+  "icon": "icon.svg"
 }

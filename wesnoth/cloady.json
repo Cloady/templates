@@ -15,5 +15,6 @@
       "generate": "password:24",
       "description": "Type /query admin followed by this password in the lobby to moderate the server."
     }
-  }
+  },
+  "icon": "icon.png"
 }

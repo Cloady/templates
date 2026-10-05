@@ -15,5 +15,6 @@
       "generate": "password:12",
       "description": "The server is listed publicly so players can find it; clear this for an open server."
     }
-  }
+  },
+  "icon": "icon.png"
 }

@@ -34,5 +34,6 @@
       "title": "Map",
       "default": "gm_construct"
     }
-  }
+  },
+  "icon": "icon.png"
 }
