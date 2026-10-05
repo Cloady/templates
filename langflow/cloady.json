@@ -1,0 +1,27 @@
+{
+  "category": "AI & LLM",
+  "name": "Langflow",
+  "hint": "Visual builder for AI agents and workflows",
+  "version": "1.12.4",
+  "envSchema": {
+    "LANGFLOW_SUPERUSER": {
+      "title": "Admin username",
+      "default": "langflow"
+    },
+    "LANGFLOW_SUPERUSER_PASSWORD": {
+      "title": "Admin password",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "LANGFLOW_SECRET_KEY": {
+      "description": "Encrypts the API keys Langflow stores. Changing it makes saved keys unreadable.",
+      "secret": true,
+      "generate": "password:43"
+    },
+    "POSTGRES_PASSWORD": {
+      "secret": true,
+      "generate": "password:32"
+    }
+  },
+  "icon": "./icon.svg"
+}

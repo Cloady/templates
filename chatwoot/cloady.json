@@ -1,0 +1,59 @@
+{
+  "category": "Communication",
+  "name": "Chatwoot",
+  "hint": "Customer support inbox for live chat, email and social channels",
+  "version": "4.18.0",
+  "envSchema": {
+    "MAILER_SENDER_EMAIL": {
+      "title": "Email sender",
+      "default": "Chatwoot <accounts@chatwoot.com>",
+      "description": "From address on invitations and notifications. Use one your SMTP server is allowed to send as."
+    },
+    "SMTP_ADDRESS": {
+      "title": "SMTP host",
+      "default": "",
+      "description": "Leave empty to send no email."
+    },
+    "SMTP_PORT": {
+      "title": "SMTP port",
+      "default": "587"
+    },
+    "SMTP_USERNAME": {
+      "title": "SMTP username",
+      "default": ""
+    },
+    "SMTP_PASSWORD": {
+      "title": "SMTP password",
+      "secret": true,
+      "default": ""
+    },
+    "SECRET_KEY_BASE": {
+      "secret": true,
+      "generate": "hex:64"
+    },
+    "POSTGRES_PASSWORD": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "REDIS_PASSWORD": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "PUBLIC_URL": {
+      "default": "${CLOADY_PRIMARY_URL}"
+    }
+  },
+  "icon": "./icon.svg"
+}

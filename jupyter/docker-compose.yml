@@ -1,0 +1,19 @@
+services:
+  jupyter:
+    image: quay.io/jupyter/scipy-notebook:2026-09-29
+    environment:
+      JUPYTER_TOKEN: ${JUPYTER_TOKEN}
+      NOTEBOOK_ARGS: --ServerApp.root_dir=/home/jovyan/work
+    ports:
+      - 8888
+    volumes:
+      - work:/home/jovyan/work
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 1G
+volumes:
+  work:
+    driver_opts:
+      size: 5Gi

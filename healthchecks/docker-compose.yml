@@ -1,0 +1,45 @@
+services:
+  web:
+    image: healthchecks/healthchecks:v4.4
+    command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; uwsgi /opt/healthchecks/docker/uwsgi.ini'
+    environment:
+      DEBUG: "False"
+      SECRET_KEY: ${SECRET_KEY}
+      SITE_ROOT: ${PUBLIC_URL}
+      DB: postgres
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_NAME: hc
+      DB_USER: postgres
+      DB_PASSWORD: ${DB_PASSWORD}
+      DEFAULT_FROM_EMAIL: ${DEFAULT_FROM_EMAIL}
+      EMAIL_HOST: ${EMAIL_HOST}
+      EMAIL_HOST_USER: ${EMAIL_HOST_USER}
+      EMAIL_HOST_PASSWORD: ${EMAIL_HOST_PASSWORD}
+    ports:
+      - 8000
+    depends_on:
+      - db
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 512M
+  db:
+    image: postgres:18.6
+    environment:
+      POSTGRES_DB: hc
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    expose:
+      - 5432
+    volumes:
+      - db:/var/lib/postgresql
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 256M
+volumes:
+  db:
+    driver_opts:
+      size: 1Gi

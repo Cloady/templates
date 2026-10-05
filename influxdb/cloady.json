@@ -1,0 +1,32 @@
+{
+  "category": "Databases",
+  "name": "InfluxDB",
+  "hint": "Time series database with a built-in UI and dashboards",
+  "version": "2.9.1",
+  "envSchema": {
+    "DOCKER_INFLUXDB_INIT_USERNAME": {
+      "title": "Username",
+      "default": "cloady"
+    },
+    "DOCKER_INFLUXDB_INIT_PASSWORD": {
+      "title": "Password",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "DOCKER_INFLUXDB_INIT_ORG": {
+      "title": "Organization",
+      "default": "cloady"
+    },
+    "DOCKER_INFLUXDB_INIT_BUCKET": {
+      "title": "Bucket",
+      "default": "default"
+    },
+    "DOCKER_INFLUXDB_INIT_ADMIN_TOKEN": {
+      "title": "Admin token",
+      "description": "API token with full access, for clients and the influx CLI",
+      "secret": true,
+      "generate": "hex:32"
+    }
+  },
+  "icon": "./icon.svg"
+}

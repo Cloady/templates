@@ -1,0 +1,15 @@
+{
+  "category": "Databases",
+  "name": "Qdrant",
+  "hint": "Vector database for similarity search and AI applications",
+  "version": "1.19.1",
+  "envSchema": {
+    "QDRANT__SERVICE__API_KEY": {
+      "title": "API key",
+      "description": "Sent by clients in the api-key header",
+      "secret": true,
+      "generate": "hex:32"
+    }
+  },
+  "icon": "./icon.svg"
+}

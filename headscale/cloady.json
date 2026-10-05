@@ -1,0 +1,17 @@
+{
+  "category": "Networking",
+  "name": "Headscale",
+  "hint": "Self-hosted Tailscale control server",
+  "version": "0.29.4",
+  "envSchema": {
+    "BASE_DOMAIN": {
+      "title": "MagicDNS domain",
+      "default": "example.com",
+      "description": "Devices are named <device>.<this domain> inside the tailnet. Must not be this server's domain or a parent of it."
+    },
+    "PUBLIC_URL": {
+      "default": "${CLOADY_PRIMARY_URL}"
+    }
+  },
+  "icon": "./icon.svg"
+}

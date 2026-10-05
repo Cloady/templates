@@ -1,0 +1,18 @@
+services:
+  redisinsight:
+    image: redis/redisinsight:3.8.0
+    environment:
+      RI_ENCRYPTION_KEY: ${RI_ENCRYPTION_KEY}
+    ports:
+      - 5540
+    volumes:
+      - data:/data
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 512M
+volumes:
+  data:
+    driver_opts:
+      size: 512Mi

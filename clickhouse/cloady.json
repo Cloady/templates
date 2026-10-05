@@ -1,0 +1,15 @@
+{
+  "category": "Databases",
+  "name": "ClickHouse",
+  "hint": "Column-oriented SQL database for real-time analytics",
+  "version": "26.9.10.4",
+  "envSchema": {
+    "CLICKHOUSE_PASSWORD": {
+      "title": "Password",
+      "description": "Password for the default user",
+      "secret": true,
+      "generate": "password:24"
+    }
+  },
+  "icon": "./icon.svg"
+}

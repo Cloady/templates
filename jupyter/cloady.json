@@ -1,0 +1,15 @@
+{
+  "category": "Developer Tools",
+  "name": "JupyterLab",
+  "hint": "Python notebooks with the SciPy data science stack",
+  "version": "2026-09-29",
+  "envSchema": {
+    "JUPYTER_TOKEN": {
+      "title": "Access token",
+      "secret": true,
+      "generate": "hex:24",
+      "description": "Paste it on the JupyterLab login page."
+    }
+  },
+  "icon": "./icon.svg"
+}

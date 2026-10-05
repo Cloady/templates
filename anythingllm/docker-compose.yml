@@ -1,0 +1,24 @@
+services:
+  anythingllm:
+    image: mintplexlabs/anythingllm:1.17.0
+    entrypoint:
+      - /bin/bash
+      - -c
+      - touch /app/server/storage/.env && ln -sf /app/server/storage/.env /app/server/.env && exec /usr/local/bin/docker-entrypoint.sh
+    environment:
+      STORAGE_DIR: /app/server/storage
+      JWT_SECRET: ${JWT_SECRET}
+      ANYTHINGLLM_CHROMIUM_ARGS: "--no-sandbox,--disable-setuid-sandbox"
+    ports:
+      - 3001
+    volumes:
+      - storage:/app/server/storage
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 1G
+volumes:
+  storage:
+    driver_opts:
+      size: 5Gi

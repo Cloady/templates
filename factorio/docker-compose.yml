@@ -1,0 +1,18 @@
+services:
+  factorio:
+    image: factoriotools/factorio:2.0.77
+    environment:
+      DLC_SPACE_AGE: ${DLC_SPACE_AGE}
+    ports:
+      - 34197/udp
+    volumes:
+      - saves:/factorio
+    deploy:
+      resources:
+        reservations:
+          cpus: 1
+          memory: 2G
+volumes:
+  saves:
+    driver_opts:
+      size: 2Gi

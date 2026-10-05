@@ -1,0 +1,22 @@
+services:
+  rabbitmq:
+    image: rabbitmq:4.3.6-management
+    environment:
+      RABBITMQ_NODENAME: rabbit@localhost
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+      RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS: "-rabbit total_memory_available_override_value 536870912"
+    ports:
+      - 15672
+      - 5672
+    volumes:
+      - data:/var/lib/rabbitmq
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 512M
+volumes:
+  data:
+    driver_opts:
+      size: 1Gi

@@ -1,0 +1,18 @@
+{
+  "category": "Monitoring",
+  "name": "Gatus",
+  "hint": "Automated status page with uptime checks and alerts",
+  "version": "5.37.0",
+  "envSchema": {
+    "MONITOR_URL": {
+      "title": "URL to monitor",
+      "default": "https://example.com",
+      "description": "Gatus checks this address every minute for a 200 response and a certificate valid for at least two more days. Add more endpoints by deploying your own config from a repository."
+    },
+    "MONITOR_NAME": {
+      "title": "Name shown on the status page",
+      "default": "Website"
+    }
+  },
+  "icon": "./icon.svg"
+}

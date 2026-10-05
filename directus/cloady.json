@@ -1,0 +1,30 @@
+{
+  "category": "Backends",
+  "name": "Directus",
+  "hint": "Headless CMS with instant REST and GraphQL APIs on Postgres",
+  "version": "12.4.1",
+  "envSchema": {
+    "ADMIN_EMAIL": {
+      "title": "Admin email",
+      "default": "admin@example.com"
+    },
+    "ADMIN_PASSWORD": {
+      "title": "Admin password",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "SECRET": {
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "POSTGRES_PASSWORD": {
+      "title": "Database password",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "PUBLIC_URL": {
+      "default": "${CLOADY_PRIMARY_URL}"
+    }
+  },
+  "icon": "./icon.svg"
+}

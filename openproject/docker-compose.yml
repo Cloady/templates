@@ -1,0 +1,27 @@
+services:
+  openproject:
+    image: openproject/openproject:17.9.1
+    environment:
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      OPENPROJECT_HOST__NAME: ${PUBLIC_HOST}
+      OPENPROJECT_HTTPS: "true"
+      OPENPROJECT_SEED_ADMIN_USER_PASSWORD: ${ADMIN_PASSWORD}
+      OPENPROJECT_SEED_ADMIN_USER_PASSWORD_RESET: "false"
+      PGDATA: /var/openproject/pgdata/data
+    ports:
+      - 80
+    volumes:
+      - pgdata:/var/openproject/pgdata
+      - assets:/var/openproject/assets
+    deploy:
+      resources:
+        reservations:
+          cpus: 2
+          memory: 4G
+volumes:
+  pgdata:
+    driver_opts:
+      size: 2Gi
+  assets:
+    driver_opts:
+      size: 3Gi

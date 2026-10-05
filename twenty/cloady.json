@@ -1,0 +1,24 @@
+{
+  "category": "Productivity",
+  "name": "Twenty",
+  "hint": "Open-source CRM for contacts, companies and deals",
+  "version": "2.45.4",
+  "envSchema": {
+    "PG_DATABASE_PASSWORD": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "APP_SECRET": {
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "ENCRYPTION_KEY": {
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "PUBLIC_URL": {
+      "default": "${CLOADY_PRIMARY_URL}"
+    }
+  },
+  "icon": "./icon.svg"
+}

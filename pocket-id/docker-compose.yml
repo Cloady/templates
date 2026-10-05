@@ -1,0 +1,20 @@
+services:
+  pocket-id:
+    image: ghcr.io/pocket-id/pocket-id:v2.18.0
+    environment:
+      APP_URL: ${PUBLIC_URL}
+      TRUST_PROXY: "true"
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+    ports:
+      - 1411
+    volumes:
+      - data:/app/data
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 256M
+volumes:
+  data:
+    driver_opts:
+      size: 1Gi

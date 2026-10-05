@@ -1,0 +1,55 @@
+services:
+  prestashop:
+    image: prestashop/prestashop:9.2.0-apache
+    environment:
+      DB_SERVER: mariadb
+      DB_NAME: prestashop
+      DB_USER: prestashop
+      DB_PASSWD: ${MARIADB_PASSWORD}
+      PS_INSTALL_AUTO: "1"
+      PS_FOLDER_INSTALL: installer
+      PS_DOMAIN: ${PUBLIC_HOST}
+      PS_ENABLE_SSL: "1"
+      PS_TRUSTED_PROXIES: 127.0.0.1,REMOTE_ADDR
+      ADMIN_MAIL: ${ADMIN_MAIL}
+      ADMIN_PASSWD: ${ADMIN_PASSWD}
+    configs:
+      - source: trusted-proxies.conf
+        target: /etc/apache2/conf-enabled/trusted-proxies.conf
+    ports:
+      - 80
+    volumes:
+      - html:/var/www/html
+    depends_on:
+      - mariadb
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 1G
+  mariadb:
+    image: mariadb:12.3.3
+    environment:
+      MARIADB_DATABASE: prestashop
+      MARIADB_USER: prestashop
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+    expose:
+      - 3306
+    volumes:
+      - db:/var/lib/mysql
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 256M
+volumes:
+  html:
+    driver_opts:
+      size: 3Gi
+  db:
+    driver_opts:
+      size: 1Gi
+configs:
+  trusted-proxies.conf:
+    file: ./configs/trusted-proxies.conf

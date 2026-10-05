@@ -1,0 +1,17 @@
+{
+  "category": "Productivity",
+  "name": "Redmine",
+  "hint": "Issue tracking and project management with wikis and Gantt charts",
+  "version": "7.0.2",
+  "envSchema": {
+    "DB_PASSWORD": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "SECRET_KEY_BASE": {
+      "secret": true,
+      "generate": "hex:64"
+    }
+  },
+  "icon": "./icon.svg"
+}

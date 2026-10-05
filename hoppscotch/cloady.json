@@ -1,0 +1,26 @@
+{
+  "category": "Developer Tools",
+  "name": "Hoppscotch",
+  "hint": "Open-source API client for REST, GraphQL and WebSockets",
+  "version": "2026.9.0",
+  "envSchema": {
+    "POSTGRES_PASSWORD": {
+      "title": "Database password",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "DATA_ENCRYPTION_KEY": {
+      "title": "Data encryption key",
+      "secret": true,
+      "generate": "password:32",
+      "description": "Exactly 32 characters. Encrypts sensitive data in the database; keep it unchanged."
+    },
+    "PUBLIC_URL": {
+      "default": "${CLOADY_PRIMARY_URL}"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
+    }
+  },
+  "icon": "./icon.svg"
+}

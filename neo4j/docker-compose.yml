@@ -1,0 +1,22 @@
+services:
+  neo4j:
+    image: neo4j:2026.09.0-community
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD}
+      NEO4J_server_memory_heap_initial__size: 384M
+      NEO4J_server_memory_heap_max__size: 384M
+      NEO4J_server_memory_pagecache_size: 128M
+    ports:
+      - 7474
+      - 7687
+    volumes:
+      - data:/data
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 1G
+volumes:
+  data:
+    driver_opts:
+      size: 2Gi

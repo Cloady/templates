@@ -1,0 +1,7 @@
+endpoints:
+  - name: ${MONITOR_NAME}
+    url: ${MONITOR_URL}
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[CERTIFICATE_EXPIRATION] > 48h"

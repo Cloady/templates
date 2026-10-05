@@ -1,0 +1,27 @@
+{
+  "category": "Databases",
+  "name": "MariaDB",
+  "hint": "Open-source MySQL-compatible relational database",
+  "version": "13.0.2",
+  "envSchema": {
+    "MARIADB_DATABASE": {
+      "title": "Database",
+      "default": "app"
+    },
+    "MARIADB_USER": {
+      "title": "Username",
+      "default": "cloady"
+    },
+    "MARIADB_PASSWORD": {
+      "title": "Password",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "MARIADB_ROOT_PASSWORD": {
+      "title": "Root password",
+      "secret": true,
+      "generate": "password:24"
+    }
+  },
+  "icon": "./icon.svg"
+}

@@ -1,0 +1,28 @@
+{
+  "category": "Security",
+  "name": "Infisical",
+  "hint": "Secrets manager for apps, teams and infrastructure",
+  "version": "0.165.16",
+  "envSchema": {
+    "ENCRYPTION_KEY": {
+      "secret": true,
+      "generate": "hex:16"
+    },
+    "AUTH_SECRET": {
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "POSTGRES_PASSWORD": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "REDIS_PASSWORD": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "PUBLIC_URL": {
+      "default": "${CLOADY_PRIMARY_URL}"
+    }
+  },
+  "icon": "./icon.svg"
+}

@@ -1,0 +1,14 @@
+{
+  "category": "CMS & Websites",
+  "name": "Apache Tomcat",
+  "hint": "Java servlet container for running WAR web applications",
+  "version": "11.0.26",
+  "envSchema": {
+    "CATALINA_OPTS": {
+      "title": "JVM options",
+      "description": "Extra Java options for Tomcat, such as the share of memory the heap may use. Deploy apps by adding .war files to the webapps volume.",
+      "default": "-XX:MaxRAMPercentage=50"
+    }
+  },
+  "icon": "./icon.svg"
+}

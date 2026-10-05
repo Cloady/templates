@@ -1,0 +1,63 @@
+services:
+  backend:
+    image: infisical/infisical:v0.165.16
+    environment:
+      NODE_ENV: production
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      AUTH_SECRET: ${AUTH_SECRET}
+      DB_CONNECTION_URI: postgres://infisical:${POSTGRES_PASSWORD}@db:5432/infisical
+      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379
+      SITE_URL: ${PUBLIC_URL}
+    ports:
+      - 8080
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 1G
+  redis:
+    image: redis:8.10.2
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    expose:
+      - 6379
+    volumes:
+      - redis-data:/data
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.1
+          memory: 128M
+  db:
+    image: postgres:14.24-alpine
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_USER: infisical
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: infisical
+    expose:
+      - 5432
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "infisical", "-d", "infisical"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 512M
+volumes:
+  pg-data:
+    driver_opts:
+      size: 1Gi
+  redis-data:
+    driver_opts:
+      size: 256Mi

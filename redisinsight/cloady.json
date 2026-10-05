@@ -1,0 +1,15 @@
+{
+  "category": "Developer Tools",
+  "name": "Redis Insight",
+  "hint": "Visual tool for browsing and debugging Redis databases",
+  "version": "3.8.0",
+  "envSchema": {
+    "RI_ENCRYPTION_KEY": {
+      "title": "Encryption key",
+      "secret": true,
+      "generate": "hex:32",
+      "description": "Encrypts saved database passwords. Keep it unchanged, or saved connections can no longer be read."
+    }
+  },
+  "icon": "./icon.svg"
+}

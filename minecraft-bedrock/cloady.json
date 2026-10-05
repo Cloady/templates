@@ -1,0 +1,32 @@
+{
+  "category": "Game Servers",
+  "name": "Minecraft Bedrock",
+  "hint": "Mojang's dedicated server for Minecraft Bedrock Edition players",
+  "version": "2026.9.2",
+  "envSchema": {
+    "SERVER_NAME": {
+      "title": "Server name",
+      "default": "Dedicated Server"
+    },
+    "GAMEMODE": {
+      "title": "Game mode",
+      "enum": [
+        "survival",
+        "creative",
+        "adventure"
+      ],
+      "default": "survival"
+    },
+    "DIFFICULTY": {
+      "title": "Difficulty",
+      "enum": [
+        "peaceful",
+        "easy",
+        "normal",
+        "hard"
+      ],
+      "default": "easy"
+    }
+  },
+  "icon": "./icon.svg"
+}

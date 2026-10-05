@@ -1,0 +1,47 @@
+services:
+  joomla:
+    image: joomla:6.1.4-php8.4-apache
+    environment:
+      JOOMLA_DB_HOST: mariadb
+      JOOMLA_DB_NAME: joomla
+      JOOMLA_DB_USER: joomla
+      JOOMLA_DB_PASSWORD: ${MARIADB_PASSWORD}
+      JOOMLA_SITE_NAME: ${JOOMLA_SITE_NAME}
+      JOOMLA_ADMIN_USER: ${JOOMLA_ADMIN_USER}
+      JOOMLA_ADMIN_USERNAME: ${JOOMLA_ADMIN_USERNAME}
+      JOOMLA_ADMIN_PASSWORD: ${JOOMLA_ADMIN_PASSWORD}
+      JOOMLA_ADMIN_EMAIL: ${JOOMLA_ADMIN_EMAIL}
+    ports:
+      - 80
+    volumes:
+      - html:/var/www/html
+    depends_on:
+      - mariadb
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 512M
+  mariadb:
+    image: mariadb:12.3.3
+    environment:
+      MARIADB_DATABASE: joomla
+      MARIADB_USER: joomla
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+    expose:
+      - 3306
+    volumes:
+      - db:/var/lib/mysql
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 256M
+volumes:
+  html:
+    driver_opts:
+      size: 2Gi
+  db:
+    driver_opts:
+      size: 1Gi

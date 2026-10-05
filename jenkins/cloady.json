@@ -1,0 +1,7 @@
+{
+  "category": "Developer Tools",
+  "name": "Jenkins",
+  "hint": "Open-source automation server for CI/CD pipelines",
+  "version": "2.580.1",
+  "icon": "./icon.svg"
+}

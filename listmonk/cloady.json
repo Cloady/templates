@@ -1,0 +1,24 @@
+{
+  "category": "Communication",
+  "name": "listmonk",
+  "hint": "Self-hosted newsletter and mailing list manager",
+  "version": "6.2.0",
+  "envSchema": {
+    "LISTMONK_ADMIN_USER": {
+      "title": "Admin username",
+      "description": "Created on the first start. After signing in, set Settings → General → Root URL to this app's address so links in emails point to it.",
+      "default": "admin"
+    },
+    "LISTMONK_ADMIN_PASSWORD": {
+      "title": "Admin password",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "POSTGRES_PASSWORD": {
+      "title": "Database password",
+      "secret": true,
+      "generate": "password:24"
+    }
+  },
+  "icon": "./icon.svg"
+}

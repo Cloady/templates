@@ -1,0 +1,25 @@
+{
+  "category": "Productivity",
+  "name": "Miniflux",
+  "hint": "Minimalist and opinionated RSS and Atom feed reader",
+  "version": "2.3.3",
+  "envSchema": {
+    "ADMIN_USERNAME": {
+      "title": "Admin username",
+      "default": "admin"
+    },
+    "ADMIN_PASSWORD": {
+      "title": "Admin password",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "DB_PASSWORD": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "PUBLIC_URL": {
+      "default": "${CLOADY_PRIMARY_URL}"
+    }
+  },
+  "icon": "./icon.svg"
+}

@@ -1,0 +1,39 @@
+{
+  "category": "Storage",
+  "name": "Seafile",
+  "hint": "File sync and share with libraries, versioning and desktop clients",
+  "version": "13.0.28",
+  "envSchema": {
+    "INIT_SEAFILE_ADMIN_EMAIL": {
+      "title": "Admin email",
+      "default": "me@example.com",
+      "description": "Login of the first admin account. Read on first start only."
+    },
+    "INIT_SEAFILE_ADMIN_PASSWORD": {
+      "title": "Admin password",
+      "secret": true,
+      "generate": "password:24",
+      "description": "Read on first start only; change it in Seafile afterwards."
+    },
+    "JWT_PRIVATE_KEY": {
+      "secret": true,
+      "generate": "password:40"
+    },
+    "SEAFILE_MYSQL_DB_PASSWORD": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "INIT_SEAFILE_MYSQL_ROOT_PASSWORD": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "REDIS_PASSWORD": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
+    }
+  },
+  "icon": "./icon.svg"
+}

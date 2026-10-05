@@ -1,0 +1,49 @@
+services:
+  redmine:
+    image: redmine:7.0.2
+    environment:
+      REDMINE_DB_POSTGRES: db
+      REDMINE_DB_DATABASE: redmine
+      REDMINE_DB_USERNAME: redmine
+      REDMINE_DB_PASSWORD: ${DB_PASSWORD}
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+    ports:
+      - 3000
+    volumes:
+      - files:/usr/src/redmine/files
+    depends_on:
+      db:
+        condition: service_healthy
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 512M
+  db:
+    image: postgres:18.6
+    environment:
+      POSTGRES_DB: redmine
+      POSTGRES_USER: redmine
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    expose:
+      - 5432
+    volumes:
+      - db:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-h", "localhost", "-U", "redmine", "-d", "redmine"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 60s
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 256M
+volumes:
+  files:
+    driver_opts:
+      size: 2Gi
+  db:
+    driver_opts:
+      size: 1Gi

@@ -1,0 +1,22 @@
+{
+  "category": "Databases",
+  "name": "TimescaleDB",
+  "hint": "Time-series database built on PostgreSQL",
+  "version": "2.30.2",
+  "envSchema": {
+    "POSTGRES_DB": {
+      "title": "Database",
+      "default": "app"
+    },
+    "POSTGRES_USER": {
+      "title": "Username",
+      "default": "cloady"
+    },
+    "POSTGRES_PASSWORD": {
+      "title": "Password",
+      "secret": true,
+      "generate": "password:24"
+    }
+  },
+  "icon": "./icon.svg"
+}

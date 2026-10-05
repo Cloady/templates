@@ -1,0 +1,7 @@
+{
+  "category": "Developer Tools",
+  "name": "phpMyAdmin",
+  "hint": "Web interface for MySQL and MariaDB administration",
+  "version": "5.2.3",
+  "icon": "./icon.svg"
+}

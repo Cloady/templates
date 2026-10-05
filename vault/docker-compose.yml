@@ -1,0 +1,26 @@
+services:
+  vault:
+    image: hashicorp/vault:2.1.1
+    command: server
+    environment:
+      VAULT_ADDR: http://127.0.0.1:8200
+      VAULT_API_ADDR: ${PUBLIC_URL}
+    ports:
+      - 8200
+    volumes:
+      - data:/vault/file
+    configs:
+      - source: vault.hcl
+        target: /vault/config/vault.hcl
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.1
+          memory: 256M
+volumes:
+  data:
+    driver_opts:
+      size: 1Gi
+configs:
+  vault.hcl:
+    file: ./configs/vault.hcl

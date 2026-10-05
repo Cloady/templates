@@ -1,0 +1,14 @@
+{
+  "category": "Developer Tools",
+  "name": "Mailpit",
+  "hint": "Email and SMTP testing tool with a web UI and API",
+  "version": "1.31.4",
+  "envSchema": {
+    "MP_UI_AUTH": {
+      "title": "Web UI login",
+      "secret": true,
+      "description": "Optional user:password for the web UI and API, e.g. admin:secret. Separate several with spaces. Leave empty for no login."
+    }
+  },
+  "icon": "./icon.svg"
+}

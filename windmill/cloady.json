@@ -1,0 +1,16 @@
+{
+  "category": "Automation",
+  "name": "Windmill",
+  "hint": "Developer platform for scripts, workflows and internal tools",
+  "version": "1.823.0",
+  "envSchema": {
+    "POSTGRES_PASSWORD": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "PUBLIC_URL": {
+      "default": "${CLOADY_PRIMARY_URL}"
+    }
+  },
+  "icon": "./icon.svg"
+}

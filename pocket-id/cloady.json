@@ -1,0 +1,16 @@
+{
+  "category": "Security",
+  "name": "Pocket ID",
+  "hint": "Passkey-only OpenID Connect provider",
+  "version": "2.18.0",
+  "envSchema": {
+    "ENCRYPTION_KEY": {
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "PUBLIC_URL": {
+      "default": "${CLOADY_PRIMARY_URL}"
+    }
+  },
+  "icon": "./icon.svg"
+}

@@ -1,0 +1,22 @@
+services:
+  bds:
+    image: itzg/minecraft-bedrock-server:2026.9.2
+    environment:
+      EULA: "TRUE"
+      SERVER_NAME: ${SERVER_NAME}
+      GAMEMODE: ${GAMEMODE}
+      DIFFICULTY: ${DIFFICULTY}
+    ports:
+      - 19133/udp
+      - 19132/udp
+    volumes:
+      - worlds:/data
+    deploy:
+      resources:
+        reservations:
+          cpus: 1
+          memory: 1536M
+volumes:
+  worlds:
+    driver_opts:
+      size: 2Gi

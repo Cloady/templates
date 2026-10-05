@@ -1,0 +1,15 @@
+{
+  "category": "Databases",
+  "name": "Typesense",
+  "hint": "Typo-tolerant search engine, an open-source Algolia alternative",
+  "version": "30.2",
+  "envSchema": {
+    "TYPESENSE_API_KEY": {
+      "title": "API key",
+      "description": "Admin API key with full access",
+      "secret": true,
+      "generate": "hex:32"
+    }
+  },
+  "icon": "./icon.svg"
+}

@@ -1,0 +1,21 @@
+services:
+  teamspeak:
+    image: teamspeak:3.13.8
+    environment:
+      TS3SERVER_LICENSE: accept
+      TS3SERVER_SERVERADMIN_PASSWORD: ${TS3SERVER_SERVERADMIN_PASSWORD}
+    ports:
+      - 9987/udp
+      - 10011/tcp
+      - 30033/tcp
+    volumes:
+      - data:/var/ts3server
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 128M
+volumes:
+  data:
+    driver_opts:
+      size: 1Gi

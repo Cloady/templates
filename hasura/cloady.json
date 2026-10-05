@@ -1,0 +1,20 @@
+{
+  "category": "Backends",
+  "name": "Hasura GraphQL Engine",
+  "hint": "Instant realtime GraphQL API on your Postgres database",
+  "version": "2.50.3",
+  "envSchema": {
+    "HASURA_GRAPHQL_ADMIN_SECRET": {
+      "title": "Admin secret",
+      "description": "Enter it to open the console. To query the bundled database, connect it under Data with the environment variable PG_DATABASE_URL.",
+      "secret": true,
+      "generate": "password:32"
+    },
+    "POSTGRES_PASSWORD": {
+      "title": "Database password",
+      "secret": true,
+      "generate": "password:24"
+    }
+  },
+  "icon": "./icon.svg"
+}

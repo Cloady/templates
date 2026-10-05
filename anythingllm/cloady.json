@@ -1,0 +1,13 @@
+{
+  "category": "AI & LLM",
+  "name": "AnythingLLM",
+  "hint": "All-in-one AI app to chat with your documents using any LLM",
+  "version": "1.17.0",
+  "envSchema": {
+    "JWT_SECRET": {
+      "secret": true,
+      "generate": "hex:32"
+    }
+  },
+  "icon": "./icon.svg"
+}

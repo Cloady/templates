@@ -1,0 +1,23 @@
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.5.4
+    environment:
+      discovery.type: single-node
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD}
+      xpack.security.enabled: "true"
+      xpack.security.http.ssl.enabled: "false"
+      node.store.allow_mmap: "false"
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+    ports:
+      - 9200
+    volumes:
+      - data:/usr/share/elasticsearch/data
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 1G
+volumes:
+  data:
+    driver_opts:
+      size: 2Gi

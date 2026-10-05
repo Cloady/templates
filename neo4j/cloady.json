@@ -1,0 +1,15 @@
+{
+  "category": "Databases",
+  "name": "Neo4j",
+  "hint": "Graph database with Cypher and a web browser, Community Edition",
+  "version": "2026.09.0",
+  "envSchema": {
+    "NEO4J_PASSWORD": {
+      "title": "Password",
+      "description": "Password for the neo4j user",
+      "secret": true,
+      "generate": "password:24"
+    }
+  },
+  "icon": "./icon.svg"
+}

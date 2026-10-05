@@ -1,0 +1,20 @@
+{
+  "category": "Backends",
+  "name": "PocketBase",
+  "hint": "Backend in one file with realtime database, auth and file storage",
+  "version": "0.40.4",
+  "envSchema": {
+    "PB_ADMIN_EMAIL": {
+      "title": "Superuser email",
+      "description": "Sign in to the dashboard at /_/, then set Settings → Application URL to this app's address so emailed links point to it.",
+      "default": "admin@example.com"
+    },
+    "PB_ADMIN_PASSWORD": {
+      "title": "Superuser password",
+      "description": "Applied on every start, so change it here rather than in the dashboard.",
+      "secret": true,
+      "generate": "password:24"
+    }
+  },
+  "icon": "./icon.svg"
+}

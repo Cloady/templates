@@ -1,0 +1,37 @@
+{
+  "category": "AI & LLM",
+  "name": "LiteLLM",
+  "hint": "OpenAI-compatible gateway to 100+ LLM providers",
+  "version": "1.104.0",
+  "envSchema": {
+    "UI_USERNAME": {
+      "title": "Admin username",
+      "default": "admin"
+    },
+    "UI_PASSWORD": {
+      "title": "Admin password",
+      "description": "Sign in to the admin UI at /ui",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "LITELLM_MASTER_KEY": {
+      "title": "Master key",
+      "description": "Admin API key. LiteLLM requires it to start with sk-; the default is sk- followed by a generated key.",
+      "secret": true,
+      "default": "sk-${LITELLM_MASTER_KEY_SUFFIX}"
+    },
+    "LITELLM_MASTER_KEY_SUFFIX": {
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "LITELLM_SALT_KEY": {
+      "description": "Encrypts the provider keys stored in the database. Changing it makes them unreadable.",
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "POSTGRES_PASSWORD": {
+      "secret": true,
+      "generate": "password:32"
+    }
+  }
+}

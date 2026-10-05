@@ -1,0 +1,35 @@
+{
+  "category": "Monitoring",
+  "name": "Healthchecks",
+  "hint": "Cron job monitoring that alerts you when jobs stop checking in",
+  "version": "4.4",
+  "envSchema": {
+    "EMAIL_HOST": {
+      "title": "SMTP host",
+      "description": "Optional, for email alerts and sign-up links. Without it, create your login by running /opt/healthchecks/manage.py createsuperuser in the web terminal."
+    },
+    "EMAIL_HOST_USER": {
+      "title": "SMTP username"
+    },
+    "EMAIL_HOST_PASSWORD": {
+      "title": "SMTP password",
+      "secret": true
+    },
+    "DEFAULT_FROM_EMAIL": {
+      "title": "From address",
+      "default": "healthchecks@example.org"
+    },
+    "SECRET_KEY": {
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "DB_PASSWORD": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "PUBLIC_URL": {
+      "default": "${CLOADY_PRIMARY_URL}"
+    }
+  },
+  "icon": "./icon.svg"
+}

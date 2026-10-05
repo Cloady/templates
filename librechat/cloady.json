@@ -1,0 +1,65 @@
+{
+  "category": "AI & LLM",
+  "name": "LibreChat",
+  "hint": "Open-source AI chat for OpenAI, Anthropic, Google and more",
+  "version": "0.8.7",
+  "envSchema": {
+    "ALLOW_REGISTRATION": {
+      "type": "boolean",
+      "title": "Allow registration",
+      "description": "The first account to sign up becomes the admin. Turn this off once your users have joined.",
+      "default": true
+    },
+    "OPENAI_API_KEY": {
+      "title": "OpenAI API key",
+      "description": "Keep user_provided to let each user enter their own key, or set one key for everyone.",
+      "secret": true,
+      "default": "user_provided"
+    },
+    "ANTHROPIC_API_KEY": {
+      "title": "Anthropic API key",
+      "description": "Keep user_provided to let each user enter their own key, or set one key for everyone.",
+      "secret": true,
+      "default": "user_provided"
+    },
+    "GOOGLE_KEY": {
+      "title": "Google Gemini API key",
+      "description": "Keep user_provided to let each user enter their own key, or set one key for everyone.",
+      "secret": true,
+      "default": "user_provided"
+    },
+    "CONFIG_PATH": {
+      "title": "librechat.yaml URL",
+      "description": "Optional. A librechat.yaml adds custom endpoints and settings; without one LibreChat runs on its defaults.",
+      "default": ""
+    },
+    "CREDS_KEY": {
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "CREDS_IV": {
+      "secret": true,
+      "generate": "hex:16"
+    },
+    "JWT_SECRET": {
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "JWT_REFRESH_SECRET": {
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "MEILI_MASTER_KEY": {
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "MONGO_PASSWORD": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "PUBLIC_URL": {
+      "default": "${CLOADY_PRIMARY_URL}"
+    }
+  },
+  "icon": "./icon.svg"
+}

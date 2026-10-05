@@ -1,0 +1,15 @@
+{
+  "category": "Databases",
+  "name": "Elasticsearch",
+  "hint": "Search and analytics engine, as a single node",
+  "version": "9.5.4",
+  "envSchema": {
+    "ELASTIC_PASSWORD": {
+      "title": "Password",
+      "description": "Password for the elastic user",
+      "secret": true,
+      "generate": "password:24"
+    }
+  },
+  "icon": "./icon.svg"
+}

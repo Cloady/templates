@@ -1,0 +1,12 @@
+{
+  "category": "Security",
+  "name": "HashiCorp Vault",
+  "hint": "Secrets management, encryption and dynamic credentials",
+  "version": "2.1.1",
+  "envSchema": {
+    "PUBLIC_URL": {
+      "default": "${CLOADY_PRIMARY_URL}"
+    }
+  },
+  "icon": "./icon.svg"
+}

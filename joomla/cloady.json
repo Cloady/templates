@@ -1,0 +1,41 @@
+{
+  "category": "CMS & Websites",
+  "name": "Joomla!",
+  "hint": "Open-source CMS for websites and online publications",
+  "version": "6.1.4",
+  "envSchema": {
+    "JOOMLA_SITE_NAME": {
+      "title": "Site name",
+      "default": "Joomla"
+    },
+    "JOOMLA_ADMIN_USER": {
+      "title": "Admin full name",
+      "default": "Administrator"
+    },
+    "JOOMLA_ADMIN_USERNAME": {
+      "title": "Admin username",
+      "description": "Letters only. Sign in at /administrator.",
+      "default": "admin"
+    },
+    "JOOMLA_ADMIN_PASSWORD": {
+      "title": "Admin password",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "JOOMLA_ADMIN_EMAIL": {
+      "title": "Admin email",
+      "default": "admin@example.com"
+    },
+    "MARIADB_PASSWORD": {
+      "title": "Database password",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "MARIADB_ROOT_PASSWORD": {
+      "title": "Database root password",
+      "secret": true,
+      "generate": "password:24"
+    }
+  },
+  "icon": "./icon.svg"
+}

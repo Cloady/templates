@@ -1,0 +1,30 @@
+services:
+  kopia:
+    image: kopia/kopia:0.23.1
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - >-
+        kopia repository connect filesystem --path=/repository --override-hostname=kopia --override-username=kopia
+        || kopia repository create filesystem --path=/repository --override-hostname=kopia --override-username=kopia;
+        exec kopia server start --insecure --address=0.0.0.0:51515
+    environment:
+      KOPIA_PASSWORD: ${KOPIA_PASSWORD}
+      KOPIA_SERVER_USERNAME: ${KOPIA_SERVER_USERNAME}
+      KOPIA_SERVER_PASSWORD: ${KOPIA_SERVER_PASSWORD}
+    ports:
+      - 51515
+    volumes:
+      - config:/app/config
+      - repository:/repository
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 512M
+volumes:
+  config:
+    driver_opts:
+      size: 256Mi
+  repository:
+    driver_opts:
+      size: 4Gi

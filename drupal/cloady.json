@@ -1,0 +1,15 @@
+{
+  "category": "CMS & Websites",
+  "name": "Drupal",
+  "hint": "Flexible open-source CMS for content-rich websites",
+  "version": "11.4.8",
+  "envSchema": {
+    "POSTGRES_PASSWORD": {
+      "title": "Database password",
+      "description": "Enter it in the Drupal installer: database type PostgreSQL, database name drupal, username drupal, this password, and under Advanced options the host postgres.",
+      "secret": true,
+      "generate": "password:24"
+    }
+  },
+  "icon": "./icon.svg"
+}

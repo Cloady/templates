@@ -1,0 +1,8 @@
+{
+  "category": "Monitoring",
+  "name": "Prometheus",
+  "hint": "Monitoring system and time series database",
+  "version": "3.15.0",
+  "envSchema": {},
+  "icon": "./icon.svg"
+}

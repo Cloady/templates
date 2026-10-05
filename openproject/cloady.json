@@ -1,0 +1,22 @@
+{
+  "category": "Productivity",
+  "name": "OpenProject",
+  "hint": "Project management with Gantt charts, boards and time tracking",
+  "version": "17.9.1",
+  "envSchema": {
+    "ADMIN_PASSWORD": {
+      "title": "Admin password",
+      "description": "Password for the admin login",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "SECRET_KEY_BASE": {
+      "secret": true,
+      "generate": "hex:64"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
+    }
+  },
+  "icon": "./icon.svg"
+}

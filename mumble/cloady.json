@@ -1,0 +1,21 @@
+{
+  "category": "Communication",
+  "name": "Mumble",
+  "hint": "Low-latency, high-quality voice chat server",
+  "version": "1.5.915",
+  "envSchema": {
+    "MUMBLE_SUPERUSER_PASSWORD": {
+      "title": "SuperUser password",
+      "secret": true,
+      "generate": "password:24",
+      "description": "Log in as SuperUser with this password to administer the server."
+    },
+    "SERVER_PASSWORD": {
+      "title": "Server password",
+      "secret": true,
+      "default": "",
+      "description": "Password everyone needs to join. Leave empty for an open server."
+    }
+  },
+  "icon": "./icon.svg"
+}

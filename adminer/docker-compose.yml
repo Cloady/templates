@@ -1,0 +1,10 @@
+services:
+  adminer:
+    image: adminer:6.1.1
+    ports:
+      - 8080
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.1
+          memory: 256M

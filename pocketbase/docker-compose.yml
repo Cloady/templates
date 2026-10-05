@@ -1,0 +1,27 @@
+services:
+  pocketbase:
+    image: ghcr.io/muchobien/pocketbase:0.40.4
+    environment:
+      PB_ADMIN_EMAIL: ${PB_ADMIN_EMAIL}
+      PB_ADMIN_PASSWORD: ${PB_ADMIN_PASSWORD}
+    ports:
+      - 8090
+    volumes:
+      - pb-data:/pb_data
+      - pb-public:/pb_public
+      - pb-hooks:/pb_hooks
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 256M
+volumes:
+  pb-data:
+    driver_opts:
+      size: 2Gi
+  pb-public:
+    driver_opts:
+      size: 512Mi
+  pb-hooks:
+    driver_opts:
+      size: 256Mi

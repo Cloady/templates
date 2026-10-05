@@ -1,0 +1,23 @@
+services:
+  wallabag:
+    image: wallabag/wallabag:2.6.14
+    environment:
+      SYMFONY__ENV__DOMAIN_NAME: ${PUBLIC_URL}
+      SYMFONY__ENV__SECRET: ${SECRET}
+    ports:
+      - 80
+    volumes:
+      - data:/var/www/wallabag/data
+      - images:/var/www/wallabag/web/assets/images
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 512M
+volumes:
+  data:
+    driver_opts:
+      size: 1Gi
+  images:
+    driver_opts:
+      size: 2Gi

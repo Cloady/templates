@@ -1,0 +1,15 @@
+{
+  "category": "Communication",
+  "name": "TeamSpeak",
+  "hint": "TeamSpeak 3 voice server for gaming and teams",
+  "version": "3.13.8",
+  "envSchema": {
+    "TS3SERVER_SERVERADMIN_PASSWORD": {
+      "title": "ServerQuery password",
+      "secret": true,
+      "generate": "password:24",
+      "description": "Password of the serveradmin login on the ServerQuery port 10011. The admin privilege key for the client is printed in the log on first start."
+    }
+  },
+  "icon": "./icon.svg"
+}

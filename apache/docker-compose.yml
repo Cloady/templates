@@ -1,0 +1,16 @@
+services:
+  httpd:
+    image: httpd:2.4.69
+    ports:
+      - 80
+    volumes:
+      - htdocs:/usr/local/apache2/htdocs
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.1
+          memory: 128M
+volumes:
+  htdocs:
+    driver_opts:
+      size: 1Gi

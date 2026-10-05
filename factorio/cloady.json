@@ -1,0 +1,14 @@
+{
+  "category": "Game Servers",
+  "name": "Factorio",
+  "hint": "Factorio headless multiplayer server",
+  "version": "2.0.77",
+  "envSchema": {
+    "DLC_SPACE_AGE": {
+      "type": "boolean",
+      "title": "Space Age",
+      "default": true,
+      "description": "Enables the Space Age expansion. Players need it to join while it is on."
+    }
+  }
+}

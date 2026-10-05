@@ -1,0 +1,22 @@
+services:
+  prometheus:
+    image: prom/prometheus:v3.15.0
+    configs:
+      - source: prometheus.yml
+        target: /etc/prometheus/prometheus.yml
+    ports:
+      - 9090
+    volumes:
+      - data:/prometheus
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 256M
+volumes:
+  data:
+    driver_opts:
+      size: 5Gi
+configs:
+  prometheus.yml:
+    file: ./configs/prometheus.yml

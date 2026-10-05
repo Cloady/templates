@@ -1,0 +1,50 @@
+services:
+  dolibarr:
+    image: dolibarr/dolibarr:24.0.1
+    environment:
+      DOLI_DB_HOST: mariadb
+      DOLI_DB_NAME: dolidb
+      DOLI_DB_USER: dolidbuser
+      DOLI_DB_PASSWORD: ${DB_PASSWORD}
+      DOLI_URL_ROOT: ${PUBLIC_URL}
+      DOLI_ADMIN_LOGIN: ${ADMIN_LOGIN}
+      DOLI_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      DOLI_INSTANCE_UNIQUE_ID: ${INSTANCE_UNIQUE_ID}
+    ports:
+      - 80
+    volumes:
+      - documents:/var/www/documents
+      - custom:/var/www/html/custom
+    depends_on:
+      - mariadb
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 512M
+  mariadb:
+    image: mariadb:12.3.3
+    environment:
+      MARIADB_DATABASE: dolidb
+      MARIADB_USER: dolidbuser
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    expose:
+      - 3306
+    volumes:
+      - db:/var/lib/mysql
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 256M
+volumes:
+  documents:
+    driver_opts:
+      size: 2Gi
+  custom:
+    driver_opts:
+      size: 512Mi
+  db:
+    driver_opts:
+      size: 1Gi

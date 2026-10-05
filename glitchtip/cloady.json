@@ -1,0 +1,34 @@
+{
+  "category": "Monitoring",
+  "name": "GlitchTip",
+  "hint": "Open-source error tracking compatible with Sentry SDKs",
+  "version": "6.2.6",
+  "envSchema": {
+    "EMAIL_URL": {
+      "title": "Email URL",
+      "description": "SMTP connection for outgoing mail, such as smtp://user:password@smtp.example.com:587. The default writes emails to the logs.",
+      "secret": true,
+      "default": "consolemail://"
+    },
+    "DEFAULT_FROM_EMAIL": {
+      "title": "From address",
+      "default": "glitchtip@example.com"
+    },
+    "SECRET_KEY": {
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "POSTGRES_PASSWORD": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "VALKEY_PASSWORD": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "PUBLIC_URL": {
+      "default": "${CLOADY_PRIMARY_URL}"
+    }
+  },
+  "icon": "./icon.svg"
+}

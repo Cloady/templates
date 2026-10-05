@@ -1,0 +1,18 @@
+{
+  "category": "Databases",
+  "name": "RabbitMQ",
+  "hint": "AMQP message broker with the management UI",
+  "version": "4.3.6",
+  "envSchema": {
+    "RABBITMQ_DEFAULT_USER": {
+      "title": "Username",
+      "default": "cloady"
+    },
+    "RABBITMQ_DEFAULT_PASS": {
+      "title": "Password",
+      "secret": true,
+      "generate": "password:24"
+    }
+  },
+  "icon": "./icon.svg"
+}

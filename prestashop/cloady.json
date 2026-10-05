@@ -1,0 +1,32 @@
+{
+  "category": "CMS & Websites",
+  "name": "PrestaShop",
+  "hint": "Open-source e-commerce platform for online stores",
+  "version": "9.2.0",
+  "envSchema": {
+    "ADMIN_MAIL": {
+      "title": "Admin email",
+      "default": "admin@example.com"
+    },
+    "ADMIN_PASSWD": {
+      "title": "Admin password",
+      "description": "The first start installs the shop, which takes a few minutes. The installer then moves the back office to a randomly named admin folder: open the html volume in Files to find it, and sign in at your app address followed by that folder.",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "MARIADB_PASSWORD": {
+      "title": "Database password",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "MARIADB_ROOT_PASSWORD": {
+      "title": "Database root password",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
+    }
+  },
+  "icon": "./icon.svg"
+}

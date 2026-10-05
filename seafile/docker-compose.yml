@@ -1,0 +1,71 @@
+services:
+  db:
+    image: mariadb:10.11.19
+    environment:
+      MYSQL_ROOT_PASSWORD: ${INIT_SEAFILE_MYSQL_ROOT_PASSWORD}
+      MYSQL_LOG_CONSOLE: "true"
+      MARIADB_AUTO_UPGRADE: "1"
+    expose:
+      - 3306
+    volumes:
+      - db:/var/lib/mysql
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 512M
+  redis:
+    image: redis:8.10.2
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    expose:
+      - 6379
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.1
+          memory: 128M
+  seafile:
+    image: seafileltd/seafile-mc:13.0.28
+    environment:
+      SEAFILE_MYSQL_DB_HOST: db
+      SEAFILE_MYSQL_DB_PORT: "3306"
+      SEAFILE_MYSQL_DB_USER: seafile
+      SEAFILE_MYSQL_DB_PASSWORD: ${SEAFILE_MYSQL_DB_PASSWORD}
+      INIT_SEAFILE_MYSQL_ROOT_PASSWORD: ${INIT_SEAFILE_MYSQL_ROOT_PASSWORD}
+      SEAFILE_MYSQL_DB_CCNET_DB_NAME: ccnet_db
+      SEAFILE_MYSQL_DB_SEAFILE_DB_NAME: seafile_db
+      SEAFILE_MYSQL_DB_SEAHUB_DB_NAME: seahub_db
+      TIME_ZONE: Etc/UTC
+      INIT_SEAFILE_ADMIN_EMAIL: ${INIT_SEAFILE_ADMIN_EMAIL}
+      INIT_SEAFILE_ADMIN_PASSWORD: ${INIT_SEAFILE_ADMIN_PASSWORD}
+      SEAFILE_SERVER_HOSTNAME: ${PUBLIC_HOST}
+      SEAFILE_SERVER_PROTOCOL: https
+      SITE_ROOT: /
+      NON_ROOT: "false"
+      JWT_PRIVATE_KEY: ${JWT_PRIVATE_KEY}
+      ENABLE_GO_FILESERVER: "true"
+      ENABLE_SEADOC: "false"
+      ENABLE_NOTIFICATION_SERVER: "false"
+      CACHE_PROVIDER: redis
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+    ports:
+      - 80
+    volumes:
+      - data:/shared
+    depends_on:
+      - db
+      - redis
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 1536M
+volumes:
+  db:
+    driver_opts:
+      size: 1Gi
+  data:
+    driver_opts:
+      size: 4Gi

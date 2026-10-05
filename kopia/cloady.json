@@ -1,0 +1,26 @@
+{
+  "category": "Storage",
+  "name": "Kopia",
+  "hint": "Encrypted, deduplicated backup repository server with a web UI",
+  "version": "0.23.1",
+  "envSchema": {
+    "KOPIA_SERVER_USERNAME": {
+      "title": "Username",
+      "default": "kopia",
+      "description": "Web UI login."
+    },
+    "KOPIA_SERVER_PASSWORD": {
+      "title": "Password",
+      "secret": true,
+      "generate": "password:24",
+      "description": "Web UI password."
+    },
+    "KOPIA_PASSWORD": {
+      "title": "Repository password",
+      "secret": true,
+      "generate": "password:32",
+      "description": "Encrypts the repository. Keep a copy: changing it later locks you out of existing backups."
+    }
+  },
+  "icon": "./icon.svg"
+}

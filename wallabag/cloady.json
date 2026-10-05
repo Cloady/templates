@@ -1,0 +1,16 @@
+{
+  "category": "Productivity",
+  "name": "wallabag",
+  "hint": "Save web articles and read them later, distraction-free",
+  "version": "2.6.14",
+  "envSchema": {
+    "SECRET": {
+      "secret": true,
+      "generate": "password:32"
+    },
+    "PUBLIC_URL": {
+      "default": "${CLOADY_PRIMARY_URL}"
+    }
+  },
+  "icon": "./icon.svg"
+}

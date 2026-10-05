@@ -1,0 +1,20 @@
+{
+  "category": "Developer Tools",
+  "name": "pgAdmin 4",
+  "hint": "Administration and development platform for PostgreSQL",
+  "version": "9.18.0",
+  "envSchema": {
+    "PGADMIN_DEFAULT_EMAIL": {
+      "title": "Login email",
+      "default": "admin@example.com",
+      "description": "Email of the first administrator. Read once, when pgAdmin first starts."
+    },
+    "PGADMIN_DEFAULT_PASSWORD": {
+      "title": "Login password",
+      "secret": true,
+      "generate": "password:24",
+      "description": "Password of the first administrator. Read once, when pgAdmin first starts; change it in pgAdmin afterwards."
+    }
+  },
+  "icon": "./icon.svg"
+}

@@ -1,0 +1,18 @@
+{
+  "category": "Productivity",
+  "name": "Stirling PDF",
+  "hint": "PDF toolkit to merge, split, convert, sign and OCR documents",
+  "version": "3.0.2",
+  "envSchema": {
+    "ADMIN_USERNAME": {
+      "title": "Admin username",
+      "default": "admin"
+    },
+    "ADMIN_PASSWORD": {
+      "title": "Admin password",
+      "secret": true,
+      "generate": "password:24"
+    }
+  },
+  "icon": "./icon.svg"
+}

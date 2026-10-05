@@ -1,0 +1,14 @@
+{
+  "category": "Databases",
+  "name": "Meilisearch",
+  "hint": "Fast, typo-tolerant search engine with a REST API",
+  "version": "1.54.3",
+  "envSchema": {
+    "MEILI_MASTER_KEY": {
+      "title": "Master key",
+      "secret": true,
+      "generate": "hex:32"
+    }
+  },
+  "icon": "./icon.svg"
+}

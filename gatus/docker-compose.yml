@@ -1,0 +1,19 @@
+services:
+  gatus:
+    image: twinproduction/gatus:v5.37.0
+    environment:
+      MONITOR_NAME: ${MONITOR_NAME}
+      MONITOR_URL: ${MONITOR_URL}
+    configs:
+      - source: config.yaml
+        target: /config/config.yaml
+    ports:
+      - 8080
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.1
+          memory: 128M
+configs:
+  config.yaml:
+    file: ./configs/config.yaml
