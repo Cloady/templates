@@ -1,0 +1,33 @@
+services:
+  xonotic:
+    image: umair101/xonotic-server:v1.1
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        mkdir -p /root/.xonotic/data
+        q() { printf '%s' "$1" | tr -d '"'; }
+        cp /opt/Xonotic/data/server.cfg /root/.xonotic/data/server.cfg
+        cat >> /root/.xonotic/data/server.cfg <<EOF
+        hostname "$(q "$SERVER_NAME")"
+        sv_motd "$(q "$MOTD")"
+        maxplayers $MAX_PLAYERS
+        minplayers $BOTS
+        rcon_password "$(q "$RCON_PASSWORD")"
+        net_connectfloodblockingtimeout 0
+        EOF
+        cd /opt/Xonotic
+        exec ./xonotic-linux64-dedicated +serverconfig server.cfg
+    environment:
+      SERVER_NAME: ${SERVER_NAME}
+      MOTD: ${MOTD}
+      MAX_PLAYERS: ${MAX_PLAYERS}
+      BOTS: ${BOTS}
+      RCON_PASSWORD: ${RCON_PASSWORD}
+    ports:
+      - 26000/udp
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 1G

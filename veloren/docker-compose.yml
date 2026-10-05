@@ -1,0 +1,28 @@
+services:
+  veloren:
+    image: registry.gitlab.com/veloren/veloren/server-cli:v0.18.0
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        mkdir -p "$VELOREN_USERDATA/server-cli"
+        cli=$VELOREN_USERDATA/server-cli/settings.ron
+        [ -f "$cli" ] || printf '(\n    update_shutdown_grace_period_secs: 10,\n    shutdown_signals: [SIGUSR1, SIGTERM],\n)\n' > "$cli"
+        if [ -n "$ADMIN_USERNAME" ]; then /opt/veloren-server-cli admin add "$ADMIN_USERNAME" admin; fi
+        exec /opt/veloren-server-cli --non-interactive
+    environment:
+      ADMIN_USERNAME: ${ADMIN_USERNAME}
+      VELOREN_USERDATA: /opt/userdata
+    ports:
+      - 14004/tcp
+    volumes:
+      - userdata:/opt/userdata
+    deploy:
+      resources:
+        reservations:
+          cpus: 2
+          memory: 2G
+volumes:
+  userdata:
+    driver_opts:
+      size: 2Gi

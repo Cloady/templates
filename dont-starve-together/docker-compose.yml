@@ -1,0 +1,29 @@
+services:
+  dst:
+    image: superjump22/dontstarvetogether:public-756039
+    entrypoint: >-
+      sh -c 'bash /home/steam/steamcmd/steamcmd.sh +force_install_dir /home/steam/dst/game +login anonymous +app_update 343050 +quit;
+      d=/home/steam/dst/save/Cluster_1 && mkdir -p $$d/Master
+      && printf "%s" "$$CLUSTER_TOKEN" > $$d/cluster_token.txt
+      && printf "[GAMEPLAY]\ngame_mode = %s\nmax_players = %s\npvp = %s\npause_when_empty = true\n\n[NETWORK]\ncluster_name = %s\ncluster_description = %s\ncluster_password = %s\ncluster_intention = %s\n\n[SHARD]\nshard_enabled = false\n" "$$GAME_MODE" "$$MAX_PLAYERS" "$$PVP" "$$CLUSTER_NAME" "$$CLUSTER_DESCRIPTION" "$$CLUSTER_PASSWORD" "$$INTENTION" > $$d/cluster.ini
+      && exec ./dontstarve_dedicated_server_nullrenderer_x64 -cluster Cluster_1 -shard Master -persistent_storage_root /home/steam/dst -conf_dir save -skip_update_server_mods'
+    environment:
+      CLUSTER_TOKEN: ${CLUSTER_TOKEN}
+      CLUSTER_NAME: ${CLUSTER_NAME}
+      CLUSTER_DESCRIPTION: ${CLUSTER_DESCRIPTION}
+      CLUSTER_PASSWORD: ${CLUSTER_PASSWORD}
+      GAME_MODE: ${GAME_MODE}
+      INTENTION: ${INTENTION}
+      MAX_PLAYERS: ${MAX_PLAYERS}
+      PVP: ${PVP}
+    volumes:
+      - save:/home/steam/dst/save
+    deploy:
+      resources:
+        reservations:
+          cpus: 1
+          memory: 2G
+volumes:
+  save:
+    driver_opts:
+      size: 1Gi

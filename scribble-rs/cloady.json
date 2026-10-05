@@ -1,0 +1,27 @@
+{
+  "category": "Game Servers",
+  "name": "Scribble.rs",
+  "hint": "Multiplayer draw-and-guess game, played in the browser",
+  "version": "0.9.14",
+  "envSchema": {
+    "LANGUAGE": {
+      "enum": [
+        "english",
+        "english_gb",
+        "german",
+        "french",
+        "italian",
+        "dutch",
+        "polish",
+        "russian",
+        "ukrainian",
+        "arabic",
+        "hebrew",
+        "persian"
+      ],
+      "title": "Default word language",
+      "default": "english",
+      "description": "Word list preselected when creating a lobby; each lobby can still pick its own. Players open the app's address in a browser and join through the lobby's invite link."
+    }
+  }
+}

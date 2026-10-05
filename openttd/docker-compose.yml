@@ -1,0 +1,27 @@
+services:
+  openttd:
+    image: bateau/openttd:15.3
+    entrypoint: >-
+      /usr/bin/dumb-init --rewrite 15:3 --rewrite 9:3 -- sh -c 'mkdir -p /home/openttd/.openttd
+      && printf "[version]\nini_version = 7\n[network]\nserver_game_type = %s\n[gui]\nautosave_on_exit = true\n" "$$GAME_TYPE" > /home/openttd/.openttd/openttd.cfg
+      && printf "[network]\nserver_name = %s\n" "$$SERVER_NAME" > /home/openttd/.openttd/private.cfg
+      && printf "[network]\nserver_password = %s\n" "$$SERVER_PASSWORD" > /home/openttd/.openttd/secrets.cfg
+      && exec /openttd.sh'
+    environment:
+      loadgame: last-autosave
+      GAME_TYPE: ${GAME_TYPE}
+      SERVER_NAME: ${SERVER_NAME}
+      SERVER_PASSWORD: ${SERVER_PASSWORD}
+    ports:
+      - 3979/tcp
+    volumes:
+      - saves:/home/openttd/.openttd/save
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 1G
+volumes:
+  saves:
+    driver_opts:
+      size: 1Gi

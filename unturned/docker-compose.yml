@@ -1,0 +1,16 @@
+services:
+  unturned:
+    image: gameservermanagers/gameserver:unt
+    environment:
+      UPDATE_CHECK: ${UPDATE_CHECK}
+    volumes:
+      - data:/data
+    deploy:
+      resources:
+        reservations:
+          cpus: 1
+          memory: 2G
+volumes:
+  data:
+    driver_opts:
+      size: 6Gi

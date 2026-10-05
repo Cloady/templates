@@ -1,0 +1,22 @@
+services:
+  garrysmod:
+    image: ceifa/garrysmod:debian-root
+    environment:
+      NAME: ${SERVER_NAME}
+      GSLT: ${GSLT}
+      MAXPLAYERS: ${MAX_PLAYERS}
+      GAMEMODE: ${GAMEMODE}
+      MAP: ${MAP}
+      PRODUCTION: "1"
+      ARGS: -p2p +sv_password ${SERVER_PASSWORD}
+    volumes:
+      - data:/home/gmod/server/garrysmod/data
+    deploy:
+      resources:
+        reservations:
+          cpus: 1
+          memory: 2G
+volumes:
+  data:
+    driver_opts:
+      size: 1Gi

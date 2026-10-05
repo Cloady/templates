@@ -1,0 +1,35 @@
+{
+  "category": "Game Servers",
+  "name": "Xonotic",
+  "hint": "Server for the fast-paced open-source arena shooter, joined over IPv6",
+  "version": "0.8.6",
+  "envSchema": {
+    "SERVER_NAME": {
+      "title": "Server name",
+      "default": "A Cloady Xonotic server",
+      "description": "Players join from Multiplayer, Join, typing the app's address in the Address box, or with connect followed by the address in the console. Port 26000 is the default. The address is IPv6-only, so players need IPv6 on their network."
+    },
+    "MOTD": {
+      "title": "Message of the day",
+      "default": ""
+    },
+    "MAX_PLAYERS": {
+      "type": "number",
+      "title": "Player slots",
+      "default": 16,
+      "description": "Includes spectators."
+    },
+    "BOTS": {
+      "type": "number",
+      "title": "Bots",
+      "default": 0,
+      "description": "Bots join until this many players are playing, in games without teams."
+    },
+    "RCON_PASSWORD": {
+      "title": "RCON password",
+      "secret": true,
+      "generate": "password:24",
+      "description": "For remote admin: set rcon_password to this in your console, then use rcon commands."
+    }
+  }
+}

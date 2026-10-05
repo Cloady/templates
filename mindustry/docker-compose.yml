@@ -1,0 +1,29 @@
+services:
+  mindustry:
+    image: kagurazakanyaa/mindustry:v160.5
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        name=$(printf '%s' "$SERVER_NAME" | tr -d ',')
+        motd=$(printf '%s' "$MOTD" | tr -d ',')
+        [ -n "$motd" ] || motd=off
+        exec java -XX:MaxRAMPercentage=75 -jar /app/server-release.jar "config name $name,config motd $motd,config uuidChangeLimit 0,config autosave true,playerlimit $MAX_PLAYERS,host"
+    environment:
+      SERVER_NAME: ${SERVER_NAME}
+      MOTD: ${MOTD}
+      MAX_PLAYERS: ${MAX_PLAYERS}
+    ports:
+      - 6567/tcp
+      - 6567/udp
+    volumes:
+      - data:/data
+    deploy:
+      resources:
+        reservations:
+          cpus: 1
+          memory: 1G
+volumes:
+  data:
+    driver_opts:
+      size: 1Gi

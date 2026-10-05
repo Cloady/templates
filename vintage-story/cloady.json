@@ -1,0 +1,30 @@
+{
+  "category": "Game Servers",
+  "name": "Vintage Story",
+  "hint": "Dedicated server for the wilderness survival sandbox, joined over IPv6",
+  "version": "1.22.7",
+  "envSchema": {
+    "SERVER_NAME": {
+      "title": "Server name",
+      "default": "A Cloady Vintage Story server",
+      "description": "Players need their own Vintage Story account and game version 1.22. They join from Multiplayer, Add New Server, typing the app's address under Host / IP Address. The address is IPv6-only, so players need IPv6 on their network."
+    },
+    "SERVER_PASSWORD": {
+      "title": "Server password",
+      "secret": true,
+      "default": "",
+      "description": "Leave empty for an open server."
+    },
+    "MAX_PLAYERS": {
+      "type": "number",
+      "title": "Max players",
+      "default": 8,
+      "description": "Vintage Story suggests 1 GB of memory plus 300 MB per player, so raise the app's memory for more."
+    },
+    "ADMIN_PLAYER": {
+      "title": "Admin player name",
+      "default": "",
+      "description": "Vintage Story account given admin rights at each start."
+    }
+  }
+}

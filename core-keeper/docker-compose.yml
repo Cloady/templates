@@ -1,0 +1,23 @@
+services:
+  core-keeper:
+    image: escaping/core-keeper-dedicated:v2.8.1
+    environment:
+      WORLD_NAME: ${WORLD_NAME}
+      WORLD_SEED: ${WORLD_SEED}
+      WORLD_MODE: ${WORLD_MODE}
+      MAX_PLAYERS: ${MAX_PLAYERS}
+    volumes:
+      - server-files:/home/steam/core-keeper-dedicated
+      - server-data:/home/steam/core-keeper-data
+    deploy:
+      resources:
+        reservations:
+          cpus: 2
+          memory: 4G
+volumes:
+  server-files:
+    driver_opts:
+      size: 3Gi
+  server-data:
+    driver_opts:
+      size: 1Gi

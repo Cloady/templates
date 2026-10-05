@@ -1,0 +1,22 @@
+{
+  "category": "Game Servers",
+  "name": "Mindustry",
+  "hint": "Multiplayer server for the factory and tower-defense game, joined over IPv6",
+  "version": "160.5",
+  "envSchema": {
+    "SERVER_NAME": {
+      "title": "Server name",
+      "default": "A Cloady Mindustry server",
+      "description": "Players need build 160 of the game. They join from Play, Join Game, Add Server with the app's address (port 6567 is the default), then pick it under Remote Servers. The address is IPv6-only, so players need IPv6 on their network."
+    },
+    "MOTD": {
+      "title": "Message of the day",
+      "default": ""
+    },
+    "MAX_PLAYERS": {
+      "type": "number",
+      "title": "Max players",
+      "default": 16
+    }
+  }
+}

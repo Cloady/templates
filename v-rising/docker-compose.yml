@@ -1,0 +1,27 @@
+services:
+  vrising:
+    image: trueosiris/vrising:2026-04-23-1036
+    environment:
+      SERVERNAME: ${SERVER_NAME}
+      VR_PASSWORD: ${SERVER_PASSWORD}
+      VR_MAX_USERS: ${MAX_PLAYERS}
+      VR_PRESET: ${GAME_PRESET}
+      VR_DIFFICULTY_PRESET: ${DIFFICULTY}
+      VR_HIDE_IP_ADDRESS: "true"
+      VR_LIST_ON_EOS: "true"
+      VR_LIST_ON_STEAM: "false"
+    volumes:
+      - server:/mnt/vrising/server
+      - data:/mnt/vrising/persistentdata
+    deploy:
+      resources:
+        reservations:
+          cpus: 2
+          memory: 6G
+volumes:
+  server:
+    driver_opts:
+      size: 5Gi
+  data:
+    driver_opts:
+      size: 2Gi

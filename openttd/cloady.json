@@ -1,0 +1,27 @@
+{
+  "category": "Game Servers",
+  "name": "OpenTTD",
+  "hint": "Open-source transport tycoon server, joined by invite code",
+  "version": "15.3",
+  "envSchema": {
+    "GAME_TYPE": {
+      "title": "Visibility",
+      "enum": [
+        "invite-only",
+        "public"
+      ],
+      "default": "invite-only",
+      "description": "Players join with the invite code printed in the app's logs (\"Invite code: +...\", new on every restart): Multiplayer, Add Server, paste the code. OpenTTD's game coordinator relays the game when a direct connection fails, after asking the player once. Players with IPv6 can also add the app's address on port 3979. \"public\" also lists the server in the in-game server list."
+    },
+    "SERVER_NAME": {
+      "title": "Server name",
+      "default": "A Cloady OpenTTD server"
+    },
+    "SERVER_PASSWORD": {
+      "title": "Server password",
+      "secret": true,
+      "default": "",
+      "description": "Leave empty to let anyone with the invite code join."
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "category": "Game Servers",
+  "name": "Core Keeper",
+  "hint": "Dedicated server for the co-op mining sandbox, joined by Game ID",
+  "version": "2.8.1",
+  "envSchema": {
+    "WORLD_NAME": {
+      "title": "World name",
+      "default": "Cloady",
+      "description": "Steam players join with the Game ID printed in the app's logs after \"Started session with info:\" (Join Game, then paste the Game ID). The connection goes through Steam's relay, so no port is needed."
+    },
+    "WORLD_SEED": {
+      "title": "World seed",
+      "default": "",
+      "description": "Blank for a random seed. Only used when the world is first created."
+    },
+    "WORLD_MODE": {
+      "type": "number",
+      "title": "World mode",
+      "enum": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "default": 0,
+      "description": "0 is Normal, 1 Hard, 2 Creative and 4 Casual. Only used when the world is first created; switching between Creative and the other modes later is not supported."
+    },
+    "MAX_PLAYERS": {
+      "type": "number",
+      "title": "Max players",
+      "default": 8
+    }
+  }
+}

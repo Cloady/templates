@@ -1,0 +1,19 @@
+{
+  "category": "Game Servers",
+  "name": "The Battle for Wesnoth",
+  "hint": "Multiplayer server for the turn-based fantasy strategy game, joined over IPv6",
+  "version": "1.18.8",
+  "envSchema": {
+    "MOTD": {
+      "title": "Message of the day",
+      "default": "Welcome to a Cloady Wesnoth server!",
+      "description": "Players join with Wesnoth 1.18 from Multiplayer, Connect to Server, entering the app's address (port 15000 is the default) and any nickname. The address is IPv6-only, so players need IPv6 on their network."
+    },
+    "ADMIN_PASSWORD": {
+      "title": "Admin password",
+      "secret": true,
+      "generate": "password:24",
+      "description": "Type /query admin followed by this password in the lobby to moderate the server."
+    }
+  }
+}

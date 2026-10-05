@@ -1,0 +1,19 @@
+{
+  "category": "Game Servers",
+  "name": "7 Days to Die",
+  "hint": "Zombie survival server, joined from the in-game browser through Steam networking",
+  "version": "0.9.3",
+  "envSchema": {
+    "SERVER_NAME": {
+      "title": "Server name",
+      "default": "A Cloady 7 Days to Die server",
+      "description": "Steam players find the server by this name in the in-game server browser and join from there; with no public IPv4 the game falls back to Steam networking, which relays the connection. The first start downloads about 18 GB. Other settings live in serverfiles/sdtdserver.xml on the volume."
+    },
+    "SERVER_PASSWORD": {
+      "title": "Server password",
+      "secret": true,
+      "generate": "password:12",
+      "description": "The server is listed publicly so players can find it; clear this for an open server."
+    }
+  }
+}

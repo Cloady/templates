@@ -1,0 +1,55 @@
+services:
+  luanti:
+    image: ghcr.io/luanti-org/luanti:5.17.0
+    entrypoint:
+      - /bin/sh
+      - -ec
+      - |
+        dir=/var/lib/minetest
+        conf=$dir/minetest.conf
+        world=$LUANTI_USER_PATH/worlds/$WORLD_NAME
+        game=$(basename "$GAME")
+        mkdir -p "$LUANTI_USER_PATH/games" "$LUANTI_USER_PATH/worlds"
+        if [ ! -f "$LUANTI_USER_PATH/games/$game/game.conf" ]; then
+          curl -fsSL -o /tmp/game.zip "https://content.luanti.org/packages/$GAME/download/"
+          unzip -oq /tmp/game.zip -d "$LUANTI_USER_PATH/games"
+          rm -f /tmp/game.zip
+        fi
+        [ -f "$conf" ] || cp /etc/minetest/minetest.conf "$conf"
+        sed -i -E '/^[[:space:]]*(server_name|motd|name|default_password|max_users|creative_mode|enable_damage|ipv6_server|bind_address)[[:space:]]*=/d' "$conf"
+        cat >> "$conf" <<EOF
+        server_name = $SERVER_NAME
+        motd = $MOTD
+        name = $ADMIN_NAME
+        default_password = $SERVER_PASSWORD
+        max_users = $MAX_PLAYERS
+        creative_mode = $CREATIVE_MODE
+        enable_damage = $ENABLE_DAMAGE
+        ipv6_server = true
+        EOF
+        if [ -f "$world/world.mt" ]; then set --; else set -- --gameid "$game"; fi
+        exec luantiserver --config "$conf" --world "$world" "$@"
+    environment:
+      GAME: ${GAME}
+      WORLD_NAME: ${WORLD_NAME}
+      SERVER_NAME: ${SERVER_NAME}
+      MOTD: ${MOTD}
+      ADMIN_NAME: ${ADMIN_NAME}
+      SERVER_PASSWORD: ${SERVER_PASSWORD}
+      MAX_PLAYERS: ${MAX_PLAYERS}
+      CREATIVE_MODE: ${CREATIVE_MODE}
+      ENABLE_DAMAGE: ${ENABLE_DAMAGE}
+      LUANTI_USER_PATH: /var/lib/minetest/.minetest
+    ports:
+      - 30000/udp
+    volumes:
+      - data:/var/lib
+    deploy:
+      resources:
+        reservations:
+          cpus: 1
+          memory: 2G
+volumes:
+  data:
+    driver_opts:
+      size: 5Gi

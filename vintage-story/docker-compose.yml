@@ -1,0 +1,33 @@
+services:
+  vintagestory:
+    image: zsuatem/vintagestory:1.22.7
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        q() { printf '%s' "$1" | tr -d '"\\'; }
+        cmds=""
+        [ -z "$ADMIN_PLAYER" ] || cmds="/op $(q "$ADMIN_PLAYER")"
+        cfg=$(printf '{"ServerName":"%s","Password":"%s","MaxClients":%s,"WhitelistMode":1,"StartupCommands":"%s"}' "$(q "$SERVER_NAME")" "$(q "$SERVER_PASSWORD")" "$MAX_PLAYERS" "$cmds")
+        mkdir -p /vintagestory/data
+        cd /vintagestory
+        exec ./VintagestoryServer --dataPath ./data --withconfig "$cfg"
+    environment:
+      SERVER_NAME: ${SERVER_NAME}
+      SERVER_PASSWORD: ${SERVER_PASSWORD}
+      MAX_PLAYERS: ${MAX_PLAYERS}
+      ADMIN_PLAYER: ${ADMIN_PLAYER}
+    ports:
+      - 42420/tcp
+      - 42420/udp
+    volumes:
+      - data:/vintagestory/data
+    deploy:
+      resources:
+        reservations:
+          cpus: 2
+          memory: 3G
+volumes:
+  data:
+    driver_opts:
+      size: 5Gi

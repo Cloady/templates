@@ -1,0 +1,33 @@
+services:
+  openarena:
+    image: sago007/openarena:1.0.8.8.3
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        base=/data/openarena/baseoa
+        mkdir -p "$base"
+        cp /default_files/* "$base/"
+        q() { printf '%s' "$1" | tr -d '"'; }
+        cat > "$base/cloady.cfg" <<EOF
+        sets sv_hostname "$(q "$SERVER_NAME")"
+        sets sv_maxclients "$MAX_PLAYERS"
+        seta bot_minplayers "$BOTS"
+        set g_password "$(q "$SERVER_PASSWORD")"
+        set rconPassword "$(q "$RCON_PASSWORD")"
+        EOF
+        exec /opt/openarena/oa_ded.x86_64 +set dedicated 1 +set net_enabled 3 +set net_port 27960 +set net_port6 27960 +set fs_homepath /data/openarena +exec server_config_sample.cfg +exec cloady.cfg +map "$START_MAP"
+    environment:
+      SERVER_NAME: ${SERVER_NAME}
+      START_MAP: ${START_MAP}
+      MAX_PLAYERS: ${MAX_PLAYERS}
+      BOTS: ${BOTS}
+      SERVER_PASSWORD: ${SERVER_PASSWORD}
+      RCON_PASSWORD: ${RCON_PASSWORD}
+    ports:
+      - 27960/udp
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 512M

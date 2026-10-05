@@ -1,0 +1,29 @@
+{
+  "category": "Game Servers",
+  "name": "SuperTuxKart",
+  "hint": "Online race server for the open-source kart racer, joined over IPv6",
+  "version": "1.5",
+  "envSchema": {
+    "SERVER_NAME": {
+      "title": "Server name",
+      "default": "A Cloady SuperTuxKart server",
+      "description": "Players turn on Connect to the Internet in Options, General, then open Online, Enter server address and type the app's address followed by :2759. No STK account is needed. The address is IPv6-only, so players need IPv6 on their network."
+    },
+    "MAX_PLAYERS": {
+      "type": "number",
+      "title": "Max players",
+      "default": 8,
+      "description": "SuperTuxKart warns that more than 8 can slow the server down."
+    },
+    "SERVER_PASSWORD": {
+      "title": "Server password",
+      "secret": true,
+      "default": "",
+      "description": "Leave empty for an open server."
+    },
+    "MOTD": {
+      "title": "Message of the day",
+      "default": ""
+    }
+  }
+}

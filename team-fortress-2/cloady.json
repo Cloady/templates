@@ -1,0 +1,40 @@
+{
+  "category": "Game Servers",
+  "name": "Team Fortress 2",
+  "hint": "Valve's class-based shooter server, joined by Fake IP through Steam's relay",
+  "version": "latest",
+  "envSchema": {
+    "SERVER_NAME": {
+      "title": "Server name",
+      "default": "A Cloady TF2 server",
+      "description": "Written into server.cfg on the first start. Players join through Steam Datagram Relay: open the developer console and run connect with the address from the app's logs line \"FakeIP allocation succeeded: 169.254.x.x:port\"; check it again after a restart. The first start downloads about 15 GB."
+    },
+    "SERVER_PASSWORD": {
+      "title": "Server password",
+      "secret": true,
+      "default": "",
+      "description": "Leave empty for an open server; players otherwise run password <value> before connect."
+    },
+    "RCON_PASSWORD": {
+      "title": "RCON password",
+      "secret": true,
+      "generate": "password:24",
+      "description": "Replaces the image's default. RCON runs over TCP, which Steam's relay does not carry, so it only works from the app's terminal."
+    },
+    "SRCDS_TOKEN": {
+      "title": "Game Server Login Token",
+      "secret": true,
+      "default": "",
+      "description": "Optional, from steamcommunity.com/dev/managegameservers with App ID 440. Only needed to show the server in the in-game server browser."
+    },
+    "MAX_PLAYERS": {
+      "type": "number",
+      "title": "Max players",
+      "default": 24
+    },
+    "START_MAP": {
+      "title": "Start map",
+      "default": "ctf_2fort"
+    }
+  }
+}

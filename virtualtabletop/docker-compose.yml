@@ -1,0 +1,19 @@
+services:
+  virtualtabletop:
+    image: arnoldsmith86/virtualtabletop@sha256:6c95b08264fce967f57073ddc8f517c8070254f3f8bbbb2fe534337752cc0132
+    environment:
+      SERVERNAME: ${SERVER_NAME}
+      EXTERNALURL: https://${PUBLIC_HOST}
+    ports:
+      - 8272
+    volumes:
+      - save:/app/save
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 512M
+volumes:
+  save:
+    driver_opts:
+      size: 2Gi

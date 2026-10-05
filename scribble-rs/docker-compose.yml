@@ -1,0 +1,13 @@
+services:
+  scribble-rs:
+    image: biosmarcel/scribble.rs:v0.9.14
+    environment:
+      LOBBY_SETTING_DEFAULTS_LANGUAGE: ${LANGUAGE}
+      LOBBY_SETTING_DEFAULTS_CLIENTS_PER_IP_LIMIT: "24"
+    ports:
+      - 8080
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 256M

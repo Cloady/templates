@@ -1,0 +1,38 @@
+{
+  "category": "Game Servers",
+  "name": "Garry's Mod",
+  "hint": "Physics sandbox server in Steam peer-to-peer mode, joined by its p2p address",
+  "version": "latest",
+  "envSchema": {
+    "SERVER_NAME": {
+      "title": "Server name",
+      "default": "A Cloady Garry's Mod server",
+      "description": "Players join through Steam's peer-to-peer relay: open the developer console and run the \"connect p2p:...\" line the server prints in the app's logs at startup. Without a login token that address changes on every restart."
+    },
+    "SERVER_PASSWORD": {
+      "title": "Server password",
+      "secret": true,
+      "default": "",
+      "description": "Leave empty for an open server; players otherwise run password <value> before connect."
+    },
+    "GSLT": {
+      "title": "Game Server Login Token",
+      "secret": true,
+      "default": "",
+      "description": "Optional, from steamcommunity.com/dev/managegameservers with App ID 4000. Keeps the p2p address the same across restarts."
+    },
+    "MAX_PLAYERS": {
+      "type": "number",
+      "title": "Max players",
+      "default": 16
+    },
+    "GAMEMODE": {
+      "title": "Gamemode",
+      "default": "sandbox"
+    },
+    "MAP": {
+      "title": "Map",
+      "default": "gm_construct"
+    }
+  }
+}

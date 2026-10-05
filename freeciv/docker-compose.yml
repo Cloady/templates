@@ -1,0 +1,29 @@
+services:
+  freeciv:
+    image: hairyhenderson/freeciv:5c0ced1e77f54f468e83d063ab754530d48ed64c
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        mkdir -p /home/freeciv/saves
+        cat > /home/freeciv/cloady.serv <<EOF
+        set maxconnectionsperhost 0
+        set aifill $AI_PLAYERS
+        cmdlevel ctrl first
+        EOF
+        exec /usr/games/freeciv-server --port 5556 --saves /home/freeciv/saves --Announce none --read /home/freeciv/cloady.serv
+    environment:
+      AI_PLAYERS: ${AI_PLAYERS}
+    ports:
+      - 5556/tcp
+    volumes:
+      - home:/home/freeciv
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 512M
+volumes:
+  home:
+    driver_opts:
+      size: 1Gi

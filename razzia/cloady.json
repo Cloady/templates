@@ -1,0 +1,14 @@
+{
+  "category": "Game Servers",
+  "name": "Razzia",
+  "hint": "Live quiz game for events; players join in the browser with a room code",
+  "version": "3.1.0",
+  "envSchema": {
+    "MANAGER_PASSWORD": {
+      "title": "Manager password",
+      "secret": true,
+      "generate": "password:24",
+      "description": "Signs in to /manager, where you edit quizzes and start a game. Players open the app's address in a browser and enter the room code shown on the host's screen. Written to config/game.json on every start."
+    }
+  }
+}

@@ -1,0 +1,32 @@
+services:
+  sdtd:
+    image: vinanrra/7dtd-server:v0.9.3
+    entrypoint: >-
+      sh -c 'f=/home/sdtdserver/serverfiles/sdtdserver.xml && mkdir -p /home/sdtdserver/serverfiles
+      && { [ -f $$f ] || cp /cloady/serverconfig.xml $$f; }
+      && n=$$(printf %s "$$SERVER_NAME" | tr -d "\"&<>#\\\\")
+      && p=$$(printf %s "$$SERVER_PASSWORD" | tr -d "\"&<>#\\\\")
+      && sed -i -e "s#\"ServerName\"\([[:space:]]*\)value=\"[^\"]*\"#\"ServerName\"\1value=\"$$n\"#" -e "s#\"ServerPassword\"\([[:space:]]*\)value=\"[^\"]*\"#\"ServerPassword\"\1value=\"$$p\"#" -e "s#\"ServerDisabledNetworkProtocols\"\([[:space:]]*\)value=\"[^\"]*\"#\"ServerDisabledNetworkProtocols\"\1value=\"\"#" $$f
+      && exec /home/sdtdserver/user.sh'
+    environment:
+      START_MODE: "3"
+      VERSION: stable
+      SERVER_NAME: ${SERVER_NAME}
+      SERVER_PASSWORD: ${SERVER_PASSWORD}
+    configs:
+      - source: serverconfig
+        target: /cloady/serverconfig.xml
+    volumes:
+      - data:/home/sdtdserver
+    deploy:
+      resources:
+        reservations:
+          cpus: 4
+          memory: 8G
+configs:
+  serverconfig:
+    file: ./configs/serverconfig.xml
+volumes:
+  data:
+    driver_opts:
+      size: 40Gi

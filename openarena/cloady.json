@@ -1,0 +1,42 @@
+{
+  "category": "Game Servers",
+  "name": "OpenArena",
+  "hint": "Free Quake III-style arena shooter server, joined over IPv6",
+  "version": "0.8.8",
+  "envSchema": {
+    "SERVER_NAME": {
+      "title": "Server name",
+      "default": "A Cloady OpenArena server",
+      "description": "Players join from Multiplayer, Specify with the app's address and port 27960, or type /connect followed by the address in the console. The address is IPv6-only, so players need IPv6 on their network."
+    },
+    "START_MAP": {
+      "title": "Start map",
+      "default": "dm4ish",
+      "description": "The server moves on to other maps after each match, and players can vote to change the map or game type."
+    },
+    "MAX_PLAYERS": {
+      "type": "number",
+      "title": "Player slots",
+      "default": 16,
+      "description": "Bots take slots too."
+    },
+    "BOTS": {
+      "type": "number",
+      "title": "Bots",
+      "default": 0,
+      "description": "Bots join until the arena has this many players, and leave as people arrive."
+    },
+    "SERVER_PASSWORD": {
+      "title": "Server password",
+      "secret": true,
+      "default": "",
+      "description": "Leave empty for an open server."
+    },
+    "RCON_PASSWORD": {
+      "title": "RCON password",
+      "secret": true,
+      "generate": "password:24",
+      "description": "For remote admin: /rconpassword followed by this password, then /rcon commands in the console."
+    }
+  }
+}

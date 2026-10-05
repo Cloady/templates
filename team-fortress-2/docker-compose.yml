@@ -1,0 +1,22 @@
+services:
+  tf2:
+    image: cm2network/tf2:base-x64
+    environment:
+      SRCDS_SDR_FAKEIP: "1"
+      SRCDS_TOKEN: ${SRCDS_TOKEN}
+      SRCDS_HOSTNAME: ${SERVER_NAME}
+      SRCDS_PW: ${SERVER_PASSWORD}
+      SRCDS_RCONPW: ${RCON_PASSWORD}
+      SRCDS_MAXPLAYERS: ${MAX_PLAYERS}
+      SRCDS_STARTMAP: ${START_MAP}
+    volumes:
+      - server:/home/steam/tf-dedicated
+    deploy:
+      resources:
+        reservations:
+          cpus: 1
+          memory: 2G
+volumes:
+  server:
+    driver_opts:
+      size: 20Gi

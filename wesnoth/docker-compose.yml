@@ -1,0 +1,26 @@
+services:
+  wesnothd:
+    image: ghcr.io/tebbiworld/wesnoth-server:1.1.1
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        q() { printf '%s' "$1" | tr -d '"'; }
+        cat > "$WESNOTHD_CONFIG" <<EOF
+        fifo_path="/var/lib/wesnothd/socket"
+        connections_allowed=0
+        motd="$(q "$MOTD")"
+        passwd="$(q "$ADMIN_PASSWORD")"
+        EOF
+        exec /usr/local/bin/entrypoint.sh
+    environment:
+      MOTD: ${MOTD}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      WESNOTHD_CONFIG: /var/lib/wesnothd/wesnothd.cfg
+    ports:
+      - 15000/tcp
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 256M

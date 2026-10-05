@@ -1,0 +1,16 @@
+{
+  "category": "Game Servers",
+  "name": "VirtualTabletop.io",
+  "hint": "Board and card games in the browser, joined by sharing the room link",
+  "version": "monthly-2026-10",
+  "envSchema": {
+    "SERVER_NAME": {
+      "title": "Server name",
+      "default": "VirtualTabletop.io",
+      "description": "Shown in the browser tab. Players open the app's address in a browser, pick a game from the library and share the room's link; everyone on that link plays at the same table."
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
+    }
+  }
+}

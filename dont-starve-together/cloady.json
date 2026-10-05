@@ -1,0 +1,58 @@
+{
+  "category": "Game Servers",
+  "name": "Don't Starve Together",
+  "hint": "Survival co-op server, joined from Browse Games through the game's relay",
+  "version": "756039",
+  "envSchema": {
+    "CLUSTER_TOKEN": {
+      "title": "Cluster token",
+      "secret": true,
+      "description": "Required. Generate one at accounts.klei.com under Games, Don't Starve Together, Game Servers, signed in with the account you play on."
+    },
+    "CLUSTER_NAME": {
+      "title": "Server name",
+      "default": "A Cloady DST server",
+      "description": "Players find the server by this name in Browse Games and join from there; the game falls back to NAT traversal and its relay because the server has no public IPv4. Restart the app after a game update so the server updates too."
+    },
+    "CLUSTER_DESCRIPTION": {
+      "title": "Description",
+      "default": ""
+    },
+    "CLUSTER_PASSWORD": {
+      "title": "Server password",
+      "secret": true,
+      "default": "",
+      "description": "Leave empty for an open server."
+    },
+    "GAME_MODE": {
+      "title": "Game mode",
+      "enum": [
+        "survival",
+        "endless",
+        "wilderness"
+      ],
+      "default": "survival",
+      "description": "Only used when the world is first created."
+    },
+    "INTENTION": {
+      "title": "Playstyle",
+      "enum": [
+        "cooperative",
+        "social",
+        "competitive",
+        "madness"
+      ],
+      "default": "cooperative"
+    },
+    "MAX_PLAYERS": {
+      "type": "number",
+      "title": "Max players",
+      "default": 6
+    },
+    "PVP": {
+      "type": "boolean",
+      "title": "PvP",
+      "default": false
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "category": "Game Servers",
+  "name": "V Rising",
+  "hint": "Vampire survival server, joined from the in-game server list through the game's relay",
+  "version": "2026-04-23-1036",
+  "envSchema": {
+    "SERVER_NAME": {
+      "title": "Server name",
+      "default": "A Cloady V Rising server",
+      "description": "Players find the server by this name in the in-game server list and join from there. The server is listed with its IP hidden, so players connect through the game's relay servers; direct connect by IP does not work."
+    },
+    "SERVER_PASSWORD": {
+      "title": "Server password",
+      "secret": true,
+      "default": "",
+      "description": "Leave empty for an open server. The server is listed publicly so players can find it."
+    },
+    "MAX_PLAYERS": {
+      "type": "number",
+      "title": "Max players",
+      "default": 10
+    },
+    "GAME_PRESET": {
+      "title": "Game mode",
+      "enum": [
+        "StandardPvE",
+        "StandardPvP",
+        "StandardPvP_NoSiege",
+        "StandardPvP_WeekendSiege",
+        "DuoPvP",
+        "SoloPvP",
+        "HardcorePvP"
+      ],
+      "default": "StandardPvE"
+    },
+    "DIFFICULTY": {
+      "title": "Difficulty",
+      "enum": [
+        "Difficulty_Easy",
+        "Difficulty_Normal",
+        "Difficulty_Brutal"
+      ],
+      "default": "Difficulty_Normal"
+    }
+  }
+}

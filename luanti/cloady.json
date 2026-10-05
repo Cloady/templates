@@ -1,0 +1,53 @@
+{
+  "category": "Game Servers",
+  "name": "Luanti",
+  "hint": "Luanti (formerly Minetest) voxel sandbox server, joined over IPv6",
+  "version": "5.17.0",
+  "envSchema": {
+    "GAME": {
+      "title": "Game",
+      "default": "Luanti/minetest_game",
+      "description": "Any game on content.luanti.org as author/name, for example ryvnf/mineclonia or Wuzzy/mineclone2 (VoxeLibre). It is downloaded on first start and used when the world is created."
+    },
+    "WORLD_NAME": {
+      "title": "World name",
+      "default": "world",
+      "description": "Changing it starts a new world. Change it too when you switch games."
+    },
+    "SERVER_NAME": {
+      "title": "Server name",
+      "default": "A Cloady Luanti server",
+      "description": "Players join from Join Game in Luanti with the app's address and port 30000. The address is IPv6-only, so players need IPv6 on their network."
+    },
+    "MOTD": {
+      "title": "Message of the day",
+      "default": "Welcome!"
+    },
+    "ADMIN_NAME": {
+      "title": "Admin player name",
+      "default": "",
+      "description": "The player who joins with this name gets every privilege."
+    },
+    "SERVER_PASSWORD": {
+      "title": "Server password",
+      "secret": true,
+      "default": "",
+      "description": "New players must enter it the first time they join. Leave empty for an open server."
+    },
+    "MAX_PLAYERS": {
+      "type": "number",
+      "title": "Max players",
+      "default": 15
+    },
+    "CREATIVE_MODE": {
+      "type": "boolean",
+      "title": "Creative mode",
+      "default": false
+    },
+    "ENABLE_DAMAGE": {
+      "type": "boolean",
+      "title": "Damage",
+      "default": true
+    }
+  }
+}

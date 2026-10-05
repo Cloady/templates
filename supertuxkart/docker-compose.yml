@@ -1,0 +1,20 @@
+services:
+  supertuxkart:
+    image: pppttl/supertuxkart-server:1.5
+    entrypoint:
+      - /bin/sh
+      - -c
+      - exec supertuxkart --lan-server="$SERVER_NAME" --max-players="$MAX_PLAYERS" --server-password="$SERVER_PASSWORD" --motd="$MOTD" --port=2759
+    environment:
+      SERVER_NAME: ${SERVER_NAME}
+      MAX_PLAYERS: ${MAX_PLAYERS}
+      SERVER_PASSWORD: ${SERVER_PASSWORD}
+      MOTD: ${MOTD}
+    ports:
+      - 2759/udp
+      - 2757/udp
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 512M

@@ -1,0 +1,21 @@
+services:
+  razzia:
+    image: ralex91/razzia:3.1.0
+    command: >-
+      sh -c 'node -e "require(\"fs\").writeFileSync(\"/app/config/game.json\",JSON.stringify({managerPassword:process.env.MANAGER_PASSWORD}))"
+      && exec supervisord -c /etc/supervisord.conf'
+    environment:
+      MANAGER_PASSWORD: ${MANAGER_PASSWORD}
+    ports:
+      - 3000
+    volumes:
+      - config:/app/config
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 256M
+volumes:
+  config:
+    driver_opts:
+      size: 1Gi
