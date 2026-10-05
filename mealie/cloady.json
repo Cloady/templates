@@ -1,5 +1,18 @@
 {
   "category": "Productivity",
-  "version": "api-v1.0.0beta-5",
-  "hint": "Recipe manager and meal planner"
+  "version": "3.28.0",
+  "hint": "Recipe manager and meal planner",
+  "envSchema": {
+    "TZ": {
+      "title": "Timezone",
+      "default": "UTC"
+    },
+    "APP_PROTOCOL": {
+      "default": "http"
+    },
+    "MEALIE_ALLOW_SIGNUP": {
+      "title": "Allow user registration"
+    }
+  },
+  "icon": "./icon.png"
 }

@@ -1,31 +1,18 @@
 services:
-  mealie-api:
-    image: hkotel/mealie:api-v1.0.0beta-5
-    expose:
-      - 9000
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:v3.28.0
     environment:
-      TZ: Europe/Berlin
+      TZ: ${TZ}
       PGID: "1000"
       PUID: "1000"
-      BASE_URL: https://mealie.example.com
+      BASE_URL: ${APP_PROTOCOL}://${PUBLIC_HOST}
       MAX_WORKERS: "1"
-      ALLOW_SIGNUP: "true"
+      ALLOW_SIGNUP: ${MEALIE_ALLOW_SIGNUP}
       WEB_CONCURRENCY: "1"
-    volumes:
-      - data:/app/data/
-    deploy:
-      resources:
-        reservations:
-          cpus: 0.1
-          memory: 256M
-  mealie-frontend:
-    image: hkotel/mealie:frontend-v1.0.0beta-5
-    environment:
-      API_URL: http://mealie-api:9000
     ports:
-      - 3000
+      - 9000
     volumes:
-      - data:/app/data/
+      - data:/app/data
     deploy:
       resources:
         reservations:
