@@ -23,6 +23,7 @@ services:
       POSTGRES_DB: wiki
       POSTGRES_USER: wikijs
       POSTGRES_PASSWORD: ${WIKI_JS_DB_PASS}
+      PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - postgres:/var/lib/postgresql/data
     deploy:

@@ -22,6 +22,7 @@ services:
       POSTGRES_DB: hedgedoc
       POSTGRES_USER: hedgedoc
       POSTGRES_PASSWORD: ${HEDGEDOC_DB_PASSWORD}
+      PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - postgres:/var/lib/postgresql/data
     deploy:

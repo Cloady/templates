@@ -42,6 +42,7 @@ services:
       POSTGRES_DB: affine
       POSTGRES_USER: tipi
       POSTGRES_PASSWORD: ${AFFINE_POSTGRES_PASSWORD}
+      PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - postgres:/var/lib/postgresql/data
     deploy:

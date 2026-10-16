@@ -30,6 +30,7 @@ services:
       POSTGRES_DB: forte
       POSTGRES_USER: forte
       POSTGRES_PASSWORD: forte
+      PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - db:/var/lib/postgresql/data
     deploy:

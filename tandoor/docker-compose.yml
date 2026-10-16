@@ -29,6 +29,7 @@ services:
       POSTGRES_PORT: "5432"
       POSTGRES_USER: tandoor
       POSTGRES_PASSWORD: ${TANDOOR_POSTGRESS_PASSWORD}
+      PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - postgresql:/var/lib/postgresql/data
     deploy:

@@ -6,6 +6,7 @@ services:
     environment:
       POSTGRES_USER: sonar
       POSTGRES_PASSWORD: sonar
+      PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - pg-db:/var/lib/postgresql
       - pg-data:/var/lib/postgresql/data

@@ -27,6 +27,7 @@ services:
       POSTGRES_DB: logto
       POSTGRES_USER: tipi
       POSTGRES_PASSWORD: ${LOGTO_DB_PASSWORD}
+      PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - postgres:/var/lib/postgresql/data
     deploy:

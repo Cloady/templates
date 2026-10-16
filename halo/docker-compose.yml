@@ -22,6 +22,7 @@ services:
       POSTGRES_DB: halo
       POSTGRES_USER: halo
       POSTGRES_PASSWORD: ${HALO_DATABASE_PASSWORD}
+      PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - db:/var/lib/postgresql/data
     deploy:

@@ -20,6 +20,7 @@ services:
       POSTGRES_DB: umami-analytics-db
       POSTGRES_USER: umami
       POSTGRES_PASSWORD: ${UMAMI_ANALYTICS_DB_PASSWORD}
+      PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - db:/var/lib/postgresql/data
     deploy:
