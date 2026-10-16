@@ -19,7 +19,7 @@ services:
           cpus: 0.25
           memory: 256M
   odoodb:
-    image: postgres:15
+    image: postgres:17
     expose:
       - 5432
     environment:
