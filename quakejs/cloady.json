@@ -1,0 +1,19 @@
+{
+  "category": "Game Servers",
+  "name": "QuakeJS",
+  "hint": "Quake III Arena's demo in the browser, played over HTTPS with nothing to install",
+  "version": "c4f6f79",
+  "envSchema": {
+    "ADMIN_PASSWORD": {
+      "title": "Admin console password",
+      "description": "Players open the app's address, pick a name and press Join the game; the first visit downloads about 115 MB of game data and asks them to accept id Software's license for the demo. Sign in at /admin on the same address as admin with this password, or press ` in game, to change maps, add bots and install maps from lvlworld. Every player reaches the server from Cloady's proxy address, so kick players rather than ban them, and five wrong passwords lock the console for everyone for a minute. A password changed in the console replaces this one.",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "EXTRA_PAKS": {
+      "title": "Your own pak0.pk3",
+      "description": "Optional: a URL to pak0.pk3 from your own Quake III Arena, fetched at start, or upload it on the console's Maps tab. Without it the server runs the demo: four stock maps, the pro maps and six bots; with it, all 31 maps and 32 bots.",
+      "default": ""
+    }
+  }
+}

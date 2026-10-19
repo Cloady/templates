@@ -1,0 +1,23 @@
+services:
+  quakejs:
+    image: treyyoder/quakejs:c4f6f79672b43efd7a314b263daa3b89b71cd21f
+    environment:
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      EXTRA_PAKS: ${EXTRA_PAKS}
+    ports:
+      - 80
+    volumes:
+      - assets:/var/www/html/assets
+      - state:/var/lib/quakejs
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 1G
+volumes:
+  assets:
+    driver_opts:
+      size: 1Gi
+  state:
+    driver_opts:
+      size: 256Mi
