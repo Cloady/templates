@@ -1,0 +1,46 @@
+{
+  "category": "Game Servers",
+  "name": "Quake III Arena",
+  "hint": "ioquake3 server for your own copy of Quake III Arena, joined over IPv6",
+  "version": "2026.10.16",
+  "envSchema": {
+    "SERVER_NAME": {
+      "title": "Server name",
+      "default": "A Cloady Quake III server",
+      "description": "The server starts once pak0.pk3 to pak8.pk3 from the baseq3 folder of your own Quake III Arena (a Steam or GOG install has all nine) are uploaded to the baseq3 volume with the app's Files tool. Players need ioquake3 or Quake3e pointed at their own copy of the game, because the quake3.exe that Steam and GOG ship cannot reach IPv6, and join with /connect followed by the app's address. The address is IPv6-only, so players need IPv6 on their network."
+    },
+    "MOTD": {
+      "title": "Message of the day",
+      "default": ""
+    },
+    "START_MAP": {
+      "title": "Start map",
+      "default": "q3dm17",
+      "description": "The map restarts after each match; players can vote another one with /callvote map followed by its name."
+    },
+    "MAX_PLAYERS": {
+      "type": "number",
+      "title": "Player slots",
+      "default": 16,
+      "description": "Bots take slots too."
+    },
+    "BOTS": {
+      "type": "number",
+      "title": "Bots",
+      "default": 0,
+      "description": "Bots join until the arena has this many players, and leave as people arrive."
+    },
+    "SERVER_PASSWORD": {
+      "title": "Server password",
+      "secret": true,
+      "default": "",
+      "description": "Leave empty for an open server; players otherwise run /password followed by it before connecting."
+    },
+    "RCON_PASSWORD": {
+      "title": "RCON password",
+      "secret": true,
+      "generate": "password:24",
+      "description": "For remote admin: /rconpassword followed by this password, then /rcon commands in the console."
+    }
+  }
+}

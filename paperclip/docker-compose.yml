@@ -1,0 +1,28 @@
+services:
+  paperclip:
+    image: ghcr.io/paperclipai/paperclip:2026.1012.0
+    environment:
+      PAPERCLIP_DEPLOYMENT_MODE: authenticated
+      PAPERCLIP_DEPLOYMENT_EXPOSURE: private
+      PAPERCLIP_PUBLIC_URL: ${PAPERCLIP_PUBLIC_URL}
+      PAPERCLIP_ALLOWED_HOSTNAMES: ${PAPERCLIP_ALLOWED_HOSTNAMES:-}
+      PAPERCLIP_MIGRATION_AUTO_APPLY: "true"
+      BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET}
+      PAPERCLIP_TOOL_ACTION_SIGNING_SECRET: ${PAPERCLIP_TOOL_ACTION_SIGNING_SECRET}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+    ports:
+      - 3100
+    volumes:
+      - data:/paperclip
+    deploy:
+      resources:
+        reservations:
+          cpus: 2
+          memory: 4G
+volumes:
+  data:
+    driver_opts:
+      size: 10Gi

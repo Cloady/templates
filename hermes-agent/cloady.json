@@ -1,0 +1,40 @@
+{
+  "category": "AI & LLM",
+  "name": "Hermes Agent",
+  "hint": "Nous Research's self-improving AI agent, run from a web dashboard or your chat apps",
+  "version": "0.22.2",
+  "envSchema": {
+    "HERMES_DASHBOARD_BASIC_AUTH_USERNAME": {
+      "title": "Dashboard username",
+      "default": "admin"
+    },
+    "HERMES_DASHBOARD_BASIC_AUTH_PASSWORD": {
+      "title": "Dashboard password",
+      "description": "Sign in to the dashboard with this and the username above",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "HERMES_DASHBOARD_BASIC_AUTH_SECRET": {
+      "title": "Session signing key",
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "OPENROUTER_API_KEY": {
+      "title": "OpenRouter API key",
+      "description": "Works with no further setup; with another provider, pick the model in the dashboard",
+      "secret": true
+    },
+    "ANTHROPIC_API_KEY": {
+      "title": "Anthropic API key",
+      "secret": true
+    },
+    "OPENAI_API_KEY": {
+      "title": "OpenAI API key",
+      "secret": true
+    },
+    "GEMINI_API_KEY": {
+      "title": "Google Gemini API key",
+      "secret": true
+    }
+  }
+}

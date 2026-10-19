@@ -1,0 +1,43 @@
+{
+  "category": "AI & LLM",
+  "name": "Paperclip",
+  "hint": "Run a company of AI agents: org chart, goals, tasks and budgets for Claude Code, Codex and others",
+  "version": "2026.1012.0",
+  "envSchema": {
+    "PAPERCLIP_PUBLIC_URL": {
+      "title": "Public URL",
+      "description": "Sign-in and invite links use this address; set it to your custom domain if you add one. The first account to sign up and claim the instance becomes its admin, so claim it right after deploying.",
+      "default": "${CLOADY_PRIMARY_URL}"
+    },
+    "PAPERCLIP_ALLOWED_HOSTNAMES": {
+      "title": "Extra hostnames",
+      "description": "Comma-separated custom domains Paperclip should also accept"
+    },
+    "BETTER_AUTH_SECRET": {
+      "title": "Session signing secret",
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "PAPERCLIP_TOOL_ACTION_SIGNING_SECRET": {
+      "title": "Tool approval signing secret",
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "ANTHROPIC_API_KEY": {
+      "title": "Anthropic API key",
+      "secret": true
+    },
+    "OPENAI_API_KEY": {
+      "title": "OpenAI API key",
+      "secret": true
+    },
+    "GEMINI_API_KEY": {
+      "title": "Google Gemini API key",
+      "secret": true
+    },
+    "OPENROUTER_API_KEY": {
+      "title": "OpenRouter API key",
+      "secret": true
+    }
+  }
+}

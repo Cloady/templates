@@ -1,0 +1,42 @@
+services:
+  void:
+    image: ghcr.io/void-linux/void-glibc-full:20261001R1
+    command:
+      - sh
+      - -c
+      - |
+        trap 'exit 0' TERM INT
+        command -v bash >/dev/null || { xbps-install -Syu xbps; xbps-install -yu; xbps-install -y bash ncurses-base; }
+        chmod 755 /usr /etc /var /home
+        chmod 700 /root
+        sleep infinity & wait
+    environment:
+      TZ: ${TZ:-Etc/UTC}
+      LANG: C.UTF-8
+    volumes:
+      - usr:/usr
+      - etc:/etc
+      - var:/var
+      - root:/root
+      - home:/home
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 512M
+volumes:
+  usr:
+    driver_opts:
+      size: 2Gi
+  etc:
+    driver_opts:
+      size: 256Mi
+  var:
+    driver_opts:
+      size: 1Gi
+  root:
+    driver_opts:
+      size: 1536Mi
+  home:
+    driver_opts:
+      size: 256Mi

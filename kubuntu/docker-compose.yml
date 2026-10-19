@@ -1,0 +1,23 @@
+services:
+  kubuntu:
+    image: lscr.io/linuxserver/webtop:ubuntu-kde
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${TZ:-Etc/UTC}
+      CUSTOM_USER: ${CUSTOM_USER:-admin}
+      PASSWORD: ${PASSWORD:?PASSWORD is required}
+      TITLE: Kubuntu
+    ports:
+      - 3000
+    volumes:
+      - config:/config
+    deploy:
+      resources:
+        reservations:
+          cpus: 2
+          memory: 4G
+volumes:
+  config:
+    driver_opts:
+      size: 20Gi

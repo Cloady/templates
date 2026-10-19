@@ -1,0 +1,13 @@
+{
+  "category": "Developer Tools",
+  "version": "20261001R1",
+  "name": "Void Linux",
+  "hint": "A persistent Void Linux shell with xbps, opened from the Terminal tool",
+  "envSchema": {
+    "TZ": {
+      "title": "Time zone",
+      "default": "Etc/UTC"
+    }
+  },
+  "icon": "./icon.svg"
+}

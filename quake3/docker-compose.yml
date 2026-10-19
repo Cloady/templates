@@ -1,0 +1,43 @@
+services:
+  quake3:
+    image: florianpiesche/ioquake3-server:2026.10.16
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        base=/opt/quake3/baseq3
+        until [ "$(ls "$base"/pak[0-8].pk3 2>/dev/null | wc -l)" -eq 9 ]; do
+          echo "Waiting for pak0.pk3 to pak8.pk3 from your own Quake III Arena in the baseq3 volume"
+          sleep 30
+        done
+        q() { printf '%s' "$1" | tr -d '"'; }
+        cat > "$base/cloady.cfg" <<CFG
+        sets sv_hostname "$(q "$SERVER_NAME")"
+        sets sv_maxclients "$MAX_PLAYERS"
+        set g_motd "$(q "$MOTD")"
+        seta bot_minplayers "$BOTS"
+        set g_password "$(q "$SERVER_PASSWORD")"
+        set rconPassword "$(q "$RCON_PASSWORD")"
+        CFG
+        exec /opt/quake3/ioq3ded +set dedicated 1 +set net_enabled 3 +set net_port 27960 +set net_port6 27960 +exec cloady.cfg +map "$START_MAP"
+    environment:
+      SERVER_NAME: ${SERVER_NAME}
+      MOTD: ${MOTD}
+      START_MAP: ${START_MAP}
+      MAX_PLAYERS: ${MAX_PLAYERS}
+      BOTS: ${BOTS}
+      SERVER_PASSWORD: ${SERVER_PASSWORD}
+      RCON_PASSWORD: ${RCON_PASSWORD}
+    ports:
+      - 27960/udp
+    volumes:
+      - baseq3:/opt/quake3/baseq3
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 512M
+volumes:
+  baseq3:
+    driver_opts:
+      size: 1Gi

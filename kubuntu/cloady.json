@@ -1,0 +1,22 @@
+{
+  "category": "Desktops",
+  "version": "latest",
+  "name": "Kubuntu",
+  "hint": "Kubuntu's KDE Plasma desktop on Ubuntu, in your browser",
+  "envSchema": {
+    "CUSTOM_USER": {
+      "title": "Username",
+      "default": "admin"
+    },
+    "PASSWORD": {
+      "title": "Password",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "TZ": {
+      "title": "Time zone",
+      "default": "Etc/UTC"
+    }
+  },
+  "icon": "./icon.svg"
+}
