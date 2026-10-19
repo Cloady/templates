@@ -36,5 +36,6 @@
       "title": "Google Gemini API key",
       "secret": true
     }
-  }
+  },
+  "icon": "./icon.png"
 }

@@ -39,5 +39,6 @@
       "title": "OpenRouter API key",
       "secret": true
     }
-  }
+  },
+  "icon": "./icon.svg"
 }
