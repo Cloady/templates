@@ -98,9 +98,30 @@
       "secret": true,
       "generate": "password:24"
     },
+    "RESPONSE_S_MAXAGE": {
+      "title": "Storage CDN cache time (seconds)",
+      "description": "The s-maxage Storage sends with files, for a CDN in front of it.",
+      "default": "0"
+    },
+    "STORAGE_LOG_LEVEL": {
+      "title": "Storage log level",
+      "enum": [
+        "fatal",
+        "error",
+        "warn",
+        "info",
+        "debug",
+        "trace"
+      ],
+      "default": "info"
+    },
     "STORAGE_TENANT_ID": {
       "title": "Storage tenant id",
       "default": "stub"
+    },
+    "TUS_URL_EXPIRY_MS": {
+      "title": "Storage resumable upload URL lifetime (ms)",
+      "default": "3600000"
     },
     "DASHBOARD_PASSWORD": {
       "title": "Dashboard password",
@@ -138,6 +159,11 @@
       "title": "Pooler DB pool size",
       "default": "5"
     },
+    "S3_PROTOCOL_ENABLED": {
+      "type": "boolean",
+      "title": "Enable the Storage S3 protocol",
+      "default": true
+    },
     "SUPABASE_SECRET_KEY": {
       "secret": true,
       "default": ""
@@ -163,6 +189,10 @@
       "title": "Default project",
       "default": "Default Project"
     },
+    "UPLOAD_FILE_SIZE_LIMIT": {
+      "title": "Storage upload size limit (bytes)",
+      "default": "52428800"
+    },
     "ADDITIONAL_REDIRECT_URLS": {
       "title": "Additional redirect URLs",
       "default": ""
@@ -176,6 +206,10 @@
       "type": "boolean",
       "title": "Auto-confirm phone",
       "default": false
+    },
+    "IMGPROXY_REQUEST_TIMEOUT": {
+      "title": "Image transformation timeout (seconds)",
+      "default": "15"
     },
     "MAILER_URLPATHS_RECOVERY": {
       "default": "/auth/v1/verify"
@@ -192,6 +226,18 @@
       "secret": true,
       "generate": "hex:16"
     },
+    "STORAGE_DB_MAX_CONNECTIONS": {
+      "title": "Storage database connections",
+      "default": "20"
+    },
+    "STORAGE_RENDER_MAX_REQ_SEC": {
+      "title": "Image render rate limit (requests per second)",
+      "default": "5"
+    },
+    "TUS_MAX_CONCURRENT_UPLOADS": {
+      "title": "Storage concurrent resumable uploads",
+      "default": "500"
+    },
     "SERVICE_ROLE_KEY_ASYMMETRIC": {
       "secret": true,
       "default": ""
@@ -200,11 +246,25 @@
       "title": "Default organization",
       "default": "Default Organization"
     },
+    "IMAGE_TRANSFORMATION_ENABLED": {
+      "type": "boolean",
+      "title": "Enable image transformations",
+      "default": true
+    },
     "MAILER_URLPATHS_CONFIRMATION": {
       "default": "/auth/v1/verify"
     },
     "MAILER_URLPATHS_EMAIL_CHANGE": {
       "default": "/auth/v1/verify"
+    },
+    "STORAGE_DB_STATEMENT_TIMEOUT": {
+      "title": "Storage database statement timeout (ms)",
+      "default": "30000"
+    },
+    "STORAGE_RATE_LIMITER_ENABLED": {
+      "type": "boolean",
+      "title": "Enable the image render rate limiter",
+      "default": false
     },
     "GOTRUE_EXTERNAL_GOOGLE_SECRET": {
       "title": "Google OAuth client secret",
@@ -219,11 +279,28 @@
       "title": "Google sign-in enabled",
       "default": false
     },
+    "UPLOAD_FILE_SIZE_LIMIT_STANDARD": {
+      "title": "Storage standard upload size limit (bytes)",
+      "description": "A lower limit for uploads that don't use the resumable endpoint. 0 applies the upload size limit alone.",
+      "default": "0"
+    },
     "GOTRUE_EXTERNAL_GOOGLE_CLIENT_ID": {
       "title": "Google OAuth client id"
     },
+    "UPLOAD_SIGNED_URL_EXPIRATION_TIME": {
+      "title": "Storage signed upload URL lifetime (seconds)",
+      "default": "60"
+    },
     "GOTRUE_EXTERNAL_GOOGLE_REDIRECT_URI": {
       "title": "Google OAuth redirect URI"
+    },
+    "IMAGE_TRANSFORMATION_LIMIT_MAX_SIZE": {
+      "title": "Image transformation maximum size (px)",
+      "default": "2000"
+    },
+    "IMAGE_TRANSFORMATION_LIMIT_MIN_SIZE": {
+      "title": "Image transformation minimum size (px)",
+      "default": "1"
     }
   },
   "icon": "./icon.svg"
