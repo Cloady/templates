@@ -90,7 +90,7 @@ services:
       resources:
         reservations:
           cpus: 0.1
-          memory: 128M
+          memory: 64M
   kong:
     image: kong/kong:3.9.1
     entrypoint:
@@ -141,7 +141,7 @@ services:
     deploy:
       resources:
         reservations:
-          cpus: 0.2
+          cpus: 0.15
           memory: 128M
   rest:
     image: postgrest/postgrest:v14.12
@@ -201,7 +201,7 @@ services:
     deploy:
       resources:
         reservations:
-          cpus: 0.4
+          cpus: 0.2
           memory: 512M
   storage:
     image: supabase/storage-api:v1.60.4
@@ -244,8 +244,8 @@ services:
     deploy:
       resources:
         reservations:
-          cpus: 0.05
-          memory: 256M
+          cpus: 0.3
+          memory: 384M
   imgproxy:
     image: darthsim/imgproxy:v3.30.1
     environment:
@@ -358,7 +358,7 @@ services:
       resources:
         reservations:
           cpus: 0.15
-          memory: 384M
+          memory: 320M
 volumes:
   data:
     driver_opts:
