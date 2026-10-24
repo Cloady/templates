@@ -1,6 +1,6 @@
 {
   "category": "Backends",
-  "version": "3.9.1",
+  "version": "0.8.3",
   "envSchema": {
     "REGION": {
       "title": "Storage region",
@@ -8,9 +8,6 @@
     },
     "ANON_KEY": {
       "generate": "jwt:anon:JWT_SECRET"
-    },
-    "KONG_HOST": {
-      "default": "${CLOADY_HOST_KONG}"
     },
     "META_HOST": {
       "default": "${CLOADY_HOST_META}"
@@ -46,6 +43,9 @@
     "PUBLIC_URL": {
       "default": "${CLOADY_PRIMARY_URL}"
     },
+    "API_GW_HOST": {
+      "default": "${CLOADY_HOST_API_GW}"
+    },
     "IMGPROXY_HOST": {
       "default": "${CLOADY_HOST_IMGPROXY}"
     },
@@ -76,7 +76,7 @@
     },
     "PGRST_DB_SCHEMAS": {
       "title": "Exposed schemas",
-      "default": "public,storage,graphql_public"
+      "default": "public,graphql_public"
     },
     "POOLER_TENANT_ID": {
       "default": "cloady"
@@ -158,6 +158,12 @@
     "POOLER_DB_POOL_SIZE": {
       "title": "Pooler DB pool size",
       "default": "5"
+    },
+    "REALTIME_DB_ENC_KEY": {
+      "title": "Realtime encryption key",
+      "description": "Encrypts the database credentials Realtime keeps in its _realtime schema. Exactly 16 characters.",
+      "secret": true,
+      "generate": "hex:8"
     },
     "S3_PROTOCOL_ENABLED": {
       "type": "boolean",

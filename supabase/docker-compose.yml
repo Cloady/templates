@@ -13,7 +13,6 @@ services:
       PGDATA: /var/lib/postgresql/data/pgdata
       PGPORT: "5432"
       JWT_EXP: ${JWT_EXPIRY}
-      JWT_SECRET: ${JWT_SECRET}
       PGDATABASE: postgres
       PGPASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: postgres
@@ -47,14 +46,14 @@ services:
           cpus: 0.4
           memory: 768M
   auth:
-    image: supabase/gotrue:v2.189.0
+    image: supabase/gotrue:v2.197.0
     environment:
       GOTRUE_JWT_AUD: authenticated
       GOTRUE_JWT_EXP: ${JWT_EXPIRY}
       GOTRUE_API_HOST: 0.0.0.0
       GOTRUE_API_PORT: "9999"
       GOTRUE_SITE_URL: ${PUBLIC_URL}
-      API_EXTERNAL_URL: ${PUBLIC_URL}
+      API_EXTERNAL_URL: ${PUBLIC_URL}/auth/v1
       GOTRUE_DB_DRIVER: postgres
       GOTRUE_SMTP_HOST: ${SMTP_HOST}
       GOTRUE_SMTP_PASS: ${SMTP_PASS}
@@ -91,43 +90,42 @@ services:
         reservations:
           cpus: 0.1
           memory: 64M
-  kong:
-    image: kong/kong:3.9.1
+  api-gw:
+    image: envoyproxy/envoy:v1.39.1
     entrypoint:
       - /bin/sh
-      - /home/kong/kong-entrypoint.sh
+      - /docker-entrypoint.sh
+    command:
+      - --concurrency
+      - "2"
     environment:
-      KONG_PLUGINS: request-transformer,cors,key-auth,acl,basic-auth,request-termination,ip-restriction,post-function
-      KONG_DATABASE: off
-      KONG_DNS_ORDER: LAST,A,CNAME
-      SUPABASE_ANON_KEY: ${ANON_KEY}
+      ANON_KEY: ${ANON_KEY}
+      SERVICE_ROLE_KEY: ${SERVICE_ROLE_KEY}
       DASHBOARD_PASSWORD: ${DASHBOARD_PASSWORD}
       DASHBOARD_USERNAME: ${DASHBOARD_USERNAME}
       ANON_KEY_ASYMMETRIC: ${ANON_KEY_ASYMMETRIC}
+      SUPABASE_PUBLIC_URL: ${PUBLIC_URL}
       SUPABASE_SECRET_KEY: ${SUPABASE_SECRET_KEY}
-      SUPABASE_SERVICE_KEY: ${SERVICE_ROLE_KEY}
-      KONG_PROXY_ACCESS_LOG: /dev/stdout combined
-      KONG_DNS_NOT_FOUND_TTL: "1"
-      KONG_DECLARATIVE_CONFIG: /usr/local/kong/kong.yml
       SUPABASE_PUBLISHABLE_KEY: ${SUPABASE_PUBLISHABLE_KEY}
-      KONG_NGINX_WORKER_PROCESSES: "2"
       SERVICE_ROLE_KEY_ASYMMETRIC: ${SERVICE_ROLE_KEY_ASYMMETRIC}
-      KONG_NGINX_PROXY_PROXY_BUFFERS: 64 160k
-      KONG_NGINX_PROXY_PROXY_BUFFER_SIZE: 160k
     ports:
       - 8000
     configs:
-      - source: temp.yml
-        target: /home/kong/temp.yml
-      - source: kong-entrypoint.sh
-        target: /home/kong/kong-entrypoint.sh
+      - source: envoy.yaml
+        target: /etc/envoy/envoy.yaml
+      - source: cds.yaml
+        target: /etc/envoy/cds.yaml
+      - source: lds.template.yaml
+        target: /etc/envoy/lds.template.yaml
+      - source: docker-entrypoint.sh
+        target: /docker-entrypoint.sh
     deploy:
       resources:
         reservations:
           cpus: 0.15
           memory: 384M
   meta:
-    image: supabase/postgres-meta:v0.96.6
+    image: supabase/postgres-meta:v0.100.0
     environment:
       CRYPTO_KEY: ${PG_META_CRYPTO_KEY}
       PG_META_PORT: "8080"
@@ -144,7 +142,7 @@ services:
           cpus: 0.15
           memory: 128M
   rest:
-    image: postgrest/postgrest:v14.12
+    image: postgrest/postgrest:v14.18
     command:
       - postgrest
     environment:
@@ -158,7 +156,6 @@ services:
       PGRST_DB_USE_LEGACY_GUCS: "false"
       PGRST_APP_SETTINGS_JWT_EXP: ${JWT_EXPIRY}
       PGRST_DB_EXTRA_SEARCH_PATH: public
-      PGRST_APP_SETTINGS_JWT_SECRET: ${JWT_SECRET}
     expose:
       - 3000
     deploy:
@@ -167,11 +164,11 @@ services:
           cpus: 0.15
           memory: 192M
   studio:
-    image: supabase/studio:2026.07.20-sha-74a0848
+    image: supabase/studio:2026.10.12-sha-3699278
     environment:
       HOSTNAME: 0.0.0.0
       POSTGRES_DB: postgres
-      SUPABASE_URL: http://${KONG_HOST}:8000
+      SUPABASE_URL: http://${API_GW_HOST}:8000
       POSTGRES_HOST: ${POSTGRES_HOST}
       POSTGRES_PORT: "5432"
       OPENAI_API_KEY: ${OPENAI_API_KEY}
@@ -204,7 +201,7 @@ services:
           cpus: 0.2
           memory: 512M
   storage:
-    image: supabase/storage-api:v1.60.4
+    image: supabase/storage-api:v1.81.0
     environment:
       REGION: ${REGION}
       ANON_KEY: ${ANON_KEY}
@@ -247,7 +244,7 @@ services:
           cpus: 0.3
           memory: 384M
   imgproxy:
-    image: darthsim/imgproxy:v3.30.1
+    image: darthsim/imgproxy:v3.31.4
     environment:
       IMGPROXY_BIND: :5001
       IMGPROXY_USE_ETAG: "true"
@@ -264,16 +261,17 @@ services:
           cpus: 0.05
           memory: 64M
   realtime:
-    image: supabase/realtime:v2.102.3
+    image: supabase/realtime:v2.143.3
     environment:
       PORT: "4000"
+      REGION: us-east-1
       DB_HOST: ${POSTGRES_HOST}
       DB_NAME: postgres
       DB_PORT: "5432"
       DB_USER: supabase_admin
       APP_NAME: realtime
       DNS_NODES: "''"
-      DB_ENC_KEY: supabaserealtime
+      DB_ENC_KEY: ${REALTIME_DB_ENC_KEY:-supabaserealtime}
       ERL_AFLAGS: -proto_dist inet_tcp
       DB_PASSWORD: ${POSTGRES_PASSWORD}
       RUN_JANITOR: "true"
@@ -293,7 +291,7 @@ services:
           cpus: 0.15
           memory: 384M
   functions:
-    image: supabase/edge-runtime:v1.74.0
+    image: supabase/edge-runtime:v1.77.4
     command:
       - start
       - --main-service
@@ -308,7 +306,6 @@ services:
       SUPABASE_SECRET_KEYS: '{"default":"${SUPABASE_SECRET_KEY}"}'
       SUPABASE_PUBLISHABLE_KEYS: '{"default":"${SUPABASE_PUBLISHABLE_KEY}"}'
       SUPABASE_SERVICE_ROLE_KEY: ${SERVICE_ROLE_KEY}
-      FUNCTIONS_WORKER_TIMEOUT_MS: "300000"
     env_file:
       - .env
     expose:
@@ -318,13 +315,15 @@ services:
     configs:
       - source: index.ts
         target: /home/deno/functions/main/index.ts
+      - source: deno.jsonc
+        target: /home/deno/functions/deno.jsonc
     deploy:
       resources:
         reservations:
           cpus: 0.2
           memory: 896M
   supavisor:
-    image: supabase/supavisor:2.9.5
+    image: supabase/supavisor:2.9.13
     command:
       - /bin/sh
       - -c
@@ -376,12 +375,16 @@ volumes:
     driver_opts:
       size: 1Gi
 configs:
+  cds.yaml:
+    file: ./configs/cds.yaml
   index.ts:
     file: ./configs/index.ts
-  temp.yml:
-    file: ./configs/temp.yml
   99-jwt.sql:
     file: ./configs/99-jwt.sql
+  deno.jsonc:
+    file: ./configs/deno.jsonc
+  envoy.yaml:
+    file: ./configs/envoy.yaml
   pooler.exs:
     file: ./configs/pooler.exs
   99-logs.sql:
@@ -396,5 +399,7 @@ configs:
     file: ./configs/99-realtime.sql
   97-_supabase.sql:
     file: ./configs/97-_supabase.sql
-  kong-entrypoint.sh:
-    file: ./configs/kong-entrypoint.sh
+  lds.template.yaml:
+    file: ./configs/lds.template.yaml
+  docker-entrypoint.sh:
+    file: ./configs/docker-entrypoint.sh
