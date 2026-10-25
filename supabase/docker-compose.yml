@@ -47,6 +47,10 @@ services:
           memory: 768M
   auth:
     image: supabase/gotrue:v2.197.0
+    command:
+      - auth
+      - --config-dir
+      - /etc/auth.d
     environment:
       GOTRUE_JWT_AUD: authenticated
       GOTRUE_JWT_EXP: ${JWT_EXPIRY}
@@ -81,10 +85,13 @@ services:
       GOTRUE_MAILER_URLPATHS_CONFIRMATION: ${MAILER_URLPATHS_CONFIRMATION}
       GOTRUE_MAILER_URLPATHS_EMAIL_CHANGE: ${MAILER_URLPATHS_EMAIL_CHANGE}
       GOTRUE_EXTERNAL_ANONYMOUS_USERS_ENABLED: ${ENABLE_ANONYMOUS_USERS}
+      GOTRUE_RELOADING_POLLERENABLED: "true"
     env_file:
       - .env
     expose:
       - 9999
+    volumes:
+      - auth-config:/etc/auth.d
     deploy:
       resources:
         reservations:
@@ -322,6 +329,41 @@ services:
         reservations:
           cpus: 0.2
           memory: 896M
+  management:
+    build: ./management
+    env_file:
+      - .env
+    environment:
+      POSTGRES_VERSION: "17.6.1.136"
+      PGRST_DB_MAX_ROWS: "1000"
+      PGRST_DB_EXTRA_SEARCH_PATH: public
+      GOTRUE_JWT_EXP: ${JWT_EXPIRY}
+      GOTRUE_SITE_URL: ${PUBLIC_URL}
+      GOTRUE_SMTP_HOST: ${SMTP_HOST}
+      GOTRUE_SMTP_PASS: ${SMTP_PASS}
+      GOTRUE_SMTP_PORT: ${SMTP_PORT}
+      GOTRUE_SMTP_USER: ${SMTP_USER}
+      GOTRUE_DISABLE_SIGNUP: ${DISABLE_SIGNUP}
+      GOTRUE_URI_ALLOW_LIST: ${ADDITIONAL_REDIRECT_URLS}
+      GOTRUE_SMS_AUTOCONFIRM: ${ENABLE_PHONE_AUTOCONFIRM}
+      GOTRUE_SMTP_ADMIN_EMAIL: ${SMTP_ADMIN_EMAIL}
+      GOTRUE_SMTP_SENDER_NAME: ${SMTP_SENDER_NAME}
+      GOTRUE_MAILER_AUTOCONFIRM: ${ENABLE_EMAIL_AUTOCONFIRM}
+      GOTRUE_EXTERNAL_EMAIL_ENABLED: ${ENABLE_EMAIL_SIGNUP}
+      GOTRUE_EXTERNAL_PHONE_ENABLED: ${ENABLE_PHONE_SIGNUP}
+      GOTRUE_EXTERNAL_GOOGLE_ENABLED: ${GOTRUE_EXTERNAL_GOOGLE_ENABLED:-false}
+      GOTRUE_EXTERNAL_ANONYMOUS_USERS_ENABLED: ${ENABLE_ANONYMOUS_USERS}
+    expose:
+      - 8090
+    volumes:
+      - functions:/home/deno/functions
+      - snippets:/srv/snippets
+      - auth-config:/etc/auth.d
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.05
+          memory: 160M
   supavisor:
     image: supabase/supavisor:2.9.13
     command:
@@ -350,6 +392,7 @@ services:
     expose:
       - 5432
       - 6543
+      - 4000
     configs:
       - source: pooler.exs
         target: /etc/pooler/pooler.exs
@@ -374,6 +417,9 @@ volumes:
   functions:
     driver_opts:
       size: 1Gi
+  auth-config:
+    driver_opts:
+      size: 256Mi
 configs:
   cds.yaml:
     file: ./configs/cds.yaml

@@ -46,6 +46,11 @@
     "API_GW_HOST": {
       "default": "${CLOADY_HOST_API_GW}"
     },
+    "PROJECT_REF": {
+      "title": "Supabase CLI project ref",
+      "description": "20 lowercase letters. Leave empty to use a fixed ref derived from JWT_SECRET; supabase projects list shows it.",
+      "default": ""
+    },
     "IMGPROXY_HOST": {
       "default": "${CLOADY_HOST_IMGPROXY}"
     },
@@ -73,6 +78,12 @@
     "GLOBAL_S3_BUCKET": {
       "title": "Storage bucket name",
       "default": "stub"
+    },
+    "MANAGEMENT_TOKEN": {
+      "title": "Supabase CLI access token",
+      "description": "Log in with: supabase login --token sbp_<this value>",
+      "secret": true,
+      "generate": "hex:20"
     },
     "PGRST_DB_SCHEMAS": {
       "title": "Exposed schemas",

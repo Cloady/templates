@@ -281,8 +281,178 @@ async function isValidHybridJWT(jwt: string): Promise<AuthFailure | null> {
   }
 }
 
+const ROOT = '/home/deno/functions'
+const SLUG_RE = /^[A-Za-z][A-Za-z0-9_-]*$/
+const ENV_DENYLIST = new Set(['MANAGEMENT_TOKEN'])
+const INDEX_FILES = ['index.ts', 'index.tsx', 'index.js', 'index.mjs', 'index.jsx']
+const BUNDLE_CACHE_SIZE = 16
+
+const memoryLimitMb = 150
+// Keep the wall clock above the 150s request idle timeout configured in Compose.
+const workerTimeoutMs = Number(Deno.env.get('FUNCTIONS_WORKER_TIMEOUT_MS') ?? 400_000)
+const requestAbsentTimeoutMs = 60_000
+const noModuleCache = false
+
+type ActiveVersion = {
+  version: number
+  service_path: string
+  entrypoint: string
+  import_map: string | null
+  static_patterns: string[]
+} & ({ kind: 'source'; bundle: null } | { kind: 'bundle'; bundle: string })
+
+type FunctionRecord = {
+  id: string
+  status: 'ACTIVE' | 'REMOVED' | 'THROTTLED'
+  verify_jwt: boolean
+  active: ActiveVersion
+}
+
+type Secrets = {
+  version: number
+  values: Record<string, string>
+}
+
+const fileCache = new Map<string, { stamp: string; value: unknown }>()
+const bundleCache = new Map<string, Uint8Array>()
+
+function notFound(): Response {
+  return getFunctionErrorResponse({
+    code: RequestErrors.NotFound,
+    message: 'Requested function was not found',
+    status: 404,
+  })
+}
+
+function bootError(): Response {
+  return getFunctionErrorResponse({
+    code: RequestErrors.BootError,
+    message: 'Function failed to start (please check logs)',
+    status: 503,
+  })
+}
+
+async function statOrNull(path: string): Promise<Deno.FileInfo | null> {
+  try {
+    return await Deno.stat(path)
+  } catch (e) {
+    if (e instanceof Deno.errors.NotFound) return null
+    throw e
+  }
+}
+
+async function hasIndexFile(servicePath: string): Promise<boolean> {
+  for (const name of INDEX_FILES) {
+    if ((await statOrNull(`${servicePath}/${name}`))?.isFile) return true
+  }
+  return false
+}
+
+async function readCached<T>(path: string, parse: (text: string) => T): Promise<T | null> {
+  const info = await statOrNull(path)
+  if (!info) {
+    fileCache.delete(path)
+    return null
+  }
+  const stamp = `${info.mtime?.getTime()}:${info.size}:${info.ino}`
+  const cached = fileCache.get(path)
+  if (cached?.stamp === stamp) return cached.value as T
+  const value = parse(await Deno.readTextFile(path))
+  fileCache.set(path, { stamp, value })
+  return value
+}
+
+function readRecord(servicePath: string): Promise<FunctionRecord | null> {
+  return readCached(`${servicePath}/.function.json`, (text) => JSON.parse(text) as FunctionRecord)
+}
+
+async function readSecrets(): Promise<Secrets> {
+  const secrets = await readCached(`${ROOT}/.management/secrets.json`, (text) => {
+    let file: { version: number; secrets: Record<string, { value: string }> }
+    try {
+      file = JSON.parse(text)
+    } catch {
+      throw new Error('secrets.json is not valid JSON')
+    }
+    const values = Object.fromEntries(Object.entries(file.secrets).map(([name, secret]) => [name, secret.value]))
+    return { version: file.version, values }
+  })
+  return secrets ?? { version: 0, values: {} }
+}
+
+async function readBundle(key: string, path: string): Promise<Uint8Array> {
+  const bytes = bundleCache.get(key) ?? (await Deno.readFile(path))
+  bundleCache.delete(key)
+  bundleCache.set(key, bytes)
+  if (bundleCache.size > BUNDLE_CACHE_SIZE) {
+    const [oldest] = bundleCache.keys()
+    bundleCache.delete(oldest)
+  }
+  return bytes
+}
+
+async function legacyImportMapPath(servicePath: string): Promise<string> {
+  // A function's own deno.json wins over the shared import map, as on hosted Supabase.
+  let importMapPath = `/home/deno/functions/deno.jsonc`
+  for (const name of ['deno.json', 'deno.jsonc']) {
+    try {
+      if ((await Deno.stat(`${servicePath}/${name}`)).isFile) {
+        importMapPath = `${servicePath}/${name}`
+        break
+      }
+    } catch {}
+  }
+  return importMapPath
+}
+
+async function workerOptions(slug: string, servicePath: string, record: FunctionRecord | null) {
+  const secrets = await readSecrets()
+  const base = Object.entries(Deno.env.toObject()).filter(([name]) => !ENV_DENYLIST.has(name))
+  const envVars = Object.entries({ ...Object.fromEntries(base), ...secrets.values, SUPABASE_FUNCTION_SLUG: slug })
+  const poolKey = `${slug}@${record ? `${record.id}@${record.active.version}` : 'legacy'}@${secrets.version}`
+  const common = { poolKey, memoryLimitMb, workerTimeoutMs, noModuleCache, envVars }
+  const supervisor = { requestAbsentTimeoutMs }
+  if (!record) {
+    return { ...common, servicePath, importMapPath: await legacyImportMapPath(servicePath), context: { supervisor } }
+  }
+  const { active } = record
+  if (active.kind === 'source') {
+    return {
+      ...common,
+      servicePath: active.service_path,
+      maybeEntrypoint: active.entrypoint,
+      staticPatterns: active.static_patterns,
+      context: { supervisor, ...(active.import_map ? { importMapPath: active.import_map } : {}) },
+    }
+  }
+  return {
+    ...common,
+    servicePath: active.service_path,
+    maybeEszip: await readBundle(`${record.id}@${active.version}`, active.bundle),
+    maybeEntrypoint: active.entrypoint,
+    context: { supervisor },
+  }
+}
+
 Deno.serve(async (req: Request) => {
-  if (req.method !== 'OPTIONS' && VERIFY_JWT) {
+  const service_name = new URL(req.url).pathname.split('/')[1]
+  if (!service_name || !SLUG_RE.test(service_name) || service_name.toLowerCase() === 'main') {
+    return notFound()
+  }
+
+  const servicePath = `${ROOT}/${service_name}`
+  let record: FunctionRecord | null
+  try {
+    if (!(await statOrNull(servicePath))?.isDirectory) return notFound()
+    record = await readRecord(servicePath)
+    if (record?.status === 'REMOVED') return notFound()
+    if (!record && !(await hasIndexFile(servicePath))) return notFound()
+  } catch (e) {
+    console.error(e)
+    return bootError()
+  }
+
+  if (req.method !== 'OPTIONS' && (record ? record.verify_jwt : VERIFY_JWT)) {
     try {
       const token = getAuthToken(req)
       if (typeof token !== 'string') {
@@ -301,67 +471,13 @@ Deno.serve(async (req: Request) => {
     }
   }
 
-  const url = new URL(req.url)
-  const { pathname } = url
-  const path_parts = pathname.split('/')
-  const service_name = path_parts[1]
-
-  if (!service_name || service_name === '') {
-    return getFunctionErrorResponse({
-      code: RequestErrors.NotFound,
-      message: 'Requested function was not found',
-      status: 404,
-    })
-  }
-
-  const servicePath = `/home/deno/functions/${service_name}`
   console.error(`serving the request with ${servicePath}`)
 
-  try {
-    const serviceInfo = await Deno.stat(servicePath)
-    if (!serviceInfo.isDirectory) {
-      return getFunctionErrorResponse({
-        code: RequestErrors.NotFound,
-        message: 'Requested function was not found',
-        status: 404,
-      })
-    }
-  } catch (e) {
-    if (e instanceof Deno.errors.NotFound) {
-      return getFunctionErrorResponse({
-        code: RequestErrors.NotFound,
-        message: 'Requested function was not found',
-        status: 404,
-      })
-    }
+  const options = await workerOptions(service_name, servicePath, record).catch((e) => {
     console.error(e)
-    return getFunctionErrorResponse({
-      code: RequestErrors.BootError,
-      message: 'Function failed to start (please check logs)',
-      status: 503,
-    })
-  }
-
-  const memoryLimitMb = 150
-  // Keep the wall clock above the 150s request idle timeout configured in Compose.
-  const workerTimeoutMs = Number(Deno.env.get('FUNCTIONS_WORKER_TIMEOUT_MS') ?? 400_000)
-  const requestAbsentTimeoutMs = 60_000
-  const noModuleCache = false
-  // A function's own deno.json wins over the shared import map, as on hosted Supabase.
-  let importMapPath = `/home/deno/functions/deno.jsonc`
-  for (const name of ['deno.json', 'deno.jsonc']) {
-    try {
-      if ((await Deno.stat(`${servicePath}/${name}`)).isFile) {
-        importMapPath = `${servicePath}/${name}`
-        break
-      }
-    } catch {}
-  }
-  // SUPABASE_FUNCTION_SLUG is listed after the container env snapshot so
-  // nothing in it can shadow the value, and it is per-request because only this
-  // worker knows which function the request resolved to.
-  const envVarsObj = { ...Deno.env.toObject(), SUPABASE_FUNCTION_SLUG: service_name }
-  const envVars = Object.keys(envVarsObj).map((k) => [k, envVarsObj[k]])
+    return null
+  })
+  if (!options) return bootError()
 
   const callWorker = async (req: Request, retriesLeft = MAX_WORKER_RETRIES): Promise<Response> => {
     // Preserve the body before fetch() can consume it, even on a failed attempt.
@@ -371,15 +487,7 @@ Deno.serve(async (req: Request) => {
     const retryReq = retriesLeft > 0 ? req.clone() : null
 
     try {
-      const worker = await EdgeRuntime.userWorkers.create({
-        servicePath,
-        memoryLimitMb,
-        workerTimeoutMs,
-        context: { supervisor: { requestAbsentTimeoutMs } },
-        noModuleCache,
-        importMapPath,
-        envVars,
-      })
+      const worker = await EdgeRuntime.userWorkers.create(options)
       // Gateway-minted internal JWT is for this router only; never expose it to user functions.
       const userReq = new Request(req)
       userReq.headers.delete('sb-api-key')
