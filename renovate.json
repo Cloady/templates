@@ -1,0 +1,69 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "enabledManagers": ["docker-compose", "github-actions"],
+  "prHourlyLimit": 5,
+  "prConcurrentLimit": 15,
+  "rebaseWhen": "conflicted",
+  "minimumReleaseAge": "3 days",
+  "minimumReleaseAgeBehaviour": "timestamp-optional",
+  "platformAutomerge": false,
+  "packageRules": [
+    {
+      "description": "One pull request per template, and its cloady.json version follows the app image",
+      "matchManagers": ["docker-compose"],
+      "groupName": "{{parentDir}} template",
+      "postUpgradeTasks": {
+        "commands": [
+          "node .github/scripts/bump-template-version.mjs \"{{{packageFileDir}}}\" \"{{{currentValue}}}\" \"{{{newValue}}}\""
+        ],
+        "fileFilters": ["**/cloady.json"],
+        "executionMode": "update"
+      }
+    },
+    {
+      "description": "Minor and patch updates merge once the template's smoke test passes",
+      "matchManagers": ["docker-compose"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+    {
+      "description": "Major updates wait for approval on the Dependency Dashboard",
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "Databases, caches, search engines and brokers never change major in a template",
+      "matchManagers": ["docker-compose"],
+      "matchUpdateTypes": ["major"],
+      "matchPackageNames": [
+        "/(^|/)(postgres|postgis|pgvector|timescaledb|mariadb|mysql|mysql-server|mongo|mongodb-community-server|redis|rejson|valkey|keydb|memcached|dragonfly|clickhouse-server|meilisearch|elasticsearch|opensearch|typesense|qdrant|weaviate|neo4j|couchdb|cassandra|influxdb|rabbitmq|nats|kafka|eclipse-mosquitto|emqx)$/"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "These templates name their major in the catalog",
+      "matchFileNames": ["n8n/**", "zipline/**"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
+      "description": "Supabase keeps the set of images its upstream compose pins",
+      "matchFileNames": ["supabase/**"],
+      "enabled": false
+    },
+    {
+      "description": "LinuxServer build tags such as v6.31.1-ls33",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["**/linuxserver/**"],
+      "matchCurrentValue": "/-ls\\d+$/",
+      "versioning": "regex:^(?<compatibility>v?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ls(?<build>\\d+)$"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "GitHub Actions",
+      "schedule": ["before 6am on monday"],
+      "automerge": true
+    }
+  ]
+}

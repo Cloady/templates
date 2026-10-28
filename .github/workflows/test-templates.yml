@@ -1,0 +1,66 @@
+name: test-templates
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      templates:
+        description: Template folders to test, separated by spaces, or "all"
+        required: true
+        default: all
+permissions:
+  contents: read
+concurrency:
+  group: test-templates-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      batches: ${{ steps.plan.outputs.batches }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - id: plan
+        env:
+          REQUESTED: ${{ inputs.templates }}
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if [ "$REQUESTED" = all ]; then
+            list=$(ls -d */ | tr -d /)
+          elif [ -n "$REQUESTED" ]; then
+            list=$REQUESTED
+          else
+            changed=$(git diff --name-only "$BASE"...HEAD)
+            list=$(echo "$changed" | awk -F/ 'NF > 1 { print $1 }')
+            if echo "$changed" | grep -q '^\.github/'; then list="$list wordpress uptime-kuma"; fi
+          fi
+          list=$(for d in $list; do [ -f "$d/docker-compose.yml" ] && echo "$d"; done | grep -E '^[a-z0-9][a-z0-9._-]*$' | sort -u)
+          count=$(echo "$list" | grep -c . || true)
+          per=$(( count > 20 ? (count + 19) / 20 : 1 ))
+          echo "batches=$(echo "$list" | xargs -r -n "$per" | jq -Rsc 'split("\n") | map(select(length > 0))')" >> "$GITHUB_OUTPUT"
+  smoke:
+    needs: plan
+    if: needs.plan.outputs.batches != '[]'
+    name: ${{ matrix.templates }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        templates: ${{ fromJSON(needs.plan.outputs.batches) }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Make room for images
+        run: |
+          if [ "$(df --output=avail -BG / | tail -1 | tr -dc 0-9)" -lt 30 ]; then
+            sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /opt/hostedtoolcache/CodeQL
+          fi
+      - name: Smoke test
+        env:
+          TEMPLATES: ${{ matrix.templates }}
+        run: |
+          status=0
+          for t in $TEMPLATES; do node .github/scripts/smoke-test.mjs "$t" || status=1; done
+          exit $status

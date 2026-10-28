@@ -28,6 +28,40 @@ receives the app's environment variables at deploy time.
 CI validates every changed project and publishes it as an OCI artifact to
 `ghcr.io/neptolab/cloady-templates/<slug>:<version>`.
 
+## Updates
+
+Renovate keeps the images current. `.github/workflows/renovate.yml` runs it every two
+hours with the repository secret `RENOVATE_TOKEN`, and `renovate.json` holds the rules:
+
+- One pull request per template. A minor or patch update merges by itself once the
+  template's smoke test passes. A major update waits until someone ticks it on the
+  Dependency Dashboard issue.
+- Databases, caches, search engines and message brokers never change major. n8n and
+  Zipline stay on the major their catalog names state, and Supabase keeps the set of
+  images its upstream compose pins.
+- A release is proposed once it is three days old.
+- When an update moves the image that `cloady.json`'s `version` follows,
+  `.github/scripts/bump-template-version.mjs` moves `version` with it in the same form
+  (`v1.2.3` → `1.2.3`, `1.2.3-alpine` → `1.2.3`).
+
+The control plane's catalog shows the new version after the next `npm run catalog`.
+
+## Tests
+
+`.github/workflows/test-templates.yml` smoke-tests every template a pull request
+changes, and runs from the Actions tab for a list of templates or `all`.
+`.github/scripts/smoke-test.mjs` starts a template the way Cloady deploys it: the
+variables `cloady.json` generates and defaults, the `CLOADY_*` system variables with
+`localhost` as the address, the default profiles, each container limited to the CPU
+and memory Cloady gives it at the default scale, every service started at once and
+restarted when it exits (Cloady ignores `depends_on`), published ports on random host
+ports, and volumes without `driver_opts`, which Docker's local driver can't size.
+
+A template passes once every container has run for 30 seconds without restarting or
+failing its healthcheck, and every published TCP port answers with an HTTP status
+below 500 or accepts a connection. It fails after five restarts of any container, or
+after 10 minutes (`SMOKE_WAIT_SECONDS`).
+
 ## Syncing into a Cloady control plane
 
 From a Cloady checkout with its `.env`:
