@@ -33,7 +33,7 @@ CI validates every changed project and publishes it as an OCI artifact to
 Renovate keeps the images current. `.github/workflows/renovate.yml` runs it every two
 hours with the repository secret `RENOVATE_TOKEN`, and `renovate.json` holds the rules:
 
-- One pull request per template. A minor or patch update merges by itself once the
+- One pull request per template. A minor, patch or digest update merges by itself once the
   template's smoke test passes. A major update waits until someone ticks it on the
   Dependency Dashboard issue.
 - Databases, caches, search engines and message brokers never change major. n8n and

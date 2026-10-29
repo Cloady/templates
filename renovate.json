@@ -22,9 +22,9 @@
       }
     },
     {
-      "description": "Minor and patch updates merge once the template's smoke test passes",
+      "description": "Minor, patch and digest updates merge once the template's smoke test passes",
       "matchManagers": ["docker-compose"],
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
       "automerge": true
     },
     {
@@ -58,6 +58,12 @@
       "matchPackageNames": ["**/linuxserver/**"],
       "matchCurrentValue": "/-ls\\d+$/",
       "versioning": "regex:^(?<compatibility>v?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ls(?<build>\\d+)$"
+    },
+    {
+      "description": "LinuxServer also pushes date-stamped tags such as 26.09.20260929 beside the real versions",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["**/linuxserver/**"],
+      "allowedVersions": "!/\\.20\\d{6}$/"
     },
     {
       "matchManagers": ["github-actions"],
