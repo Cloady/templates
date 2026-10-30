@@ -1,6 +1,6 @@
 services:
   joplin:
-    image: joplin/server:3.7.2
+    image: joplin/server:3.7.3
     environment:
       APP_PORT: "22300"
       DB_CLIENT: pg
