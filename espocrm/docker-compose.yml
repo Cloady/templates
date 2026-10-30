@@ -1,6 +1,6 @@
 services:
   espocrm:
-    image: espocrm/espocrm:10.0.9
+    image: espocrm/espocrm:10.0.11
     environment:
       ESPOCRM_DATABASE_HOST: espocrm-db
       ESPOCRM_DATABASE_NAME: espocrm
