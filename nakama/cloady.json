@@ -1,0 +1,59 @@
+{
+  "category": "Backends",
+  "name": "Nakama",
+  "hint": "Game backend with accounts, realtime multiplayer, matchmaking, leaderboards and chat",
+  "version": "3.41.0",
+  "envSchema": {
+    "CONSOLE_USERNAME": {
+      "title": "Console username",
+      "description": "The app's address opens the Nakama console: sign in with this username and the console password. Game clients use the same address on port 443 with SSL on.",
+      "default": "admin"
+    },
+    "CONSOLE_PASSWORD": {
+      "title": "Console password",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "SERVER_KEY": {
+      "title": "Server key",
+      "description": "Game clients send it when they authenticate, so set it in your client SDK in place of Nakama's defaultkey.",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "HTTP_KEY": {
+      "title": "Runtime HTTP key",
+      "description": "Lets your own servers call RPC functions at /v2/rpc/<id>?http_key=<this key> without a player session.",
+      "secret": true,
+      "generate": "password:32"
+    },
+    "JS_ENTRYPOINT": {
+      "title": "JavaScript entrypoint",
+      "description": "Upload Lua (.lua) and Go (.so) modules to the modules volume with the Files tool and redeploy to load them. For a TypeScript or JavaScript runtime, upload its bundled file there and enter its name (index.js) here.",
+      "default": ""
+    },
+    "SESSION_ENCRYPTION_KEY": {
+      "title": "Session encryption key",
+      "description": "Signs players' session tokens. Changing it signs every player out.",
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "REFRESH_ENCRYPTION_KEY": {
+      "title": "Refresh token encryption key",
+      "description": "Signs players' refresh tokens, and must differ from the session encryption key.",
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "CONSOLE_SIGNING_KEY": {
+      "title": "Console signing key",
+      "description": "Signs console sessions. Changing it signs everyone out of the console.",
+      "secret": true,
+      "generate": "hex:32"
+    },
+    "POSTGRES_PASSWORD": {
+      "title": "Database password",
+      "description": "Postgres sets it only when its volume is first created, so a later change also needs ALTER USER postgres PASSWORD in the database.",
+      "secret": true,
+      "generate": "password:32"
+    }
+  }
+}

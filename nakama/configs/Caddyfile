@@ -1,0 +1,12 @@
+:8080 {
+	@api {
+		path /ws /healthcheck /v2/*
+		not path /v2/console*
+	}
+	handle @api {
+		reverse_proxy nakama:7350
+	}
+	handle {
+		reverse_proxy nakama:7351
+	}
+}
