@@ -24,7 +24,7 @@ services:
           cpus: 0.25
           memory: 256M
   confluence:
-    image: atlassian/confluence:10.2.18
+    image: atlassian/confluence:10.2.19
     environment:
       VERBOSE_LOGS: "false"
       ATL_PROXY_NAME: confluence.example.com
