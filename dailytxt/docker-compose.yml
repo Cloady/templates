@@ -1,6 +1,6 @@
 services:
   dailytxt:
-    image: phitux/dailytxt:2.6.3
+    image: phitux/dailytxt:2.6.4
     environment:
       SECRET_KEY: ${DAILYTXT_SECRET_KEY}
       DATA_INDENT: "2"
