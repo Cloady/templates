@@ -1,6 +1,6 @@
 {
   "category": "Developer Tools",
-  "version": "15.0.9",
+  "version": "15.0.11",
   "envSchema": {
     "FORGEJO_DB_PASSWORD": {
       "secret": true,
