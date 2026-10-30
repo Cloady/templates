@@ -1,6 +1,6 @@
 services:
   virtualtabletop:
-    image: arnoldsmith86/virtualtabletop@sha256:6c95b08264fce967f57073ddc8f517c8070254f3f8bbbb2fe534337752cc0132
+    image: arnoldsmith86/virtualtabletop@sha256:4cd15ec6fa5db8cc0bac9855130770dc82aeafd7d82f436448b928fd9eb4977f
     environment:
       SERVERNAME: ${SERVER_NAME}
       EXTERNALURL: https://${PUBLIC_HOST}
