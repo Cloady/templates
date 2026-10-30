@@ -171,7 +171,7 @@ export function activation(slug: string, manifest: DeployManifest, record: Funct
     version: manifest.version,
     created_at: record?.created_at ?? now,
     updated_at: now,
-    verify_jwt: manifest.verify_jwt ?? record?.verify_jwt ?? env.verifyJwtDefault,
+    verify_jwt: record && manifest.version <= record.version ? record.verify_jwt : (manifest.verify_jwt ?? record?.verify_jwt ?? true),
     import_map: Boolean(manifest.import_map_path),
     entrypoint_path: manifest.entrypoint_path,
     import_map_path: manifest.import_map_path,

@@ -89,7 +89,10 @@ with `--linked` and fail the same way. Pass
 - Auth settings that `config push` writes take precedence over the app variables from
   then on. Auth applies them within seconds without a restart, but only if its whole
   configuration is valid; otherwise it keeps the previous one and logs `config reloader`
-  errors. Settings auth reads only at start (database pool size, API host and port,
+  errors. Hook URIs and secrets are checked against auth's own rules before anything is
+  written, so a hook auth would refuse, one enabled without a URI, or a URI not written
+  in its canonical form (the error shows it) answers 400.
+  Settings auth reads only at start (database pool size, API host and port,
   maximum request duration) need an auth restart.
 - Run `supabase config pull` before your first `config push`, or the defaults
   `supabase init` wrote (such as `site_url = "http://127.0.0.1:3000"`) are pushed.
