@@ -2,12 +2,13 @@ services:
   siyuan:
     image: b3log/siyuan:v3.8.6
     command:
+      - serve
       - --workspace=/siyuan/workspace/
-      - --accessAuthCode=${SIYUAN_ACCESS_AUTH_CODE}
     environment:
       TZ: ${TZ}
       PGID: "1000"
       PUID: "1000"
+      SIYUAN_ACCESS_AUTH_CODE: ${SIYUAN_ACCESS_AUTH_CODE}
     ports:
       - 6806
     volumes:
