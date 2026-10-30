@@ -1,6 +1,6 @@
 services:
   emby:
-    image: lscr.io/linuxserver/emby:4.10.1
+    image: lscr.io/linuxserver/emby:4.10.2
     environment:
       TZ: ${TZ}
       PGID: "1000"
