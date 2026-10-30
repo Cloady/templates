@@ -63,6 +63,9 @@
     "MASTODON_ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT": {
       "secret": true,
       "generate": "password:32"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
     }
   },
   "icon": "./icon.png"

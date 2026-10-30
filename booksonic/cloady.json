@@ -5,9 +5,6 @@
     "TZ": {
       "title": "Timezone",
       "default": "UTC"
-    },
-    "APP_PROTOCOL": {
-      "default": "http"
     }
   },
   "icon": "./icon.png"

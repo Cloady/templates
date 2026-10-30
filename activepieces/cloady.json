@@ -7,7 +7,7 @@
       "generate": "password:32"
     },
     "APP_PROTOCOL": {
-      "default": "http"
+      "default": "https"
     },
     "AP_JWT_SECRET": {
       "secret": true,
@@ -20,6 +20,9 @@
     "AP_POSTGRES_PASSWORD": {
       "secret": true,
       "generate": "password:32"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
     }
   },
   "icon": "./icon.png"

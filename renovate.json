@@ -2,17 +2,19 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
   "enabledManagers": ["docker-compose", "github-actions"],
-  "prHourlyLimit": 5,
-  "prConcurrentLimit": 15,
+  "prHourlyLimit": 20,
+  "prConcurrentLimit": 40,
   "rebaseWhen": "conflicted",
   "minimumReleaseAge": "3 days",
   "minimumReleaseAgeBehaviour": "timestamp-optional",
+  "internalChecksFilter": "none",
   "platformAutomerge": false,
   "packageRules": [
     {
-      "description": "One pull request per template; follow-image-versions moves its cloady.json version after the merge",
+      "description": "One pull request per template, named after it, carrying every image update in the folder; follow-image-versions moves its cloady.json version after the merge",
       "matchManagers": ["docker-compose"],
-      "groupName": "{{parentDir}} template"
+      "groupName": "{{parentDir}} template",
+      "commitMessageTopic": "{{parentDir}} template"
     },
     {
       "description": "Minor, patch and digest updates merge once the template's smoke test passes",

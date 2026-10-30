@@ -13,6 +13,9 @@
     "LOCKBOX_MASTER_KEY": {
       "secret": true,
       "generate": "password:64"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
     }
   },
   "icon": "./icon.png"

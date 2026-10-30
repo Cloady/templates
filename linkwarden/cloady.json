@@ -3,7 +3,7 @@
   "version": "2.16.3",
   "envSchema": {
     "APP_PROTOCOL": {
-      "default": "http"
+      "default": "https"
     },
     "LINKWARDEN_DB_PASSWORD": {
       "secret": true,
@@ -16,6 +16,9 @@
     "LINKWARDEN_NEXT_PUBLIC_DISABLE_REGISTRATION": {
       "title": "Disable Registration",
       "default": "false"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
     }
   },
   "icon": "./icon.png"

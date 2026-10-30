@@ -3,7 +3,7 @@
   "version": "latest",
   "envSchema": {
     "APP_PROTOCOL": {
-      "default": "http"
+      "default": "https"
     },
     "MINIO_API_URL": {
       "title": "Minio S3 API URL (when exposed)"
@@ -15,6 +15,9 @@
       "title": "Minio root password",
       "secret": true,
       "generate": "password:24"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
     }
   },
   "icon": "./icon.png"

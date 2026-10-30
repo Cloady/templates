@@ -3,10 +3,13 @@
   "version": "1.7.20",
   "envSchema": {
     "APP_PROTOCOL": {
-      "default": "http"
+      "default": "https"
     },
     "GRIST_SANDBOX_FLAVOR": {
       "title": "GRIST_SANDBOX_FLAVOR"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
     }
   },
   "icon": "./icon.png"

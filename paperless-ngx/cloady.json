@@ -7,7 +7,7 @@
       "default": ""
     },
     "APP_PROTOCOL": {
-      "default": "http"
+      "default": "https"
     },
     "LOCAL_DOMAIN": {
       "title": "LOCAL_DOMAIN",
@@ -23,6 +23,9 @@
     },
     "PAPERLESS_ADMIN_USERNAME": {
       "title": "Administrator Username"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
     }
   },
   "icon": "./icon.png"

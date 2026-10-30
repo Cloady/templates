@@ -57,6 +57,9 @@
       "title": "Google API Credentials in JSON form. Used for the Google Cal",
       "secret": true,
       "generate": "password:24"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
     }
   },
   "icon": "./icon.png"

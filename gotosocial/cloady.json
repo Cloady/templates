@@ -25,6 +25,9 @@
     },
     "GTS_ACCOUNTS_REGISTRATION_OPEN": {
       "title": "Sign Ups"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
     }
   },
   "icon": "./icon.png"

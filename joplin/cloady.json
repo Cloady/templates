@@ -3,11 +3,14 @@
   "version": "3.7.2",
   "envSchema": {
     "APP_PROTOCOL": {
-      "default": "http"
+      "default": "https"
     },
     "JOPLIN_DB_PASSWORD": {
       "secret": true,
       "generate": "password:50"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
     }
   },
   "icon": "./icon.png"

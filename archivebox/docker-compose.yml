@@ -1,11 +1,9 @@
 services:
   archivebox:
     image: archivebox/archivebox:0.9.71
-    command: server --quick-init 0.0.0.0:8015
+    command: server --quick-init 0.0.0.0:5797
     environment:
-      PGID: "1000"
-      PORT: "8015"
-      PUID: "1000"
+      PORT: "5797"
       TIMEOUT: ${ARCHIVEBOX_TIMEOUT-60}
       PUBLIC_INDEX: ${ARCHIVEBOX_PUBLIC_INDEX-true}
       ADMIN_PASSWORD: ${ARCHIVEBOX_PASSWORD}
@@ -19,7 +17,7 @@ services:
       SEARCH_BACKEND_PASSWORD: ${ARCHIVEBOX_SEARCH_BACKEND_PASSWORD}
       SEARCH_BACKEND_HOST_NAME: ${ARCHIVEBOX_SEARCH_BACKEND_HOST_NAME}
     ports:
-      - 8015
+      - 5797
     volumes:
       - data:/data
     deploy:

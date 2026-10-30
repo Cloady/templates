@@ -7,7 +7,10 @@
       "default": "UTC"
     },
     "APP_PROTOCOL": {
-      "default": "http"
+      "default": "https"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
     }
   },
   "icon": "./icon.png"

@@ -12,6 +12,9 @@
       "title": "(Optional) Google Drive Client Secret",
       "secret": true,
       "generate": "password:24"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
     }
   },
   "icon": "./icon.png"

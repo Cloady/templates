@@ -2,10 +2,10 @@ services:
   mixpost:
     image: inovector/mixpost:v2.6.0
     environment:
-      APP_KEY: "'${MIXPOST_APP_KEY}'"
-      APP_URL: "'${APP_PROTOCOL}://${PUBLIC_HOST}'"
+      APP_KEY: ${MIXPOST_APP_KEY}
+      APP_URL: ${APP_PROTOCOL}://${PUBLIC_HOST}
       DB_HOST: mixpost-mysql
-      APP_NAME: "'Mixpost'"
+      APP_NAME: Mixpost
       REDIS_HOST: mixpost-redis
       DB_DATABASE: mixpost
       DB_PASSWORD: ${MIXPOST_MYSQL_PASSWORD}
