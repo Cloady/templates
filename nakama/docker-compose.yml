@@ -1,0 +1,83 @@
+services:
+  nakama:
+    image: heroiclabs/nakama:3.41.0
+    entrypoint:
+      - tini
+      - --
+      - /bin/sh
+      - -ec
+      - >-
+        until /nakama/nakama migrate up --database.address "postgres:${POSTGRES_PASSWORD}@postgres:5432/nakama"; do sleep 3; done;
+        exec /nakama/nakama --name nakama1
+        --database.address "postgres:${POSTGRES_PASSWORD}@postgres:5432/nakama"
+        --session.token_expiry_sec 7200
+        --socket.server_key "${SERVER_KEY}"
+        --runtime.http_key "${HTTP_KEY}"
+        --runtime.js_entrypoint "${JS_ENTRYPOINT}"
+        --session.encryption_key "${SESSION_ENCRYPTION_KEY}"
+        --session.refresh_encryption_key "${REFRESH_ENCRYPTION_KEY}"
+        --console.username "${CONSOLE_USERNAME}"
+        --console.password "${CONSOLE_PASSWORD}"
+        --console.signing_key "${CONSOLE_SIGNING_KEY}"
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      SERVER_KEY: ${SERVER_KEY}
+      HTTP_KEY: ${HTTP_KEY}
+      JS_ENTRYPOINT: ${JS_ENTRYPOINT}
+      SESSION_ENCRYPTION_KEY: ${SESSION_ENCRYPTION_KEY}
+      REFRESH_ENCRYPTION_KEY: ${REFRESH_ENCRYPTION_KEY}
+      CONSOLE_USERNAME: ${CONSOLE_USERNAME}
+      CONSOLE_PASSWORD: ${CONSOLE_PASSWORD}
+      CONSOLE_SIGNING_KEY: ${CONSOLE_SIGNING_KEY}
+    expose:
+      - 7349
+      - 7350
+      - 7351
+    volumes:
+      - modules:/nakama/data/modules
+    depends_on:
+      - postgres
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 512M
+  postgres:
+    image: postgres:16.15-alpine
+    environment:
+      POSTGRES_DB: nakama
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    expose:
+      - 5432
+    volumes:
+      - db:/var/lib/postgresql/data
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.15
+          memory: 384M
+  proxy:
+    image: caddy:2.11.7-alpine
+    configs:
+      - source: caddyfile
+        target: /etc/caddy/Caddyfile
+    ports:
+      - 8080
+    depends_on:
+      - nakama
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.1
+          memory: 64M
+volumes:
+  modules:
+    driver_opts:
+      size: 256Mi
+  db:
+    driver_opts:
+      size: 1Gi
+configs:
+  caddyfile:
+    file: ./configs/Caddyfile

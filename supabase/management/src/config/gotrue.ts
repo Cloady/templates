@@ -4,6 +4,7 @@ import { readJsonFile, withLock, writeFileAtomic } from "../fsutil.ts";
 import { HttpError } from "../http.ts";
 import { hmacSha256Hex, sha256Hex } from "../ids.ts";
 import { AUTH_KEYS, type AuthKey, ENUMS, RESPONSE_FALLBACKS } from "./gotrue-map.ts";
+import { hookUriProblem } from "./hooks.ts";
 import { generateSamlKey } from "./saml-key.ts";
 
 type Overrides = Record<string, string>;
@@ -20,6 +21,7 @@ const SPECIAL = new Set(["template", "clientids-head", "clientids-tail", "poolsi
 const NANOS: Record<string, number> = { ns: 1, us: 1e3, "µs": 1e3, "μs": 1e3, ms: 1e6, s: 1e9, m: 6e10, h: 3.6e12 };
 const EMAIL = /^(?!\.)(?!.*\.\.)([A-Za-z0-9_'+\-\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\-]*\.)+[A-Za-z]{2,}$/u;
 const byKey = new Map(AUTH_KEYS.map((row) => [row.key, row]));
+const HOOKS = AUTH_KEYS.flatMap((row) => /^hook_(.+)_uri$/.exec(row.key)?.[1] ?? []);
 const templateType = (row: AuthKey) => row.key.slice("mailer_templates_".length, -"_content".length);
 
 export const TEMPLATES_DIR = `${env.authConfigDir}/templates`;
@@ -159,6 +161,11 @@ function changes(body: Record<string, unknown>): [AuthKey, Value | null][] {
   });
 }
 
+function hookProblem(o: Overrides, name: string): string | undefined {
+  const read = (part: string) => effective(o, byKey.get(`hook_${name}_${part}`)!.env) ?? "";
+  return hookUriProblem(read("uri"), fromEnv(byKey.get(`hook_${name}_enabled`)!, read("enabled")) === true, read("secrets"));
+}
+
 async function setTemplate(next: Overrides, files: Map<string, string | null>, row: AuthKey, value: Value | null): Promise<void> {
   const type = templateType(row);
   const content = value ? String(value) : null;
@@ -208,6 +215,11 @@ export async function updateAuth(body: Record<string, unknown>): Promise<Record<
     }
     setClientIds(next, body);
     setPool(next, body);
+    for (const name of HOOKS) {
+      const touched = ["enabled", "uri", "secrets"].some((part) => `hook_${name}_${part}` in body);
+      const problem = touched ? hookProblem(next, name) : undefined;
+      if (problem) throw new HttpError(400, `hook_${name}: ${problem}`);
+    }
     if (body.saml_enabled === true) await ensureSamlKey(next);
     if (updates.length > 0) await save(next, files);
     return patchResponse(await values(next));

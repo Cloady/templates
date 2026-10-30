@@ -163,6 +163,7 @@ services:
       PGRST_DB_USE_LEGACY_GUCS: "false"
       PGRST_APP_SETTINGS_JWT_EXP: ${JWT_EXPIRY}
       PGRST_DB_EXTRA_SEARCH_PATH: public
+      GHCRTS: "-N2"
     expose:
       - 3000
     deploy:
@@ -287,7 +288,6 @@ services:
       SEED_SELF_HOST: "true"
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
       METRICS_JWT_SECRET: ${JWT_SECRET}
-      SELF_HOST_TENANT_NAME: realtime
       DB_AFTER_CONNECT_QUERY: SET search_path TO _realtime
       DISABLE_HEALTHCHECK_LOGGING: "true"
     expose:

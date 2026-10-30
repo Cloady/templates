@@ -149,7 +149,7 @@ const CHECKS: Record<string, Check> = {
   pooler: async (signal) => discard(await reach(signal, `${urls.supavisor}/api/health`, {}, (res) => res.ok)),
   realtime: async (signal) => {
     const headers = { authorization: `Bearer ${await adminJwt()}` };
-    const res = await reach(signal, `${urls.realtime}/api/tenants/realtime/health`, { headers });
+    const res = await reach(signal, `${urls.realtime}/api/tenants/realtime-dev/health`, { headers });
     const { healthy, db_connected, replication_connected, connected_cluster } = record((await fields(res)).data);
     return typeof healthy === "boolean" &&
       typeof db_connected === "boolean" &&
