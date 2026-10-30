@@ -12,6 +12,7 @@ const host = "localhost";
 const waitMs = Number(process.env.SMOKE_WAIT_SECONDS ?? 600) * 1000;
 const STABLE_MS = 30_000;
 const MAX_RESTARTS = 5;
+const STARTUP_MS = 120_000;
 const GIB = 1024 ** 3;
 const started = Date.now();
 
@@ -214,9 +215,11 @@ try {
   let stableSince = null;
   let loggedAt = 0;
   let last = "starting";
+  let startupRestarts = null;
   while (Date.now() - upAt < waitMs) {
     const states = containers();
-    const looping = states.find((c) => c.restarts >= MAX_RESTARTS);
+    if (!startupRestarts && Date.now() - upAt >= STARTUP_MS) startupRestarts = new Map(states.map((c) => [c.service, c.restarts]));
+    const looping = startupRestarts && states.find((c) => c.restarts - (startupRestarts.get(c.service) ?? 0) >= MAX_RESTARTS);
     if (looping) finish(false, `${looping.service} restarted ${looping.restarts} times`);
     const waiting = states.filter((c) => c.status !== "running" || c.health === "starting" || c.health === "unhealthy");
     if (states.length === 0 || waiting.length) {
