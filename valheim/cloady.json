@@ -11,7 +11,7 @@
     "WORLD_NAME": {
       "title": "World name",
       "default": "Dedicated",
-      "description": "Save file name \u2014 changing it later starts a new world."
+      "description": "Save file name — changing it later starts a new world."
     },
     "SERVER_NAME": {
       "title": "Server name",

@@ -3,9 +3,7 @@ services:
     image: archivebox/archivebox:0.9.71
     command: server --quick-init 0.0.0.0:8015
     environment:
-      PGID: "1000"
       PORT: "8015"
-      PUID: "1000"
       TIMEOUT: ${ARCHIVEBOX_TIMEOUT-60}
       PUBLIC_INDEX: ${ARCHIVEBOX_PUBLIC_INDEX-true}
       ADMIN_PASSWORD: ${ARCHIVEBOX_PASSWORD}

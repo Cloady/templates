@@ -21,13 +21,14 @@ services:
       AP_WEBHOOK_TIMEOUT_SECONDS: "30"
       AP_SANDBOX_RUN_TIME_SECONDS: "600"
       AP_TRIGGER_DEFAULT_POLL_INTERVAL: "5"
+      NODE_OPTIONS: --max-old-space-size=768
     ports:
       - 80
     deploy:
       resources:
         reservations:
           cpus: 0.25
-          memory: 256M
+          memory: 1G
   activepieces-redis:
     image: redis:7
     expose:

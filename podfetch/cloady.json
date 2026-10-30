@@ -3,7 +3,7 @@
   "version": "latest",
   "envSchema": {
     "APP_PROTOCOL": {
-      "default": "http"
+      "default": "https"
     },
     "PODFETCH_PASSWORD": {
       "title": "PodFetch Password",
@@ -22,6 +22,9 @@
       "title": "Podcast Index API Secret",
       "secret": true,
       "generate": "password:24"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
     }
   },
   "icon": "./icon.png"

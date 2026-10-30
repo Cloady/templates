@@ -19,7 +19,7 @@
     "TYPE": {
       "title": "Server type",
       "default": "VANILLA",
-      "description": "VANILLA, PAPER, FABRIC, FORGE, SPIGOT\u2026"
+      "description": "VANILLA, PAPER, FABRIC, FORGE, SPIGOT…"
     },
     "MEMORY": {
       "title": "Java heap",

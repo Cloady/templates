@@ -3,7 +3,7 @@
   "version": "2.2.1",
   "envSchema": {
     "APP_PROTOCOL": {
-      "default": "http"
+      "default": "https"
     },
     "PLANKA_ADMIN_NAME": {
       "title": "Admin name"
@@ -22,6 +22,9 @@
     },
     "PLANKA_ADMIN_USERNAME": {
       "title": "Admin username"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
     }
   },
   "icon": "./icon.png"

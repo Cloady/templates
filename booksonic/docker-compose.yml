@@ -5,7 +5,6 @@ services:
       TZ: ${TZ}
       PGID: "1000"
       PUID: "1000"
-      CONTEXT_PATH: ${APP_PROTOCOL}://${PUBLIC_HOST}
     ports:
       - 4040
     volumes:

@@ -15,7 +15,7 @@
       "default": ""
     },
     "APP_PROTOCOL": {
-      "default": "http"
+      "default": "https"
     },
     "ENABLE_EMAIL": {
       "title": "Enable email verification for new signups",
@@ -37,6 +37,9 @@
     "PASSWORD_SALT": {
       "secret": true,
       "generate": "password:32"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
     }
   },
   "icon": "./icon.png"

@@ -28,7 +28,7 @@ services:
     environment:
       PENPOT_FLAGS: enable-registration enable-login-with-password disable-email-verification
       PENPOT_REDIS_URI: redis://penpot-redis/0
-      PENPOT_PUBLIC_URI: ${APP_PROTOCOL}://${PUBLIC_HOST}:80
+      PENPOT_PUBLIC_URI: ${APP_PROTOCOL}://${PUBLIC_HOST}
       PENPOT_DATABASE_URI: postgresql://penpot-postgres/penpot
       PENPOT_DATABASE_PASSWORD: ${PENPOT_POSTGRES_PASSWORD}
       PENPOT_DATABASE_USERNAME: tipi

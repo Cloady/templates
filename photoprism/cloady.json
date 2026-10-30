@@ -7,7 +7,7 @@
       "generate": "password:32"
     },
     "APP_PROTOCOL": {
-      "default": "http"
+      "default": "https"
     },
     "DB_ROOT_PASSWORD": {
       "secret": true,
@@ -17,6 +17,9 @@
       "title": "Photoprism admin password",
       "secret": true,
       "generate": "password:24"
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
     }
   },
   "icon": "./icon.png"
