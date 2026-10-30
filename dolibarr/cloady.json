@@ -2,7 +2,7 @@
   "category": "Productivity",
   "name": "Dolibarr",
   "hint": "ERP and CRM for invoices, orders, stock and accounting",
-  "version": "24.0.1",
+  "version": "24.0.2",
   "envSchema": {
     "ADMIN_LOGIN": {
       "title": "Admin username",
