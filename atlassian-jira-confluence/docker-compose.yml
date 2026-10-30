@@ -1,6 +1,6 @@
 services:
   jira:
-    image: atlassian/jira-core:11.3.11
+    image: atlassian/jira-core:11.3.12
     environment:
       VERBOSE_LOGS: "false"
       ATL_PROXY_NAME: jira.example.com
