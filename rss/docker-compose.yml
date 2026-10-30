@@ -1,6 +1,6 @@
 services:
   rss:
-    image: codeberg.org/danb/rss:v2.2.2
+    image: codeberg.org/danb/rss:v2.2.4
     environment:
       APP_NAME: Tipi-RSS
       APP_LOAD_POST_THUMBNAILS: "true"
