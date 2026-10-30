@@ -2,7 +2,7 @@
   "category": "Databases",
   "name": "Elasticsearch",
   "hint": "Search and analytics engine, as a single node",
-  "version": "9.5.4",
+  "version": "9.5.5",
   "envSchema": {
     "ELASTIC_PASSWORD": {
       "title": "Password",
