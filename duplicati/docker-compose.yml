@@ -1,6 +1,6 @@
 services:
   duplicati:
-    image: lscr.io/linuxserver/duplicati:2.4.0
+    image: lscr.io/linuxserver/duplicati:2.4.1
     environment:
       TZ: ${TZ}
       PGID: "0"
