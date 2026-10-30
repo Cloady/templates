@@ -10,27 +10,15 @@
   "platformAutomerge": false,
   "packageRules": [
     {
-      "description": "One pull request per template, and its cloady.json version follows the app image",
+      "description": "One pull request per template; follow-image-versions moves its cloady.json version after the merge",
       "matchManagers": ["docker-compose"],
-      "groupName": "{{parentDir}} template",
-      "postUpgradeTasks": {
-        "commands": [
-          "node .github/scripts/bump-template-version.mjs \"{{{packageFileDir}}}\" \"{{{currentValue}}}\" \"{{{newValue}}}\""
-        ],
-        "fileFilters": ["**/cloady.json"],
-        "executionMode": "update"
-      }
+      "groupName": "{{parentDir}} template"
     },
     {
       "description": "Minor, patch and digest updates merge once the template's smoke test passes",
       "matchManagers": ["docker-compose"],
       "matchUpdateTypes": ["minor", "patch", "digest"],
       "automerge": true
-    },
-    {
-      "description": "Major updates wait for approval on the Dependency Dashboard",
-      "matchUpdateTypes": ["major"],
-      "dependencyDashboardApproval": true
     },
     {
       "description": "Databases, caches, search engines and brokers never change major in a template",
@@ -66,9 +54,21 @@
       "allowedVersions": "!/\\.20\\d{6}$/"
     },
     {
+      "description": "LinuxServer majors are mostly unrelated numbering, such as calibre-web 0.6 to 5.33",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["**/linuxserver/**"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
       "matchManagers": ["github-actions"],
       "groupName": "GitHub Actions",
-      "schedule": ["before 6am on monday"],
+      "schedule": ["before 6am on monday"]
+    },
+    {
+      "description": "Action updates merge on their own, except a new major",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
       "automerge": true
     }
   ]

@@ -1,0 +1,25 @@
+name: follow-image-versions
+on:
+  push:
+    branches: [main]
+    paths: ["*/docker-compose.yml"]
+permissions:
+  contents: write
+concurrency: follow-image-versions
+jobs:
+  follow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: move each template's cloady.json version to its new image tag
+        run: node .github/scripts/follow-image-versions.mjs "${{ github.event.before }}" "${{ github.sha }}"
+      - name: commit
+        run: |
+          git diff --quiet && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -qam "Follow image versions in cloady.json"
+          git push origin HEAD:main
