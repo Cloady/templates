@@ -1,6 +1,6 @@
 {
   "category": "Databases",
-  "version": "9.7.2",
+  "version": "9.7.4",
   "envSchema": {
     "MYSQL_USER": {
       "title": "Username",
