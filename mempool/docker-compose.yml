@@ -1,6 +1,6 @@
 services:
   mempool:
-    image: mempool/frontend:v3.3.1
+    image: mempool/frontend:v3.3.2
     command: nginx -g 'daemon off;'
     environment:
       FRONTEND_HTTP_PORT: "8080"
@@ -29,7 +29,7 @@ services:
           cpus: 0.25
           memory: 512M
   mempool-api:
-    image: mempool/backend:v3.3.1
+    image: mempool/backend:v3.3.2
     expose:
       - 8999
     command: ./start.sh
