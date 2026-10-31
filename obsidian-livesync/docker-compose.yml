@@ -1,6 +1,6 @@
 services:
   obsidian-livesync:
-    image: couchdb:3.5.2
+    image: couchdb:3.5.3
     environment:
       COUCHDB_USER: ${OBSIDIAN_LIVESYNC_USER}
       COUCHDB_PASSWORD: ${OBSIDIAN_LIVESYNC_PASSWORD}
