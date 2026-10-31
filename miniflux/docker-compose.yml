@@ -1,6 +1,6 @@
 services:
   miniflux:
-    image: miniflux/miniflux:2.3.3
+    image: miniflux/miniflux:2.3.4
     environment:
       DATABASE_URL: postgres://miniflux:${DB_PASSWORD}@db/miniflux?sslmode=disable
       RUN_MIGRATIONS: "1"
