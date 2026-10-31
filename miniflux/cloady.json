@@ -2,7 +2,7 @@
   "category": "Productivity",
   "name": "Miniflux",
   "hint": "Minimalist and opinionated RSS and Atom feed reader",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "envSchema": {
     "ADMIN_USERNAME": {
       "title": "Admin username",
