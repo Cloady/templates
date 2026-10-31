@@ -2,7 +2,7 @@
   "category": "Backends",
   "name": "PocketBase",
   "hint": "Backend in one file with realtime database, auth and file storage",
-  "version": "0.40.4",
+  "version": "0.40.6",
   "envSchema": {
     "PB_ADMIN_EMAIL": {
       "title": "Superuser email",
