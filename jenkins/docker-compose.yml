@@ -1,6 +1,6 @@
 services:
   jenkins:
-    image: jenkins/jenkins:2.580.1-lts-jdk21
+    image: jenkins/jenkins:2.580.2-lts-jdk21
     ports:
       - 8080
     expose:
