@@ -1,6 +1,6 @@
 services:
   glance:
-    image: glanceapp/glance:v0.8.6
+    image: glanceapp/glance:v0.8.7
     entrypoint: >-
       sh -c '{ [ -f /app/config/glance.yml ] || cp /cloady/glance.yml /app/config/glance.yml; }
       && exec /app/glance --config /app/config/glance.yml'
