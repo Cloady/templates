@@ -1,17 +1,21 @@
 services:
   adguardhome-sync:
     image: ghcr.io/bakito/adguardhome-sync:v0.9.3
-    command: run --config /config/adguardhome-sync.yaml
+    command: run
+    environment:
+      CRON: ${ADGUARDHOME_SYNC_CRON}
+      ORIGIN_URL: ${ADGUARDHOME_SYNC_ORIGIN_URL}
+      ORIGIN_USERNAME: ${ADGUARDHOME_SYNC_ORIGIN_USERNAME}
+      ORIGIN_PASSWORD: ${ADGUARDHOME_SYNC_ORIGIN_PASSWORD}
+      REPLICA1_URL: ${ADGUARDHOME_SYNC_REPLICA_URL}
+      REPLICA1_USERNAME: ${ADGUARDHOME_SYNC_REPLICA_USERNAME}
+      REPLICA1_PASSWORD: ${ADGUARDHOME_SYNC_REPLICA_PASSWORD}
+      API_USERNAME: ${ADGUARDHOME_SYNC_API_USERNAME}
+      API_PASSWORD: ${ADGUARDHOME_SYNC_API_PASSWORD}
     ports:
       - 8080
-    volumes:
-      - adguardhome-sync-yaml:/config/adguardhome-sync.yaml
     deploy:
       resources:
         reservations:
           cpus: 0.25
           memory: 256M
-volumes:
-  adguardhome-sync-yaml:
-    driver_opts:
-      size: 2Gi
