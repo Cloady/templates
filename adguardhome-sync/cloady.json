@@ -1,6 +1,6 @@
 {
   "category": "Networking",
-  "version": "0.9.3",
+  "version": "0.9.5",
   "envSchema": {
     "ADGUARDHOME_SYNC_ORIGIN_URL": {
       "title": "Origin AdGuard Home URL",
