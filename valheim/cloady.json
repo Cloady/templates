@@ -27,6 +27,11 @@
       "type": "boolean",
       "title": "List in community browser",
       "default": false
+    },
+    "SERVER_ARGS": {
+      "title": "Extra server arguments",
+      "default": "",
+      "description": "Added to the server's command line. -preset easy (or casual, hard, hardcore, immersive, hammer) changes the difficulty of an existing world on the next start, without starting a new one."
     }
   },
   "icon": "./icon.png"
