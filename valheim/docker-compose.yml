@@ -25,4 +25,4 @@ volumes:
       size: 5Gi
   serverfiles:
     driver_opts:
-      size: 5Gi
+      size: 10Gi
