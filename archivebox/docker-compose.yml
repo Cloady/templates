@@ -1,6 +1,6 @@
 services:
   archivebox:
-    image: archivebox/archivebox:0.9.71
+    image: archivebox/archivebox:0.9.77
     command: server --quick-init 0.0.0.0:5797
     environment:
       PORT: "5797"
