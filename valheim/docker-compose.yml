@@ -1,6 +1,6 @@
 services:
   valheim:
-    image: ghcr.io/community-valheim-tools/valheim-server:sha-a134fb4
+    image: ghcr.io/community-valheim-tools/valheim-server:1.4.1
     environment:
       CROSSPLAY: ${CROSSPLAY}
       WORLD_NAME: ${WORLD_NAME}
@@ -25,4 +25,4 @@ volumes:
       size: 5Gi
   serverfiles:
     driver_opts:
-      size: 5Gi
+      size: 8Gi
