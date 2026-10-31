@@ -2,7 +2,7 @@
   "category": "AI & LLM",
   "name": "Hermes Agent",
   "hint": "Nous Research's self-improving AI agent, run from a web dashboard or your chat apps",
-  "version": "0.22.2",
+  "version": "0.22.5",
   "envSchema": {
     "HERMES_DASHBOARD_BASIC_AUTH_USERNAME": {
       "title": "Dashboard username",
