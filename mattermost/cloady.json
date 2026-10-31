@@ -1,6 +1,6 @@
 {
   "category": "Communication",
-  "version": "11.11.1",
+  "version": "11.11.3",
   "envSchema": {
     "PUBLIC_URL": {
       "default": "${CLOADY_PRIMARY_URL}"
