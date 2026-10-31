@@ -2,14 +2,43 @@
   "category": "Networking",
   "version": "0.9.3",
   "envSchema": {
-    "ADGUARDHOME_SYNC_CRON": {
-      "title": "Cron Schedule"
-    },
     "ADGUARDHOME_SYNC_ORIGIN_URL": {
-      "title": "AdGuard Home Origin URL"
+      "title": "Origin AdGuard Home URL",
+      "default": "https://adguard-origin.example.com",
+      "description": "The AdGuard Home instance whose settings are copied. It must be reachable from the internet; replace the example address."
+    },
+    "ADGUARDHOME_SYNC_ORIGIN_USERNAME": {
+      "title": "Origin username"
+    },
+    "ADGUARDHOME_SYNC_ORIGIN_PASSWORD": {
+      "title": "Origin password",
+      "secret": true
     },
     "ADGUARDHOME_SYNC_REPLICA_URL": {
-      "title": "AdGuard Home Replica URL"
+      "title": "Replica AdGuard Home URL",
+      "default": "https://adguard-replica.example.com",
+      "description": "The AdGuard Home instance that receives the settings. It must be reachable from the internet; replace the example address."
+    },
+    "ADGUARDHOME_SYNC_REPLICA_USERNAME": {
+      "title": "Replica username"
+    },
+    "ADGUARDHOME_SYNC_REPLICA_PASSWORD": {
+      "title": "Replica password",
+      "secret": true
+    },
+    "ADGUARDHOME_SYNC_CRON": {
+      "title": "Sync schedule",
+      "default": "*/10 * * * *",
+      "description": "Cron expression for how often to sync"
+    },
+    "ADGUARDHOME_SYNC_API_USERNAME": {
+      "title": "Web UI username",
+      "default": "admin"
+    },
+    "ADGUARDHOME_SYNC_API_PASSWORD": {
+      "title": "Web UI password",
+      "secret": true,
+      "generate": "password:24"
     }
   },
   "icon": "./icon.png"

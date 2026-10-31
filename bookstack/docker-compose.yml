@@ -3,7 +3,7 @@ services:
     image: lscr.io/linuxserver/bookstack:26.09.1
     environment:
       TZ: ${TZ}
-      APP_KEY: base64:${APP_KEY}
+      APP_KEY: ${APP_KEY}
       APP_URL: ${APP_PROTOCOL}://${PUBLIC_HOST}
       DB_HOST: bookstack-db
       DB_DATABASE: bookstackapp

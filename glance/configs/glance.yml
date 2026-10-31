@@ -1,0 +1,22 @@
+pages:
+  - name: Home
+    columns:
+      - size: small
+        widgets:
+          - type: calendar
+            first-day-of-week: monday
+          - type: rss
+            limit: 10
+            collapse-after: 3
+            cache: 12h
+            feeds:
+              - url: https://selfh.st/rss/
+                title: selfh.st
+      - size: full
+        widgets:
+          - type: hacker-news
+          - type: lobsters
+      - size: small
+        widgets:
+          - type: weather
+            location: London, United Kingdom
