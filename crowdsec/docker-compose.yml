@@ -1,6 +1,6 @@
 services:
   crowdsec:
-    image: crowdsecurity/crowdsec:v1.8.1
+    image: crowdsecurity/crowdsec:v1.8.2
     environment:
       GID: "1000"
       COLLECTIONS: crowdsecurity/traefik crowdsecurity/http-cve crowdsecurity/base-http-scenarios crowdsecurity/sshd crowdsecurity/linux crowdsecurity/appsec-crs crowdsecurity/appsec-generic-rules crowdsecurity/appsec-virtual-patching
