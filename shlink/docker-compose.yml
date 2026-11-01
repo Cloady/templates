@@ -1,6 +1,6 @@
 services:
   shlink:
-    image: ghcr.io/shlinkio/shlink:5.1.7
+    image: ghcr.io/shlinkio/shlink:5.1.8
     environment:
       DB_HOST: shlink-db
       DB_NAME: shlink
