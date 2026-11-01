@@ -1,6 +1,6 @@
 {
   "category": "Storage",
-  "version": "35.0.1",
+  "version": "35.0.2",
   "envSchema": {
     "ADMIN_USER": {
       "title": "Admin username",
