@@ -1,6 +1,6 @@
 services:
   adguardhome-sync:
-    image: ghcr.io/bakito/adguardhome-sync:v0.9.5
+    image: ghcr.io/bakito/adguardhome-sync:v0.9.6
     command: run
     environment:
       CRON: ${ADGUARDHOME_SYNC_CRON}
