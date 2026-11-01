@@ -1,6 +1,6 @@
 services:
   vaultwarden:
-    image: vaultwarden/server:1.37.3
+    image: vaultwarden/server:1.37.4
     environment:
       DOMAIN: ${PUBLIC_URL}
       ADMIN_TOKEN: ${ADMIN_TOKEN}
