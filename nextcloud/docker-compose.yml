@@ -16,7 +16,7 @@ services:
           cpus: 0.25
           memory: 256M
   app:
-    image: nextcloud:35.0.1-apache
+    image: nextcloud:35.0.2-apache
     environment:
       POSTGRES_DB: nextcloud
       OVERWRITEHOST: ${PUBLIC_HOST}
