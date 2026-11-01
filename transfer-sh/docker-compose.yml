@@ -1,19 +1,13 @@
 services:
   transfer:
-    image: dutchcoders/transfer.sh:latest-noroot
+    image: dutchcoders/transfer.sh:latest
     command:
       - --provider=local
       - --basedir=/tmp/
     ports:
       - 8080
-    volumes:
-      - transfer-tmp:/tmp
     deploy:
       resources:
         reservations:
           cpus: 0.25
           memory: 256M
-volumes:
-  transfer-tmp:
-    driver_opts:
-      size: 2Gi

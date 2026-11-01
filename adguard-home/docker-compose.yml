@@ -1,9 +1,10 @@
 services:
   adguard:
     image: adguard/adguardhome:v0.107.79
+    environment:
+      ADGUARD_HOME_DEFAULT_WEB_PORT: "3000"
     ports:
       - 3000
-      - 80
       - 53
     volumes:
       - work:/opt/adguardhome/work
