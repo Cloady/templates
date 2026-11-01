@@ -1,6 +1,6 @@
 services:
   transmission:
-    image: lscr.io/linuxserver/transmission:4.1.3
+    image: lscr.io/linuxserver/transmission:4.1.4
     environment:
       TZ: ${TZ}
       PASS: ${TRANSMISSION_PASSWORD}
