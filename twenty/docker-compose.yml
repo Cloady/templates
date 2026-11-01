@@ -1,6 +1,6 @@
 services:
   server:
-    image: twentycrm/twenty:v2.45.4
+    image: twentycrm/twenty:v2.54.0
     environment:
       NODE_PORT: "3000"
       PG_DATABASE_URL: postgres://postgres:${PG_DATABASE_PASSWORD}@db:5432/default
@@ -30,7 +30,7 @@ services:
           cpus: 0.5
           memory: 1G
   worker:
-    image: twentycrm/twenty:v2.45.4
+    image: twentycrm/twenty:v2.54.0
     command: ["yarn", "worker:prod"]
     environment:
       PG_DATABASE_URL: postgres://postgres:${PG_DATABASE_PASSWORD}@db:5432/default
@@ -75,7 +75,7 @@ services:
           cpus: 0.25
           memory: 512M
   redis:
-    image: redis:8.10.2
+    image: redis:8.10.3
     command: ["--maxmemory-policy", "noeviction"]
     expose:
       - 6379
