@@ -1,6 +1,6 @@
 services:
   speedtest-tracker:
-    image: lscr.io/linuxserver/speedtest-tracker:1.15.0
+    image: lscr.io/linuxserver/speedtest-tracker:1.15.1
     environment:
       TZ: ${TZ}
       PGID: "1000"
