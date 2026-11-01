@@ -1,6 +1,6 @@
 {
   "category": "Productivity",
-  "version": "1.7.20",
+  "version": "1.7.22",
   "envSchema": {
     "APP_PROTOCOL": {
       "default": "https"
