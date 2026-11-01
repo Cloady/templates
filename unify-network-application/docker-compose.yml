@@ -19,7 +19,7 @@ services:
           cpus: 0.25
           memory: 512M
   unifi-network-application:
-    image: lscr.io/linuxserver/unifi-network-application:10.6.106
+    image: lscr.io/linuxserver/unifi-network-application:10.6.109
     environment:
       TZ: Etc/UTC
       PGID: "1000"
