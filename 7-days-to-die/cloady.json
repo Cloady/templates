@@ -2,7 +2,7 @@
   "category": "Game Servers",
   "name": "7 Days to Die",
   "hint": "Zombie survival server, joined from the in-game browser through Steam networking",
-  "version": "0.9.3",
+  "version": "0.10.0",
   "envSchema": {
     "SERVER_NAME": {
       "title": "Server name",
