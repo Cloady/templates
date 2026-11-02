@@ -1,6 +1,6 @@
 {
   "category": "Analytics",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "envSchema": {
     "UMAMI_ANALYTICS_APP_SECRET": {
       "secret": true,
