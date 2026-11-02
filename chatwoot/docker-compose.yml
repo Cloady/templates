@@ -1,6 +1,6 @@
 services:
   rails:
-    image: chatwoot/chatwoot:v4.18.0
+    image: chatwoot/chatwoot:v4.19.1
     entrypoint: docker/entrypoints/rails.sh
     command: ["sh", "-c", "bundle exec rails db:chatwoot_prepare && exec bundle exec rails s -p 3000 -b 0.0.0.0"]
     environment: &chatwoot-env
@@ -41,7 +41,7 @@ services:
           cpus: 0.5
           memory: 1536M
   sidekiq:
-    image: chatwoot/chatwoot:v4.18.0
+    image: chatwoot/chatwoot:v4.19.1
     command: ["bundle", "exec", "sidekiq", "-C", "config/sidekiq.yml"]
     environment: *chatwoot-env
     volumes:
@@ -71,7 +71,7 @@ services:
           cpus: 0.25
           memory: 512M
   redis:
-    image: redis:8.10.2-alpine
+    image: redis:8.10.3-alpine
     command: redis-server --requirepass ${REDIS_PASSWORD}
     expose:
       - 6379
