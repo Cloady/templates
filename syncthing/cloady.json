@@ -1,6 +1,6 @@
 {
   "category": "Storage",
-  "version": "2.1.5",
+  "version": "2.1.7",
   "envSchema": {
     "SYNCTHING_HOSTNAME": {
       "title": "Hostname"
