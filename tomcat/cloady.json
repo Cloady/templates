@@ -2,7 +2,7 @@
   "category": "CMS & Websites",
   "name": "Apache Tomcat",
   "hint": "Java servlet container for running WAR web applications",
-  "version": "11.0.26",
+  "version": "11.0.27",
   "envSchema": {
     "CATALINA_OPTS": {
       "title": "JVM options",
