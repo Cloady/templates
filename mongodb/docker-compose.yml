@@ -1,6 +1,7 @@
 services:
   mongodb:
     image: mongo:8.3.11
+    command: ["mongod", "--ipv6", "--bind_ip_all"]
     environment:
       MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
