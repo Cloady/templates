@@ -2,7 +2,7 @@
   "category": "Databases",
   "name": "Valkey",
   "hint": "Open-source Redis-compatible in-memory data store",
-  "version": "9.1.2",
+  "version": "9.1.3",
   "envSchema": {
     "VALKEY_PASSWORD": {
       "title": "Password",
