@@ -1,6 +1,6 @@
 services:
   docmost:
-    image: docmost/docmost:0.96.0
+    image: docmost/docmost:0.97.0
     environment:
       APP_URL: ${APP_PROTOCOL}://${PUBLIC_HOST}
       REDIS_URL: redis://docmost-redis:6379
