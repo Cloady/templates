@@ -2,7 +2,7 @@
   "category": "CMS & Websites",
   "name": "Drupal",
   "hint": "Flexible open-source CMS for content-rich websites",
-  "version": "11.4.8",
+  "version": "11.4.11",
   "envSchema": {
     "POSTGRES_PASSWORD": {
       "title": "Database password",
