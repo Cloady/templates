@@ -1,6 +1,6 @@
 services:
   headscale:
-    image: headscale/headscale:0.29.4-debug
+    image: headscale/headscale:v0.29.7-debug
     command: serve
     environment:
       HEADSCALE_SERVER_URL: ${PUBLIC_URL}
