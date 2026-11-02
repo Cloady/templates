@@ -1,6 +1,6 @@
 services:
   sdtd:
-    image: vinanrra/7dtd-server:v0.9.3
+    image: vinanrra/7dtd-server:v0.10.0
     entrypoint: >-
       sh -c 'f=/home/sdtdserver/serverfiles/sdtdserver.xml && mkdir -p /home/sdtdserver/serverfiles
       && { [ -f $$f ] || cp /cloady/serverconfig.xml $$f; }
