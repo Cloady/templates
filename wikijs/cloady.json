@@ -1,6 +1,6 @@
 {
   "category": "CMS & Websites",
-  "version": "2.5.316",
+  "version": "2.5.317",
   "envSchema": {
     "WIKI_JS_DB_PASS": {
       "secret": true,
