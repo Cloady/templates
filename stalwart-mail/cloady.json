@@ -1,6 +1,6 @@
 {
   "category": "Communication",
-  "version": "0.16.24",
+  "version": "0.16.27",
   "envSchema": {
     "NETWORK_INTERFACE": {
       "title": "Network Interface (default: 0.0.0.0)"
