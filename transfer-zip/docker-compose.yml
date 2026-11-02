@@ -10,6 +10,8 @@ services:
           memory: 256M
   signaling-server:
     image: l4rm4nd/transferzip:signaling-server
+    expose:
+      - 8001
     deploy:
       resources:
         reservations:
