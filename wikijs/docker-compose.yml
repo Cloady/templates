@@ -1,6 +1,6 @@
 services:
   wikijs:
-    image: ghcr.io/requarks/wiki:2.5.316
+    image: ghcr.io/requarks/wiki:2.5.317
     environment:
       DB_HOST: wikijs-db
       DB_NAME: wiki
