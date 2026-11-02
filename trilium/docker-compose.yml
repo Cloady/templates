@@ -1,6 +1,6 @@
 services:
   trilium:
-    image: ghcr.io/triliumnext/trilium:v0.106.0
+    image: ghcr.io/triliumnext/trilium:v0.106.1
     environment:
       TRILIUM_DATA_DIR: /home/node/trilium-data
     ports:
