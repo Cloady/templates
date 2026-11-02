@@ -4,9 +4,15 @@ services:
     environment:
       TZ: ${TZ}
     ports:
-      - 8443
+      - target: 8443
+        app_protocol: https
       - 8123
       - 19132/udp
+      - 25565/tcp
+      - 25566/tcp
+      - 25567/tcp
+      - 25568/tcp
+      - 25569/tcp
     volumes:
       - backups:/crafty/backups
       - logs:/crafty/logs

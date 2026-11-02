@@ -34,7 +34,8 @@ services:
       MONGO_DBNAME: unifi-db
       MONGO_AUTHSOURCE: admin
     ports:
-      - 8443
+      - target: 8443
+        app_protocol: https
       - 3478/udp
       - 10001/udp
       - 8080
