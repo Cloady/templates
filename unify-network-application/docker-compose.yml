@@ -12,7 +12,9 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
     volumes:
       - mongodb-data:/data/db
-      - init-mongo-sh:/docker-entrypoint-initdb.d/init-mongo.sh:ro
+    configs:
+      - source: init-mongo
+        target: /docker-entrypoint-initdb.d/init-mongo.sh
     deploy:
       resources:
         reservations:
@@ -50,7 +52,10 @@ services:
       resources:
         reservations:
           cpus: 0.25
-          memory: 256M
+          memory: 1536M
+configs:
+  init-mongo:
+    file: ./configs/init-mongo.sh
 volumes:
   config:
     driver_opts:
@@ -58,6 +63,3 @@ volumes:
   mongodb-data:
     driver_opts:
       size: 1Gi
-  init-mongo-sh:
-    driver_opts:
-      size: 256Mi
