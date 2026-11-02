@@ -1,6 +1,6 @@
 services:
   stalwart-mail:
-    image: ghcr.io/stalwartlabs/stalwart:v0.16.24
+    image: ghcr.io/stalwartlabs/stalwart:v0.16.27
     ports:
       - 8080
       - 25
