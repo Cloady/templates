@@ -1,6 +1,6 @@
 services:
   openproject:
-    image: openproject/openproject:17.9.1
+    image: openproject/openproject:17.9.6
     environment:
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
       OPENPROJECT_HOST__NAME: ${PUBLIC_HOST}
