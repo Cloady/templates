@@ -1,0 +1,14 @@
+{
+  "category": "Storage",
+  "name": "copyparty",
+  "hint": "File server with resumable uploads, media thumbnails and audio transcoding",
+  "version": "1.20.26",
+  "envSchema": {
+    "COPYPARTY_PASSWORD": {
+      "title": "Password",
+      "secret": true,
+      "generate": "password:24"
+    }
+  },
+  "icon": "./icon.svg"
+}

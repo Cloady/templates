@@ -1,0 +1,21 @@
+services:
+  copyparty:
+    image: copyparty/ac:1.20.26
+    command: "-a admin:${COPYPARTY_PASSWORD:?set COPYPARTY_PASSWORD} -v /w::A,admin"
+    ports:
+      - 3923
+    volumes:
+      - files:/w
+      - config:/cfg
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.5
+          memory: 512M
+volumes:
+  files:
+    driver_opts:
+      size: 4864Mi
+  config:
+    driver_opts:
+      size: 256Mi
