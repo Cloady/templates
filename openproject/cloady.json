@@ -2,7 +2,7 @@
   "category": "Productivity",
   "name": "OpenProject",
   "hint": "Project management with Gantt charts, boards and time tracking",
-  "version": "17.9.1",
+  "version": "17.9.6",
   "envSchema": {
     "ADMIN_PASSWORD": {
       "title": "Admin password",
