@@ -1,6 +1,6 @@
 {
   "category": "Developer Tools",
-  "version": "18.23.0",
+  "version": "18.24.4",
   "envSchema": {
     "ATUIN_DB_PASSWORD": {
       "secret": true,
