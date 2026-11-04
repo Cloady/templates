@@ -1,0 +1,23 @@
+{
+  "category": "Networking",
+  "name": "Xray (VLESS)",
+  "hint": "Personal VLESS proxy over WebSocket and TLS on your app's address",
+  "version": "26.10.31",
+  "envSchema": {
+    "CLIENT_ID": {
+      "title": "Client ID",
+      "secret": true,
+      "generate": "hex:16",
+      "description": "32 hexadecimal characters; your client uses them as a UUID. The app prints the complete client link (vless://…) in its logs when it starts: copy it into v2rayN, v2rayNG, Hiddify, Streisand or any other VLESS client."
+    },
+    "WS_PATH": {
+      "title": "WebSocket path",
+      "secret": true,
+      "generate": "hex:8",
+      "description": "Only connections to this path reach the proxy. BitTorrent, outgoing mail on port 25 and private network addresses are blocked."
+    },
+    "PUBLIC_HOST": {
+      "default": "${CLOADY_PRIMARY_HOST}"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+services:
+  xray:
+    image: teddysun/xray:26.10.31
+    entrypoint: ["/bin/sh", "/etc/xray/start.sh"]
+    environment:
+      CLIENT_ID: ${CLIENT_ID}
+      WS_PATH: ${WS_PATH}
+      PUBLIC_HOST: ${PUBLIC_HOST}
+    configs:
+      - source: start.sh
+        target: /etc/xray/start.sh
+    ports:
+      - 8080
+    deploy:
+      resources:
+        reservations:
+          cpus: 0.25
+          memory: 256M
+configs:
+  start.sh:
+    file: ./configs/start.sh
