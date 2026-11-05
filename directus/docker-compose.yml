@@ -1,6 +1,6 @@
 services:
   directus:
-    image: directus/directus:12.4.1
+    image: directus/directus:12.6.1
     environment:
       SECRET: ${SECRET}
       PUBLIC_URL: ${PUBLIC_URL}
