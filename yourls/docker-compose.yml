@@ -6,8 +6,8 @@ services:
     environment:
       MYSQL_USER: yourls
       MYSQL_DATABASE: yourls
-      MYSQL_PASSWORD: very-secure-database-password
-      MYSQL_ROOT_PASSWORD: very-secure-database-root-password
+      MYSQL_PASSWORD: ${YOURLS_DB_PASS}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - mysql-mysql:/var/lib/mysql
     deploy:
@@ -18,17 +18,15 @@ services:
   yourls:
     image: yourls:latest
     environment:
-      YOURLS_PASS: very-secury-admin-password
-      YOURLS_SITE: https://myyourls.example.com
-      YOURLS_USER: yourls-admin
+      YOURLS_PASS: ${YOURLS_PASS}
+      YOURLS_SITE: ${YOURLS_SITE}
+      YOURLS_USER: ${YOURLS_USER}
       YOURLS_DB_HOST: mysql
       YOURLS_DB_NAME: yourls
-      YOURLS_DB_PASS: very-secure-database-password
+      YOURLS_DB_PASS: ${YOURLS_DB_PASS}
       YOURLS_DB_USER: yourls
     ports:
       - 80
-    volumes:
-      - security-conf:/etc/apache2/conf-enabled/security.conf:ro
     deploy:
       resources:
         reservations:
@@ -36,8 +34,5 @@ services:
           memory: 256M
 volumes:
   mysql-mysql:
-    driver_opts:
-      size: 2Gi
-  security-conf:
     driver_opts:
       size: 2Gi

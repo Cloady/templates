@@ -1,5 +1,30 @@
 {
   "category": "Networking",
   "version": "latest",
-  "hint": "URL shortener with stats and plugins"
+  "hint": "URL shortener with stats and plugins",
+  "envSchema": {
+    "YOURLS_USER": {
+      "title": "Admin username",
+      "default": "admin"
+    },
+    "YOURLS_PASS": {
+      "title": "Admin password",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "YOURLS_SITE": {
+      "title": "Public address",
+      "default": "${CLOADY_PRIMARY_URL}"
+    },
+    "YOURLS_DB_PASS": {
+      "title": "Database password",
+      "secret": true,
+      "generate": "password:24"
+    },
+    "MYSQL_ROOT_PASSWORD": {
+      "title": "Database root password",
+      "secret": true,
+      "generate": "password:24"
+    }
+  }
 }
