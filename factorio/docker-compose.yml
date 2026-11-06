@@ -1,6 +1,6 @@
 services:
   factorio:
-    image: factoriotools/factorio:2.0.77
+    image: factoriotools/factorio:2.1.24
     environment:
       DLC_SPACE_AGE: ${DLC_SPACE_AGE}
     ports:
