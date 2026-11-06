@@ -2,7 +2,7 @@
   "category": "Game Servers",
   "name": "Factorio",
   "hint": "Factorio headless multiplayer server",
-  "version": "2.0.77",
+  "version": "2.1.24",
   "envSchema": {
     "DLC_SPACE_AGE": {
       "type": "boolean",
