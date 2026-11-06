@@ -1,6 +1,6 @@
 services:
   hoppscotch:
-    image: hoppscotch/hoppscotch:2026.9.0
+    image: hoppscotch/hoppscotch:2026.10.1
     command:
       - sh
       - -c
