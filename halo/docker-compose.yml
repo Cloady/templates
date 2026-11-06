@@ -1,6 +1,6 @@
 services:
   halo:
-    image: halohub/halo:2.26.1
+    image: halohub/halo:2.27.2
     command: --spring.r2dbc.url=r2dbc:pool:postgresql://halodb/halo --spring.r2dbc.username=halo --spring.r2dbc.password=${HALO_DATABASE_PASSWORD} --spring.sql.init.platform=postgresql --halo.external-url=${HALO_EXTERNAL_URL}
     environment:
       JVM_OPTS: -Xmx256m -Xms256m
