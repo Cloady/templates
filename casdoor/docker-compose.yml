@@ -15,7 +15,7 @@ services:
           cpus: 0.25
           memory: 512M
   casdoor:
-    image: casbin/casdoor:4.15.0
+    image: casbin/casdoor:v4.26.0
     environment:
       GIN_MODE: release
       RUNNING_IN_DOCKER: "true"
