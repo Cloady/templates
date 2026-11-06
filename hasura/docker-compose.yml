@@ -1,6 +1,6 @@
 services:
   graphql-engine:
-    image: hasura/graphql-engine:v2.50.3
+    image: hasura/graphql-engine:v2.51.4
     environment:
       HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://hasura:${POSTGRES_PASSWORD}@postgres:5432/hasura
       PG_DATABASE_URL: postgres://hasura:${POSTGRES_PASSWORD}@postgres:5432/hasura
