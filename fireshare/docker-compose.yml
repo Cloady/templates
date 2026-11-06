@@ -1,6 +1,6 @@
 services:
   fireshare:
-    image: shaneisrael/fireshare:1.8.5
+    image: shaneisrael/fireshare:1.9.0
     environment:
       PGID: "1000"
       PUID: "1000"
