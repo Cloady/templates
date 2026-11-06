@@ -1,6 +1,6 @@
 services:
   nakama:
-    image: heroiclabs/nakama:3.41.0
+    image: heroiclabs/nakama:3.42.0
     entrypoint:
       - tini
       - --
@@ -58,7 +58,7 @@ services:
           cpus: 0.15
           memory: 384M
   proxy:
-    image: caddy:2.11.7-alpine
+    image: caddy:2.11.9-alpine
     configs:
       - source: caddyfile
         target: /etc/caddy/Caddyfile
