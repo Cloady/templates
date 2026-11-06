@@ -2,7 +2,7 @@
   "category": "Monitoring",
   "name": "Gatus",
   "hint": "Automated status page with uptime checks and alerts",
-  "version": "5.37.0",
+  "version": "5.38.0",
   "envSchema": {
     "MONITOR_URL": {
       "title": "URL to monitor",
