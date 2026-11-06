@@ -1,6 +1,6 @@
 services:
   drawio:
-    image: jgraph/drawio:32.0.2
+    image: jgraph/drawio:32.6.10
     ports:
       - 8080
     deploy:
