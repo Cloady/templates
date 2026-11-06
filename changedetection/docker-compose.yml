@@ -1,6 +1,6 @@
 services:
   changedetection:
-    image: ghcr.io/dgtlmoon/changedetection.io:0.70.1
+    image: ghcr.io/dgtlmoon/changedetection.io:0.70.2
     ports:
       - 5000
     volumes:
