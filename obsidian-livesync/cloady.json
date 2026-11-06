@@ -3,7 +3,8 @@
   "version": "3.5.2",
   "envSchema": {
     "OBSIDIAN_LIVESYNC_USER": {
-      "title": "CouchDB username"
+      "title": "CouchDB username",
+      "default": "admin"
     },
     "OBSIDIAN_LIVESYNC_PASSWORD": {
       "title": "CouchDB password",
