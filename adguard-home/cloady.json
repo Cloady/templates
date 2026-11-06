@@ -2,6 +2,6 @@
   "category": "Networking",
   "name": "AdGuard Home",
   "hint": "Network-wide ad and tracker blocking DNS server",
-  "version": "0.107.79",
+  "version": "0.107.80",
   "icon": "./icon.png"
 }
