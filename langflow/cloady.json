@@ -2,7 +2,7 @@
   "category": "AI & LLM",
   "name": "Langflow",
   "hint": "Visual builder for AI agents and workflows",
-  "version": "1.12.4",
+  "version": "1.13.1",
   "envSchema": {
     "LANGFLOW_SUPERUSER": {
       "title": "Admin username",
