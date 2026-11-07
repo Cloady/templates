@@ -1,6 +1,6 @@
 services:
   langflow:
-    image: langflowai/langflow:1.12.4
+    image: langflowai/langflow:1.13.1
     environment:
       LANGFLOW_DATABASE_URL: postgresql://langflow:${POSTGRES_PASSWORD}@postgres:5432/langflow
       LANGFLOW_DATABASE_CONNECTION_RETRY: "true"
