@@ -1,6 +1,6 @@
 services:
   komga:
-    image: ghcr.io/gotson/komga:1.28.1
+    image: ghcr.io/gotson/komga:1.30.0
     environment:
       TZ: ${TZ}
     ports:
