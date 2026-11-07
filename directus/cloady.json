@@ -2,7 +2,7 @@
   "category": "Backends",
   "name": "Directus",
   "hint": "Headless CMS with instant REST and GraphQL APIs on Postgres",
-  "version": "12.4.1",
+  "version": "12.6.1",
   "envSchema": {
     "ADMIN_EMAIL": {
       "title": "Admin email",
