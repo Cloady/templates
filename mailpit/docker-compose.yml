@@ -1,6 +1,6 @@
 services:
   mailpit:
-    image: axllent/mailpit:v1.31.4
+    image: axllent/mailpit:v1.33.0
     environment:
       MP_DATABASE: /data/mailpit.db
       MP_MAX_MESSAGES: "5000"
