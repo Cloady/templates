@@ -2,7 +2,7 @@
   "category": "AI & LLM",
   "name": "LiteLLM",
   "hint": "OpenAI-compatible gateway to 100+ LLM providers",
-  "version": "1.104.0",
+  "version": "1.108.2",
   "envSchema": {
     "UI_USERNAME": {
       "title": "Admin username",
