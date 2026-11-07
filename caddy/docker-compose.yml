@@ -7,7 +7,7 @@ services:
       - 80
       - 443
     volumes:
-      - caddyfile:/etc/caddy/Caddyfile
+      - caddyfile:/etc/caddy
       - data:/data
       - config:/config
     deploy:
