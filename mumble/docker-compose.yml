@@ -1,6 +1,6 @@
 services:
   mumble-server:
-    image: mumblevoip/mumble-server:v1.5.915
+    image: mumblevoip/mumble-server:v1.6.1001
     environment:
       MUMBLE_SUPERUSER_PASSWORD: ${MUMBLE_SUPERUSER_PASSWORD}
       MUMBLE_CONFIG_SERVER_PASSWORD: ${SERVER_PASSWORD}
