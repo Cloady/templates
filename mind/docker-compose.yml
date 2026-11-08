@@ -1,6 +1,6 @@
 services:
   mind:
-    image: mrcas/mind:v1.4.1
+    image: mrcas/mind:v1.5.2
     environment:
       TZ: ${TZ}
     ports:
