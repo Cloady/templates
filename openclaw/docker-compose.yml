@@ -5,10 +5,11 @@ services:
       - sh
       - -ec
       - |
-        node dist/index.js config set --batch-json '[{"path":"gateway.mode","value":"local"},{"path":"gateway.bind","value":"lan"},{"path":"gateway.publicOrigin","value":"${CLOADY_PRIMARY_URL:-http://localhost:18789}"},{"path":"gateway.trustedProxies","value":["10.0.0.0/8","172.16.0.0/12","192.168.0.0/16"]}]'
+        node dist/index.js config set --batch-json '[{"path":"gateway.mode","value":"local"},{"path":"gateway.bind","value":"lan"},{"path":"gateway.publicOrigin","value":"'"${CLOADY_PRIMARY_URL:-http://localhost:18789}"'"},{"path":"gateway.trustedProxies","value":["10.0.0.0/8","172.16.0.0/12","192.168.0.0/16"]}]'
         node dist/index.js doctor --fix --non-interactive
         exec node dist/index.js gateway --bind lan --port 18789
     environment:
+      CLOADY_PRIMARY_URL: ${CLOADY_PRIMARY_URL:-http://localhost:18789}
       OPENCLAW_GATEWAY_TOKEN: ${OPENCLAW_GATEWAY_TOKEN}
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
