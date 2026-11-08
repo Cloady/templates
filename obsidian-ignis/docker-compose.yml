@@ -20,14 +20,7 @@ services:
     image: ubuntu/git-sync:4.5-24.04_stable
     entrypoint:
       - git-sync
-    command:
-      - --repo=${GITSYNC_REPO:-https://github.com/example/example.git}
-      - --root=/vaults/.git-sync
-      - --link=/vaults/current
-      - --period=${GITSYNC_PERIOD:-30s}
-      - --ref=${GITSYNC_REF:-HEAD}
-      - --max-failures=-1
-      - --verbose=5
+    command: "--repo=${GITSYNC_REPO:-https://github.com/example/example.git} --root=/vaults/.git-sync --link=/vaults/current --period=${GITSYNC_PERIOD:-30s} --ref=${GITSYNC_REF:-HEAD} --max-failures=-1 --verbose=5"
     environment:
       GITSYNC_PASSWORD: ${GITSYNC_PASSWORD}
       GITSYNC_USERNAME: ${GITSYNC_USERNAME}

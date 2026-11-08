@@ -1,9 +1,7 @@
 services:
   moneroblock:
     image: sethsimmons/moneroblock:v0.1.2
-    command:
-      - --daemon
-      - ${DAEMON_ADDRESS:-node.sethforprivacy.com:18089}
+    command: "--daemon ${DAEMON_ADDRESS:-node.sethforprivacy.com:18089}"
     ports:
       - 31312
     deploy:
