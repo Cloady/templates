@@ -1,6 +1,6 @@
 services:
   mindustry:
-    image: kagurazakanyaa/mindustry:v160.5
+    image: kagurazakanyaa/mindustry:v160.7
     entrypoint:
       - /bin/sh
       - -c
