@@ -2,7 +2,7 @@
   "category": "Developer Tools",
   "name": "Hoppscotch",
   "hint": "Open-source API client for REST, GraphQL and WebSockets",
-  "version": "2026.9.0",
+  "version": "2026.10.1",
   "envSchema": {
     "POSTGRES_PASSWORD": {
       "title": "Database password",
