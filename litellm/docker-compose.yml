@@ -1,6 +1,6 @@
 services:
   litellm:
-    image: ghcr.io/berriai/litellm:v1.108.2
+    image: ghcr.io/berriai/litellm:v1.108.3
     environment:
       DATABASE_URL: postgresql://litellm:${POSTGRES_PASSWORD}@db:5432/litellm
       STORE_MODEL_IN_DB: "True"
