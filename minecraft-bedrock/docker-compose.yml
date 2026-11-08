@@ -1,6 +1,6 @@
 services:
   bds:
-    image: itzg/minecraft-bedrock-server:2026.9.2
+    image: itzg/minecraft-bedrock-server:2026.11.0
     environment:
       EULA: "TRUE"
       SERVER_NAME: ${SERVER_NAME}
