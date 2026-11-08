@@ -2,7 +2,7 @@
   "category": "Game Servers",
   "name": "Mindustry",
   "hint": "Multiplayer server for the factory and tower-defense game, joined over IPv6",
-  "version": "160.5",
+  "version": "160.7",
   "envSchema": {
     "SERVER_NAME": {
       "title": "Server name",
