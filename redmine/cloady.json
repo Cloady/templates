@@ -2,7 +2,7 @@
   "category": "Productivity",
   "name": "Redmine",
   "hint": "Issue tracking and project management with wikis and Gantt charts",
-  "version": "7.0.2",
+  "version": "7.0.3",
   "envSchema": {
     "DB_PASSWORD": {
       "secret": true,
