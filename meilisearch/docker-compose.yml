@@ -1,6 +1,6 @@
 services:
   meilisearch:
-    image: getmeili/meilisearch:v1.56.1
+    image: getmeili/meilisearch:v1.56.2
     environment:
       MEILI_ENV: production
       MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
