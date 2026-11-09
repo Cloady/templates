@@ -2,7 +2,7 @@
   "category": "Backends",
   "name": "Nakama",
   "hint": "Game backend with accounts, realtime multiplayer, matchmaking, leaderboards and chat",
-  "version": "3.41.0",
+  "version": "3.42.0",
   "envSchema": {
     "CONSOLE_USERNAME": {
       "title": "Console username",
