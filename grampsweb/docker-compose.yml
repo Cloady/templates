@@ -1,6 +1,6 @@
 services:
   grampsweb:
-    image: ghcr.io/gramps-project/grampsweb:26.11.1
+    image: ghcr.io/gramps-project/grampsweb:26.11.2
     environment:
       GRAMPSWEB_TREE: ${GRAMPSWEB_TREE}
       GUNICORN_NUM_WORKERS: "1"
