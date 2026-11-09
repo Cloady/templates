@@ -1,6 +1,6 @@
 {
   "category": "Media",
-  "version": "6.31.1",
+  "version": "6.33.1",
   "envSchema": {
     "TZ": {
       "title": "Timezone",
