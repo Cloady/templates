@@ -1,6 +1,6 @@
 services:
   mc:
-    image: itzg/minecraft-server:2026.10.1
+    image: itzg/minecraft-server:2026.11.0
     environment:
       OPS: ${OPS}
       EULA: "TRUE"
