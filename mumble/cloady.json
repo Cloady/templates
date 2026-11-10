@@ -2,7 +2,7 @@
   "category": "Communication",
   "name": "Mumble",
   "hint": "Low-latency, high-quality voice chat server",
-  "version": "1.5.915",
+  "version": "1.6.1001",
   "envSchema": {
     "MUMBLE_SUPERUSER_PASSWORD": {
       "title": "SuperUser password",
