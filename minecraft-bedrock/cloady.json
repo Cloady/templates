@@ -2,7 +2,7 @@
   "category": "Game Servers",
   "name": "Minecraft Bedrock",
   "hint": "Mojang's dedicated server for Minecraft Bedrock Edition players",
-  "version": "2026.9.2",
+  "version": "2026.11.0",
   "envSchema": {
     "SERVER_NAME": {
       "title": "Server name",
