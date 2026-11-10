@@ -1,6 +1,6 @@
 services:
   prestashop:
-    image: prestashop/prestashop:9.2.0-apache
+    image: prestashop/prestashop:9.2.1-apache
     environment:
       DB_SERVER: mariadb
       DB_NAME: prestashop
