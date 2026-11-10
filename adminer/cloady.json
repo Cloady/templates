@@ -2,6 +2,6 @@
   "category": "Developer Tools",
   "name": "Adminer",
   "hint": "Single-file database manager for MySQL, PostgreSQL and more",
-  "version": "6.2.0",
+  "version": "6.3.0",
   "icon": "./icon.svg"
 }
