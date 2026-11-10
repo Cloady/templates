@@ -1,6 +1,6 @@
 services:
   adminer:
-    image: adminer:6.2.0
+    image: adminer:6.3.0
     ports:
       - 8080
     deploy:
