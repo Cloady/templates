@@ -1,6 +1,6 @@
 services:
   movary:
-    image: leepeuker/movary:0.75.0
+    image: leepeuker/movary:0.83.0
     environment:
       TIMEZONE: ${TZ}
       TMDB_API_KEY: ${MOVARY_TMDB_API_KEY}
@@ -39,7 +39,7 @@ services:
           cpus: 0.25
           memory: 512M
   movary-migration:
-    image: leepeuker/movary:0.75.0
+    image: leepeuker/movary:0.83.0
     command: php bin/console.php database:migration:migrate
     environment:
       TIMEZONE: ${TZ}
