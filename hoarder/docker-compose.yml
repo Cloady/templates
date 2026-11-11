@@ -1,6 +1,6 @@
 services:
   hoarder:
-    image: ghcr.io/hoarder-app/hoarder:0.33.2
+    image: ghcr.io/hoarder-app/hoarder:0.34.1
     environment:
       DATA_DIR: /data
       MEILI_ADDR: http://hoarder-meilisearch:7700
@@ -36,7 +36,7 @@ services:
           cpus: 0.1
           memory: 256M
   hoarder-meilisearch:
-    image: getmeili/meilisearch:v1.54
+    image: getmeili/meilisearch:v1.56
     expose:
       - 7700
     environment:
