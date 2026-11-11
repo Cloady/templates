@@ -2,7 +2,7 @@
   "category": "Developer Tools",
   "name": "Mailpit",
   "hint": "Email and SMTP testing tool with a web UI and API",
-  "version": "1.33.0",
+  "version": "1.33.1",
   "envSchema": {
     "MP_UI_AUTH": {
       "title": "Web UI login",
