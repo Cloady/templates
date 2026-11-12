@@ -32,7 +32,7 @@ services:
           cpus: 0.5
           memory: 1G
   mongodb:
-    image: mongo:8.0.32
+    image: mongo:8.3.17
     environment:
       MONGO_INITDB_ROOT_USERNAME: librechat
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
@@ -46,7 +46,7 @@ services:
           cpus: 0.25
           memory: 512M
   meilisearch:
-    image: getmeili/meilisearch:v1.35.1
+    image: getmeili/meilisearch:v1.56.2
     environment:
       MEILI_NO_ANALYTICS: "true"
       MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
