@@ -2,7 +2,7 @@
   "category": "CMS & Websites",
   "name": "Joomla!",
   "hint": "Open-source CMS for websites and online publications",
-  "version": "6.1.4",
+  "version": "6.2.0",
   "envSchema": {
     "JOOMLA_SITE_NAME": {
       "title": "Site name",
