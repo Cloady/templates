@@ -1,6 +1,6 @@
 services:
   mongodb:
-    image: mongo:8.3.11
+    image: mongo:8.3.17
     command: ["mongod", "--ipv6", "--bind_ip_all"]
     environment:
       MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
