@@ -1,6 +1,6 @@
 services:
   beszel:
-    image: henrygd/beszel:0.21.1
+    image: henrygd/beszel:0.21.2
     ports:
       - 8090
     volumes:
