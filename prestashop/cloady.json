@@ -2,7 +2,7 @@
   "category": "CMS & Websites",
   "name": "PrestaShop",
   "hint": "Open-source e-commerce platform for online stores",
-  "version": "9.2.0",
+  "version": "9.2.1",
   "envSchema": {
     "ADMIN_MAIL": {
       "title": "Admin email",
