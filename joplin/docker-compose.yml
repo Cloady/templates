@@ -1,6 +1,6 @@
 services:
   joplin:
-    image: joplin/server:3.7.4
+    image: joplin/server:3.7.5
     environment:
       APP_PORT: "22300"
       DB_CLIENT: pg
@@ -19,7 +19,7 @@ services:
           cpus: 0.25
           memory: 256M
   db-joplin:
-    image: postgres:14.24
+    image: postgres:14.25
     expose:
       - 5432
     environment:
