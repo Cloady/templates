@@ -1,6 +1,6 @@
 services:
   teamspeak:
-    image: teamspeak:3.13.8
+    image: teamspeak:3.13.9
     environment:
       TS3SERVER_LICENSE: accept
       TS3SERVER_SERVERADMIN_PASSWORD: ${TS3SERVER_SERVERADMIN_PASSWORD}
