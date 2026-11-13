@@ -2,7 +2,7 @@
   "category": "Communication",
   "name": "TeamSpeak",
   "hint": "TeamSpeak 3 voice server for gaming and teams",
-  "version": "3.13.8",
+  "version": "3.13.9",
   "envSchema": {
     "TS3SERVER_SERVERADMIN_PASSWORD": {
       "title": "ServerQuery password",
