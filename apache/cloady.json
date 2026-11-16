@@ -2,7 +2,7 @@
   "category": "CMS & Websites",
   "name": "Apache HTTP Server",
   "hint": "Static website hosting on the classic Apache web server",
-  "version": "2.4.69",
+  "version": "2.4.71",
   "envSchema": {},
   "icon": "./icon.svg"
 }
