@@ -1,6 +1,6 @@
 services:
   mylar3:
-    image: lscr.io/linuxserver/mylar3:v0.11.0-ls279
+    image: lscr.io/linuxserver/mylar3:v0.11.0-ls280
     environment:
       TZ: ${TZ}
       PGID: "1000"
