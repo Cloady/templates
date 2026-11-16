@@ -1,6 +1,6 @@
 services:
   httpd:
-    image: httpd:2.4.69
+    image: httpd:2.4.71
     ports:
       - 80
     volumes:
