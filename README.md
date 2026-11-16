@@ -64,14 +64,11 @@ after 10 minutes (`SMOKE_WAIT_SECONDS`).
 
 ## Syncing into a Cloady control plane
 
-From a Cloady checkout with its `.env`:
+An operator syncs the catalog from cloady.com: Utilities → Templates → Sync catalog
+shows the plan for the branch head (rows to add, update and remove, and folders that
+don't load) and applies it, and Sync from repo on a row updates just that template.
 
-```
-npm run catalog -- --dry-run   # show what would change
-npm run catalog                # apply it
-```
-
-The control plane keeps its `applications` table as a cache of this repo. The sync
+The control plane keeps its `templates` table as a cache of this repo. The sync
 adds a row for every folder whose template loads, takes `name`, `hint` and `category`
 from `cloady.json` when they are set (a new folder without them is named after its
 slug), records each template's services and default footprint, removes rows whose
@@ -79,8 +76,9 @@ folder is gone, and never touches install counts. `category` is one of the sixte
 the catalog lists: Databases, Backends, CMS & Websites, Game Servers, AI & LLM,
 Developer Tools, Analytics, Monitoring, Storage, Communication, Security, Automation,
 Media, Networking, Productivity or Desktops. A folder whose
-template fails to load is reported and left alone. Deployed instances snapshot their
-template at install time and are never affected by catalog updates.
+template fails to load is reported and left alone. A deployed app keeps the template
+it was installed with, unless its owner turns on Auto update, which installs new
+template versions (never one that would change the app's price or type).
 
 ## Provenance
 
