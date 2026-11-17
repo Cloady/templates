@@ -2,7 +2,7 @@
   "category": "Databases",
   "name": "ClickHouse",
   "hint": "Column-oriented SQL database for real-time analytics",
-  "version": "26.10.3.7",
+  "version": "26.10.4.207",
   "envSchema": {
     "CLICKHOUSE_PASSWORD": {
       "title": "Password",
