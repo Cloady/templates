@@ -1,6 +1,6 @@
 services:
   eclipse-mosquitto:
-    image: eclipse-mosquitto:2.0.22
+    image: eclipse-mosquitto:2.0.23
     command:
       - /dynsec-setup.sh
       - /usr/sbin/mosquitto
