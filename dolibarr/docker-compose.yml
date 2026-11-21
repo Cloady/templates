@@ -1,6 +1,6 @@
 services:
   dolibarr:
-    image: dolibarr/dolibarr:24.0.2
+    image: dolibarr/dolibarr:24.0.3
     environment:
       DOLI_DB_HOST: mariadb
       DOLI_DB_NAME: dolidb
