@@ -1,6 +1,6 @@
 {
   "category": "CMS & Websites",
-  "version": "2.2.30",
+  "version": "2.2.32",
   "envSchema": {
     "TZ": {
       "title": "Timezone",
