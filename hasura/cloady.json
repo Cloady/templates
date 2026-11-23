@@ -2,7 +2,7 @@
   "category": "Backends",
   "name": "Hasura GraphQL Engine",
   "hint": "Instant realtime GraphQL API on your Postgres database",
-  "version": "2.51.8",
+  "version": "2.51.9",
   "envSchema": {
     "HASURA_GRAPHQL_ADMIN_SECRET": {
       "title": "Admin secret",
