@@ -1,6 +1,6 @@
 services:
   mastodon:
-    image: lscr.io/linuxserver/mastodon:4.7.5
+    image: lscr.io/linuxserver/mastodon:4.7.6
     environment:
       TZ: ${TZ}
       PGID: "1000"
