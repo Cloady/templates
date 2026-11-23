@@ -16,7 +16,7 @@
     },
     "ESPHOME_USERNAME": {
       "title": "Username",
-      "default": ""
+      "default": "admin"
     }
   },
   "icon": "./icon.png"
