@@ -1,6 +1,6 @@
 {
   "category": "Productivity",
-  "version": "1.2.57",
+  "version": "1.2.58",
   "envSchema": {
     "PLUGIN_INSTALLER": {
       "title": "Enable Plugin Installer"
