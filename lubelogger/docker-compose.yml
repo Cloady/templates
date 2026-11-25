@@ -1,6 +1,6 @@
 services:
   lubelogger:
-    image: ghcr.io/hargata/lubelogger:v1.7.4
+    image: ghcr.io/hargata/lubelogger:v1.7.5
     environment:
       TZ: ${TZ}
       LANG: ${LUBELOGGER_LOCALE}
@@ -44,7 +44,7 @@ services:
           cpus: 0.25
           memory: 256M
   lubelogger-db:
-    image: postgres:16.15-alpine
+    image: postgres:16.16-alpine
     expose:
       - 5432
     environment:
