@@ -2,7 +2,7 @@
   "category": "Networking",
   "name": "Headscale",
   "hint": "Self-hosted Tailscale control server",
-  "version": "v0.29.7",
+  "version": "v0.29.8",
   "envSchema": {
     "BASE_DOMAIN": {
       "title": "MagicDNS domain",
