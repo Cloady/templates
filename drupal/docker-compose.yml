@@ -1,6 +1,6 @@
 services:
   drupal:
-    image: drupal:11.4.13-php8.5-apache
+    image: drupal:11.4.14-php8.5-apache
     configs:
       - source: reverse-proxy.conf
         target: /etc/apache2/conf-enabled/reverse-proxy.conf
