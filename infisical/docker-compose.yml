@@ -1,6 +1,6 @@
 services:
   backend:
-    image: infisical/infisical:v0.165.16
+    image: infisical/infisical:v0.167.16
     environment:
       NODE_ENV: production
       ENCRYPTION_KEY: ${ENCRYPTION_KEY}
@@ -21,7 +21,7 @@ services:
           cpus: 0.5
           memory: 1G
   redis:
-    image: redis:8.10.2
+    image: redis:8.12.0
     command: redis-server --requirepass ${REDIS_PASSWORD}
     expose:
       - 6379
@@ -33,7 +33,7 @@ services:
           cpus: 0.1
           memory: 128M
   db:
-    image: postgres:14.24-alpine
+    image: postgres:14.25-alpine
     environment:
       PGDATA: /var/lib/postgresql/data/pgdata
       POSTGRES_USER: infisical
