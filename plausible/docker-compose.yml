@@ -28,7 +28,7 @@ services:
           cpus: 0.25
           memory: 1G
   plausible:
-    image: ghcr.io/plausible/community-edition:v3.2.1
+    image: ghcr.io/plausible/community-edition:v3.2.2
     command: /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh run
     environment:
       TMPDIR: /var/lib/plausible/tmp
