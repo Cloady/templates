@@ -1,6 +1,6 @@
 services:
   nginx:
-    image: nginx:1.31.8
+    image: nginx:1.31.10
     ports:
       - 80
     deploy:
