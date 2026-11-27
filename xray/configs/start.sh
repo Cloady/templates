@@ -1,15 +1,16 @@
 #!/bin/sh
 set -eu
 
-case "${CLIENT_ID:-}" in
+RAW=$(printf '%s' "${CLIENT_ID:-}" | sed 's/[[:space:]-]//g' | tr 'A-F' 'a-f')
+case "$RAW" in
   ????????????????????????????????) ;;
-  *) echo "CLIENT_ID must be 32 hexadecimal characters" >&2; exit 1 ;;
+  *) echo "CLIENT_ID must be a UUID or 32 hexadecimal characters" >&2; exit 1 ;;
 esac
-case "$CLIENT_ID" in
-  *[!0-9a-fA-F]*) echo "CLIENT_ID must be 32 hexadecimal characters" >&2; exit 1 ;;
+case "$RAW" in
+  *[!0-9a-f]*) echo "CLIENT_ID must be a UUID or 32 hexadecimal characters" >&2; exit 1 ;;
 esac
 
-ID=$(printf '%s' "$CLIENT_ID" | sed -E 's/^(.{8})(.{4})(.{4})(.{4})(.{12})$/\1-\2-\3-\4-\5/' | tr 'A-F' 'a-f')
+ID=$(printf '%s' "$RAW" | sed -E 's/^(.{8})(.{4})(.{4})(.{4})(.{12})$/\1-\2-\3-\4-\5/')
 WS="/${WS_PATH#/}"
 HOST="${PUBLIC_HOST:-localhost}"
 

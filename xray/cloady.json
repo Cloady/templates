@@ -8,7 +8,7 @@
       "title": "Client ID",
       "secret": true,
       "generate": "hex:16",
-      "description": "32 hexadecimal characters; your client uses them as a UUID. The app prints the complete client link (vless://…) in its logs when it starts: copy it into v2rayN, v2rayNG, Hiddify, Streisand or any other VLESS client."
+      "description": "A UUID (with or without dashes) or 32 hexadecimal characters; your client uses it as its UUID. The app prints the complete client link (vless://…) in its logs when it starts: copy it into v2rayN, v2rayNG, Hiddify, Streisand or any other VLESS client."
     },
     "WS_PATH": {
       "title": "WebSocket path",
