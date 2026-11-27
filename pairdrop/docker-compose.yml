@@ -1,6 +1,6 @@
 services:
   pairdrop:
-    image: lscr.io/linuxserver/pairdrop:1.11.2
+    image: lscr.io/linuxserver/pairdrop:1.11.3
     environment:
       TZ: ${TZ}
       PGID: "1000"
