@@ -1,6 +1,6 @@
 {
   "category": "Productivity",
-  "version": "3.8.10",
+  "version": "3.8.12",
   "envSchema": {
     "TZ": {
       "title": "Timezone",
