@@ -16,7 +16,7 @@ services:
           cpus: 0.25
           memory: 256M
   monica-db:
-    image: mariadb:10.11.19
+    image: mariadb:10.11.20
     expose:
       - 3306
     environment:
