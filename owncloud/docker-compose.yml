@@ -1,6 +1,6 @@
 services:
   owncloud:
-    image: owncloud/server:10.16.7
+    image: owncloud/server:10.16.8
     environment:
       OWNCLOUD_DOMAIN: ${PUBLIC_HOST}
       OWNCLOUD_DB_HOST: owncloud-db
