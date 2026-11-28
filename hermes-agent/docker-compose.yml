@@ -1,6 +1,6 @@
 services:
   hermes:
-    image: nousresearch/hermes-agent:v0.23.4
+    image: nousresearch/hermes-agent:v0.23.5
     command:
       - gateway
       - run
