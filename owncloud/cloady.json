@@ -1,6 +1,6 @@
 {
   "category": "Storage",
-  "version": "10.16.7",
+  "version": "10.16.8",
   "envSchema": {
     "OWNCLOUD_PASSWORD": {
       "title": "Owncloud password",
