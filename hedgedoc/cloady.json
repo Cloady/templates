@@ -1,6 +1,6 @@
 {
   "category": "Productivity",
-  "version": "1.12.2",
+  "version": "1.12.3",
   "envSchema": {
     "HEDGEDOC_ADDPORT": {
       "title": "Add port to URL"
