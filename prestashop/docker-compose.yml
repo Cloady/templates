@@ -28,7 +28,7 @@ services:
           cpus: 0.5
           memory: 1G
   mariadb:
-    image: mariadb:12.3.3
+    image: mariadb:12.3.4
     environment:
       MARIADB_DATABASE: prestashop
       MARIADB_USER: prestashop
