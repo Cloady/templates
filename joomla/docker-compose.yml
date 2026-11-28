@@ -23,7 +23,7 @@ services:
           cpus: 0.25
           memory: 512M
   mariadb:
-    image: mariadb:12.3.3
+    image: mariadb:12.3.4
     environment:
       MARIADB_DATABASE: joomla
       MARIADB_USER: joomla
